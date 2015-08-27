@@ -185,8 +185,7 @@
                     </div>
 
                     <?php
-                    // TODO CHANGE THIS TO BE A WIDGET FOR THE KARMA SCORE
-                    $this->widget('application.modules.karma.widgets.karmaScoreProfile', array('user' => $user));
+                    $this->widget('application.modules.karma.widgets.KarmaScoreProfile', array('user' => $user));
                     ?>
 
                 </div>
