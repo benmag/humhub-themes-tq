@@ -79,8 +79,8 @@
 
 
         </div>
-
-        <div class="image-upload-container profile-user-photo-container" style="width: 140px; height: 140px;">
+        
+        <div class="image-upload-container profile-user-photo-container profile-size-lg">
 
             <?php
             /* Get original profile image URL */
@@ -96,16 +96,18 @@
 
                 <!-- profile image output-->
                 <a data-toggle="lightbox" data-gallery="" href="<?php echo $profileImageOrig; ?>#.jpeg"  data-footer='<button type="button" class="btn btn-primary" data-dismiss="modal"><?php echo Yii::t('FileModule.widgets_views_showFiles', 'Close'); ?></button>'>
-                    <img class="img-rounded profile-user-photo" id="user-profile-image"
+                    <img class="img-rounded profile-user-photo profile-size-lg" id="user-profile-image"
                          src="<?php echo $user->getProfileImage()->getUrl(); ?>"
-                         data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;"/>
+                         data-src="holder.js/140x140" alt="140x140"/>
+                    <div class="profile-overlay-img profile-overlay-img-lg"></div>
                 </a>
 
             <?php } else { ?>
 
-                <img class="img-rounded profile-user-photo" id="user-profile-image"
+                <img class="img-rounded profile-user-photo profile-size-lg" id="user-profile-image"
                      src="<?php echo $user->getProfileImage()->getUrl(); ?>"
-                     data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;"/>
+                     data-src="holder.js/140x140" alt="140x140"/>
+                <div class="profile-overlay-img profile-overlay-img-lg"></div>
 
             <?php } ?>
 
