@@ -1,0 +1,682 @@
+//
+// Color variables
+// --------------------------------------------------
+
+// Background colors
+@colorBackground1: #22bcb8;
+@colorBackground2: #ffffff;
+
+// Bootstrap colors
+@colorDanger: #dc4226;
+@colorInfo: #22bcb8;
+@colorInfo2: #22bcb8;
+@colorSuccess: #24ba6b;
+@colorInfoLight: #90dddc;
+@colorWarning: #f26328;
+@colorPrimary: #22bcb8;
+@colorPrimaryDark: #1895a4;
+@colorPrimaryLight: #90dddc;
+@colorCTA: #3d427f;
+
+// Font colors
+@colorFont1: #bac2c7;
+@colorFont2: #7a7a7a;
+@colorFont3: #555555;
+@colorFont4: #bebebe;
+@colorFont5: #aeaeae;
+
+// Font
+@font-family: 'latoregular', sans-serif;
+
+// Border Radius
+@radius: 10px;
+
+
+//
+// Mixins
+// --------------------------------------------------
+
+.linktransition {
+  -o-transition: background-color .2s ease-out, color .2s ease-out;
+  -ms-transition: background-color .2s ease-out, color .2s ease-out;
+  -moz-transition: background-color .2s ease-out, color .2s ease-out;
+  -webkit-transition: background-color .2s ease-out, color .2s ease-out;
+  transition: background-color .2s ease-out, color .2s ease-out;
+}
+
+
+//
+// General
+// --------------------------------------------------
+
+:focus {
+  outline: none !important;
+}
+
+::-moz-focus-inner {
+  border: 0 !important;
+}
+
+body {
+  min-width: 320px;
+  padding-top: 120px;
+  background-color: @colorBackground2;
+  color: #777777;
+  font-family: @font-family;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
+  font-family: @font-family;
+}
+
+.outside h2 {
+  color: @colorPrimary !important;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.outside h3 {
+  color: @colorPrimary;
+  font-size: 24px;
+}
+
+.row-padding-md {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.row-padding-sm {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.errorMessage {
+  color: @colorDanger;
+}
+
+.outside .errorMessage {
+  padding: 10px 0px 0px 0px;
+}
+
+.error {
+  border-color: @colorDanger !important;
+}
+
+
+//
+// Navbar
+// --------------------------------------------------
+
+.navbar {
+  min-width: 320px;
+}
+
+.navbar-brand {
+  text-align: left;
+  height: 50px;
+}
+
+.navbar-brand img {
+  height: 95%;
+}
+
+#topbar-first {
+  background-color: @colorPrimary;
+}
+
+#topbar-first .nav > li > a:hover, #topbar-first .nav > .open > a, #topbar-first .nav > li:hover {
+  background: none;
+  color: lighten(@colorBackground1, 40%);
+}
+
+a {
+  cursor: pointer;
+}
+
+.navbar-toggle .icon-bar {
+  border: 1px solid white;
+}
+
+
+//
+// Login Page
+// --------------------------------------------------
+
+.login-container {
+  background-color: @colorBackground1;
+}
+
+.login-container-home {
+  background-color: @colorBackground2;
+}
+
+.outside .panel {
+  box-shadow: none;
+}
+
+.jumbotron {
+  background-color: @colorBackground1;
+  background-image: url('../img/home-banner.png');
+  font-size: 14px;
+  line-height: 1.3;
+  color: white;
+  background-size: 1170px 448px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-bottom: 0px;
+}
+
+.jumbotron h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-top: 5px;
+}
+
+.jumbotron .btn {
+  font-size: 20px;
+  width: 100%;
+}
+
+.jumbotron .form-links {
+  margin-top: 20px;
+}
+
+.jumbotron .btn, .jumbotron input, .modal .btn, .modal input {
+  height: 50px;
+}
+
+.jumbotron form {
+  background-image: url('../img/white-transpx.png');
+  padding: 30px 30px 20px 30px;
+  border-radius: @radius;
+  margin: 10px;
+}
+
+.jumbotron .regular-checkbox + .regular-checkbox-box {
+  background: none;
+  background-image: url('../img/white-transpx.png');
+  border: none;
+  padding: 10px;
+}
+
+.jumbotron .checkbox {
+  margin-top: 0px !important;
+}
+
+.jumbotron .checkbox label, .jumbotron a {
+  color: @colorPrimaryDark;
+  .linktransition;
+}
+
+.jumbotron .checkbox label:hover, .jumbotron a:hover {
+  color: darken(@colorPrimaryDark, 10%);
+  .linktransition;
+}
+
+.jumbotron p {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: 20px;
+}
+
+.jumbotron p a {
+  color: @colorCTA !important;
+  font-family: 'latobold';
+  font-size: 24px;
+}
+
+.jumbotron h2 a {
+  .linktransition;
+}
+
+.jumbotron h2 a:hover {
+  color: darken(@colorCTA, 10%) !important;
+  .linktransition;
+}
+
+.jumbotron .down-arrow {
+  width: 20px;
+  margin-top: 20px;
+}
+
+.jumbotron .banner-small {
+  max-width: 80px;
+  margin: 0 auto;
+}
+
+.quote-section {
+  color: @colorPrimary;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.quote-section p {
+  margin-bottom: 0px;
+  line-height: 1.2;
+}
+
+.quote-section small {
+  font-weight: normal;
+}
+
+.quote-section img {
+  width: 50px;
+  margin: 0px 0px 10px 0px;
+}
+
+.about-section {
+  background-color: #f3fafd;
+}
+
+.about-section-text {
+  padding: 20px 60px 20px 0px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.about-section-img {
+  height: 300px;
+  background-image: url('../img/tc-classroom.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 400px;
+}
+
+.community-details h2 {
+  padding-top: 40px;
+}
+
+.community-details p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+
+//
+// Fat Footer
+// --------------------------------------------------
+
+.fat-footer {
+  background-color: @colorPrimary;
+  color: #fff;
+  margin-top: 60px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.fat-footer p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.fat-footer h3 {
+  color: white !important;
+  font-size: 24px;
+}
+
+.fat-footer .btn {
+  font-size: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.fat-footer .btn, .fat-footer input {
+  height: 50px;
+}
+
+.fat-footer .form-group {
+  margin-bottom: 10px;
+}
+
+.fat-footer .navbar-brand {
+  height: 60px;
+}
+
+.fat-footer .contact-details {
+  text-align: left;
+}
+
+.powered {
+  display: none;
+}
+
+
+//
+// Bottom Footer
+// --------------------------------------------------
+
+.bottom-footer {
+  background-color: @colorCTA;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bottom-footer a {
+  color: lighten(@colorCTA, 50%);
+  .linktransition;
+}
+
+.bottom-footer a:hover {
+  color: lighten(@colorCTA, 40%);
+  .linktransition;
+}
+
+
+//
+// Forms
+// --------------------------------------------------
+
+.btn, .form-control {
+  border-radius: @radius;
+}
+
+.btn-primary {
+  background-color: @colorCTA;
+  .linktransition;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: darken(@colorCTA, 10%);
+  .linktransition;
+}
+
+.btn-success {
+  background-color: @colorPrimary;
+  .linktransition;
+}
+
+.btn-success:hover, .btn-success:focus {
+  background-color: darken(@colorPrimary, 5%);
+  .linktransition;
+}
+
+.form-control:focus {
+  border: 2px solid @colorCTA;
+}
+
+.regular-checkbox:checked + .regular-checkbox-box::after {
+  content: "✔";
+  font-size: 20px;
+  top: -4px;
+  left: 4px;
+  color: darken(@colorBackground1, 10%);
+}
+
+
+//
+// Modal
+// --------------------------------------------------
+
+.modal {
+  min-width: 310px;
+}
+
+.modal-title {
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.modal-dialog {
+  margin-top: 5%;
+}
+
+.modal-header h3 {
+  color: @colorCTA;
+  font-size: 24px;
+}
+
+.modal-footer .btn {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.modal .regular-checkbox:checked + .regular-checkbox-box,
+.modal .regular-checkbox + .regular-checkbox-box {
+  background: #eee;
+  border: 1px solid #ddd;
+}
+
+.modal .regular-checkbox:checked + .regular-checkbox-box::after {
+  border: none;
+  background: none;
+  content: "✔";
+  font-size: 20px;
+  top: -8px;
+  left: 2px;
+  color: #888;
+}
+
+.modal .terms-box {
+  height: 100px;
+  overflow-y: scroll;
+  font-size: 12px;
+  opacity: 0.8;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.modal .terms-box h4 {
+  margin-top: 0px;
+}
+
+.modal-header img {
+  margin: 0 auto;
+  margin-top: -50px;
+  width: 130px;
+}
+
+.modal-content .modal-body {
+  padding-top: 0px;
+}
+
+.modal-content .modal-header .close-feature {
+  margin-top: -30px;
+}
+
+.modal-footer .btn {
+  font-size: 20px;
+}
+
+
+//
+// Responsive Media Queries
+// ------------------------------------------------------------------------------------
+
+@media (max-width: 1199px) {
+  .jumbotron .signin-form {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 991px) {
+  .jumbotron .signin-form {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .quote-section {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .quote-section br {
+    display: none;
+  }
+
+  .about-section-text {
+    padding: 20px 60px 60px 60px;
+  }
+
+  .about-section-text {
+    text-align: center;
+  }
+
+  .community-details {
+    text-align: center;
+  }
+
+  .community-details .row-padding-md {
+    padding-top: 0px;
+  }
+
+  .community-details .btn {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  .community-details .img-responsive {
+    margin: 0 auto;
+    max-width: 250px;
+  }
+
+  .outside .nav > li > a {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .outside .navbar-form {
+    padding: 0px 5px;
+  }
+
+  .outside .navbar-form .btn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .outside .navbar-brand {
+    width: 170px;
+  }
+
+  .outside .navbar-collapse.in {
+    overflow-y: visible;
+  }
+
+  .fat-footer .contact-details {
+    text-align: center;
+  }
+
+  .fat-footer .navbar-brand {
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .fat-footer .navbar-brand #img-logo {
+    width: 200px;
+    height: auto;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .jumbotron {
+    padding: 20px;
+  }
+
+  .jumbotron h1 {
+    font-size: 22px;
+  }
+
+  .jumbotron .signin-form {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .jumbotron .signin-form form {
+    margin: 0px auto;
+    max-width: 360px;
+    padding: 20px;
+  }
+
+  .fat-footer p {
+    text-align: center;
+  }
+
+  .bottom-footer p {
+    padding: 0px 20px 0px 20px;
+  }
+
+  .quote-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .outside h2 {
+    font-size: 25px;
+    padding-bottom: 0px;
+  }
+
+  .outside h3 {
+    font-size: 22px;
+  }
+
+  .about-section-text {
+    line-height: 1.4;
+    font-size: 14px;
+    padding: 10px 40px 40px;
+  }
+
+  .community-details p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .fat-footer p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .outside .navbar-collapse {
+    background-color: darken(@colorPrimary, 2%);
+  }
+
+  .outside .navbar-collapse ul, .navbar-collapse .nav > li {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .outside .navbar-collapse .nav > li > a {
+    font-size: 16px;
+  }
+
+  .outside .navbar-collapse .navbar-form {
+    border: none;
+    box-shadow: none;
+  }
+
+  .outside .navbar-collapse .navbar-form .btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .jumbotron {
+    background-image: none;
+    padding-top: 0px;
+  }
+
+  .modal-header h3 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .modal .terms-box {
+    height: 80px;
+  }
+
+  .modal-footer .btn {
+    margin-bottom: 0px;
+  }
+
+  .modal-content .modal-body {
+    padding-bottom: 5px;
+  }
+
+}
