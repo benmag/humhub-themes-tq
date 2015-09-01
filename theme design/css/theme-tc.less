@@ -9,7 +9,6 @@
 // Bootstrap colors
 @colorDanger: #dc4226;
 @colorInfo: #22bcb8;
-@colorInfo2: #22bcb8;
 @colorSuccess: #24ba6b;
 @colorInfoLight: #90dddc;
 @colorWarning: #f26328;
@@ -65,8 +64,13 @@ body {
   font-family: @font-family;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p{
   font-family: @font-family;
+  font-weight:400;
+}
+
+.btn{
+	font-weight:800;
 }
 
 .outside h2 {
@@ -78,6 +82,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
 .outside h3 {
   color: @colorPrimary;
   font-size: 24px;
+}
+
+.margin-none{
+	margin:0px;
+}
+
+.padding-none{
+	padding:0px;
 }
 
 .row-padding-md {
@@ -295,6 +307,43 @@ a {
   line-height: 1.4;
 }
 
+.login-screen #img-logo{
+	max-width:200px;
+}
+
+.login-screen #password-recovery-form{
+	text-align:center;
+}
+
+.login-screen .panel-heading{
+	color:@colorPrimary;
+	font-size:24px;
+}
+
+.login-screen .panel .panel-body {
+	padding-top:0px;
+}
+
+.login-screen .panel-body .form-control {
+	height:50px;
+}
+
+.panel, .panel .panel-heading{
+	border-radius:@radius;
+}
+
+.panel .btn{
+	width:100%;
+	letter-spacing:normal;
+	height:50px;
+	margin-bottom:10px;
+	line-height: 34px;
+}
+
+.outside .panel a {
+	color:@colorCTA;
+}
+
 
 //
 // Fat Footer
@@ -368,6 +417,27 @@ a {
 
 
 //
+// Error Screens
+// --------------------------------------------------
+
+.container-error .panel{
+	max-width:300px;
+	margin:0 auto;
+	text-align:center;
+}
+
+.container-error .panel .panel-heading {
+	color:@colorCTA;
+	font-size:20px;
+}
+
+.container-error img{
+	max-width: 70px;
+	margin-top: 20px;
+}
+
+
+//
 // Forms
 // --------------------------------------------------
 
@@ -409,7 +479,7 @@ a {
 
 
 //
-// Modal
+// Modals
 // --------------------------------------------------
 
 .modal {
@@ -491,6 +561,22 @@ a {
   font-size: 20px;
 }
 
+
+//
+// Dashboard
+// --------------------------------------------------
+
+#topbar-first .dropdown.account > a, #topbar-first .dropdown.account.open > a, #topbar-first .dropdown.account > a:hover, #topbar-first .dropdown.account.open > a:hover {
+	background-color:@colorPrimary;
+}
+
+#topbar-first .btn-group > a {
+    background-color: @colorPrimaryDark;
+}
+
+.nav-pills .dropdown-menu, .nav-tabs .dropdown-menu, .account .dropdown-menu {
+	background-color: @colorPrimaryDark;
+}
 
 //
 // Responsive Media Queries
