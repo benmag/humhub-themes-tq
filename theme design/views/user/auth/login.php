@@ -245,7 +245,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="container row-padding-sm">
             <div class="row">
                 <div class="cox-xs-12">
-                    <p>&copy; TeachConnect 2015 | <a href="#">privacy policy</a> | <a href="#">terms of use</a> | designed by Hunted Hive</p>
+                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | designed by Hunted Hive</p>
                 </div>
             </div>
         </div>
@@ -373,6 +373,121 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 </div>
 
 
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="modalPrivacy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">Privacy Policy</h3>
+            </div>
+            
+            <div class="modal-body">
+            	<hr>
+                <div class="modal-body-scroll">
+                    <p>Lorem ipsum dolor sit amet, scaevola quaestio at vis, epicuri facilisis concludaturque per ex. Stet facer graeco vim ex, te omnes consetetur vel, sea cu alterum periculis. Gloriatur complectitur no cum, in pro veri alterum equidem, et reque sententiae qui. Sonet molestiae usu te, an nec ullum detracto. Labores laoreet meliore cu his, scripta moderatius constituam id mea.</p>
+    
+                    <p>Ex legendos democritum assueverit usu. Ne mei efficiantur voluptatibus, mea no torquatos inciderint. Vix te viris civibus, populo patrioque prodesset per an. Hinc tractatos repudiare usu ad. Sit oratio sententiae ne, quod meis dolor an nam.</p>
+    
+                    <p>Dicant copiosae mel an, per ne ancillae accusata petentium. Ex his tempor oporteat, tale torquatos vituperatoribus ne vim, pri et melius apeirian. Pro cu noster bonorum adipiscing, vidisse ornatus torquatos vim at. At novum postea instructior eos, pri eu vivendo assentior. Delicata maluisset an sit.</p>
+    
+                    <p>Est ad doctus luptatum democritum, ex nisl stet voluptatum usu. No vim posse apeirian lucilius, te quis alienum sed. Est no oratio vivendum sententiae. Ad ignota indoctum sit, eos eu munere debitis ancillae, an laoreet theophrastus quo. Et accusam principes instructior pro.</p>
+    
+                    <p>Ius an ferri omnium erroribus, vix integre oblique eleifend ex. No eius erant cum, qui error scriptorem ne, tibique deleniti pro ne. Qui enim postea intellegebat eu, in elitr maluisset vix, ei ius essent lucilius. Quo ne fuisset tacimates. Quod splendide his ex, ei has lorem facilisis interpretaris, qui ut bonorum mediocrem. Te iusto scripta blandit ius, cum ea paulo latine. Tation reprehendunt sit et, cu mei sint efficiendi.</p>
+            	</div> 
+            </div>
+            
+            <div class="modal-footer">
+            	<div class="row">
+                	 <div class="col-sm-8 col-sm-offset-2">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                	</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- Terms & Conditions Modal -->
+<div class="modal fade" id="modalTerms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                	<span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">Terms &amp; Conditions</h3>
+            </div>
+            
+            <div class="modal-body">
+            	<hr>
+            	<div class="modal-body-scroll">
+                    <p>
+                        <strong>HREC Approval Number</strong>: H14REA138<br>
+                        <strong>Principal Researcher</strong>: Dr Nick Kelly
+                    </p>    
+    
+    
+                    <p>By creating an account and signing on to this website, you agree that data from your actions may be used in the research project Studying Support for Teachers in Transition.</p>
+                    
+                    <p>The data produced by your actions will be analysed and may be published by the researchers. Data will remain anonymous and by used in an unidentifiable way in published research.</p>
+    
+    
+                    <p>Participation in the project through this website is entirely voluntary. If you do not wish to take part you are not obliged to. If you decide to take part and later change your mind, you are free to withdraw from the project at any stage. Any information already obtained from you will be destroyed.</p>
+                    
+                    
+                    <p>Your decision whether to take part or not to take part, or to take part and then withdraw, will not affect your relationship with your university or with the teacher accreditation agencies. Please notify the researcher if you decide to withdraw from this project.</p>
+                    
+                    
+                    <p>Should you have any queries regarding the progress or conduct of this research, you can contact the principal researcher:</p>
+                    
+                    <p><strong>Dr Nick Kelly</strong><br>
+                    Australian Digital Futures Institute<br>
+                    Y303, USQ, Toowoomba<br>
+                    +61 7 4631 2718</p>
+                    
+                    
+                   <p> If you have any ethical concerns with how the research is being conducted or any queries about your rights as a participant please feel free to contact the University of Southern Queensland Ethics Officer on the following details.</p>
+                    
+                    <p><strong>Ethics and Research Integrity Officer</strong>
+                    Office of Research and Higher Degrees<br>
+                    University of Southern Queensland<br>
+                    West Street, Toowoomba 4350<br>
+                    Ph: +61 7 4631 2690<br>
+                    Email: <a href="mailto:ethics@usq.edu.au">ethics@usq.edu.au </a>
+                    </p>
+                    
+                    <p>By clicking to agree I confirm that I have read and agree to the following statements:</p>
+                    <ul>
+                      <li>I have read the Participant Information Sheet and the nature and purpose of the research project has been explained to me. I understand and agree to take part.</li>
+                      <li>I understand the purpose of the research project and my involvement in it.</li>
+                      <li>I understand that I may withdraw from the research project at any stage and that this will not affect my status now or in the future.</li>
+                      <li>I confirm that I am over 18 years of age.</li>
+                      <li>I understand that while information gained during the study may be published, I will not be identified and my personal results will remain confidential.</li>
+                      <li>I understand that the data from this project will be securely stored for a minimum of five years.</li>
+                    </ul>
+                    
+                    <p>This information about consent can be found at any time in the “about” section of the website.</p>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+            	<div class="row">
+                	 <div class="col-sm-8 col-sm-offset-2">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>	
+                	</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript">
     
     $(function() {
@@ -404,6 +519,17 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 		}
 	});
 	
+	// Initialize custom scrollbars
+	(function($){
+        $(window).load(function(){
+            $(".modal-body-scroll").mCustomScrollbar({
+				theme:"dark-thick"
+			});
+			$(".terms-box").mCustomScrollbar({
+				theme:"dark-thick"
+			});
+        });
+    })(jQuery);
 
 	// Owl Carousel Script - for rotating quotations
 	$(document).ready(function(){
