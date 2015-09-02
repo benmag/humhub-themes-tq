@@ -113,6 +113,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
   border-color: @colorDanger !important;
 }
 
+.regular-checkbox:checked + .regular-checkbox-box,
+.regular-checkbox + .regular-checkbox-box {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding:10px;
+}
+
+.regular-checkbox:checked + .regular-checkbox-box::after {
+  border: none;
+  background: none;
+  content: "✔";
+  font-size: 20px;
+  top: -5px;
+  left: 4px;
+  color: #888;
+}
+
 //
 // Navbar
 // --------------------------------------------------
@@ -202,11 +219,21 @@ a {
   margin: 10px;
 }
 
+.jumbotron .regular-checkbox:checked + .regular-checkbox-box,
 .jumbotron .regular-checkbox + .regular-checkbox-box {
-  background: none;
-  background-image: url('../img/white-transpx.png');
+  background:none;
+  background-image:url('../img/white-transpx.png');
   border: none;
-  padding: 10px;
+  padding:10px;
+}
+
+.jumbotron .regular-checkbox:checked + .regular-checkbox-box::after {
+  border: none;
+  content: "✔";
+  font-size: 20px;
+  top: -4px;
+  left: 4px;
+  color: @colorPrimaryDark;
 }
 
 .jumbotron .checkbox {
@@ -633,13 +660,6 @@ a {
   border: 2px solid @colorCTA;
 }
 
-.regular-checkbox:checked + .regular-checkbox-box::after {
-  content: "✔";
-  font-size: 20px;
-  top: -4px;
-  left: 4px;
-  color: darken(@colorBackground1, 10%);
-}
 
 //
 // Modals
@@ -692,6 +712,7 @@ a {
 .modal .regular-checkbox + .regular-checkbox-box {
   background: #eee;
   border: 1px solid #ddd;
+  padding:10px;
 }
 
 .modal .regular-checkbox:checked + .regular-checkbox-box::after {
@@ -699,8 +720,8 @@ a {
   background: none;
   content: "✔";
   font-size: 20px;
-  top: -8px;
-  left: 2px;
+  top: -5px;
+  left: 4px;
   color: #888;
 }
 
@@ -750,6 +771,19 @@ a {
 
 .nav-pills .dropdown-menu, .nav-tabs .dropdown-menu, .account .dropdown-menu {
   background-color: @colorPrimaryDark;
+}
+
+#topbar-first .account .user-title span {
+	color:lighten(@colorPrimary,30%);
+}
+
+#topbar-first .caret {
+	border-top-color:white;
+	margin-left:10px;
+}
+
+.nav-pills .dropdown-menu li a:hover, .nav-tabs .dropdown-menu li a:hover, .account .dropdown-menu li a:hover {
+	background-color:@colorPrimary;
 }
 
 
