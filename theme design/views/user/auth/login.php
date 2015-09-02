@@ -540,8 +540,10 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 		margin:30,
 		stagePadding:30,
 		smartSpeed:500,
-		autoplay:'true',
-		loop:'true'
+		autoplay:true,
+		loop:true,
+		dots: true,
+		nav: false
 	  });
 	});
 	

@@ -16,6 +16,7 @@
 @colorPrimaryDark: #1895a4;
 @colorPrimaryLight: #90dddc;
 @colorCTA: #3d427f;
+@colorCommunity: #fdc015;
 
 // Font colors
 @colorFont1: #bac2c7;
@@ -30,7 +31,6 @@
 // Border Radius
 @radius: 10px;
 
-
 //
 // Mixins
 // --------------------------------------------------
@@ -42,7 +42,6 @@
   -webkit-transition: background-color .2s ease-out, color .2s ease-out;
   transition: background-color .2s ease-out, color .2s ease-out;
 }
-
 
 //
 // General
@@ -64,13 +63,13 @@ body {
   font-family: @font-family;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p{
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
   font-family: @font-family;
-  font-weight:400;
+  font-weight: 400;
 }
 
-.btn{
-	font-weight:800;
+.btn {
+  font-weight: 800;
 }
 
 .outside h2 {
@@ -84,12 +83,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p{
   font-size: 24px;
 }
 
-.margin-none{
-	margin:0px;
+.margin-none {
+  margin: 0px;
 }
 
-.padding-none{
-	padding:0px;
+.padding-none {
+  padding: 0px;
 }
 
 .row-padding-md {
@@ -113,7 +112,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p{
 .error {
   border-color: @colorDanger !important;
 }
-
 
 //
 // Navbar
@@ -148,7 +146,6 @@ a {
 .navbar-toggle .icon-bar {
   border: 1px solid white;
 }
-
 
 //
 // Login Page
@@ -307,101 +304,213 @@ a {
   line-height: 1.4;
 }
 
-.login-screen #img-logo{
-	max-width:200px;
+.login-screen #img-logo {
+  max-width: 200px;
 }
 
-.login-screen #password-recovery-form{
-	text-align:center;
+.login-screen #password-recovery-form {
+  text-align: center;
 }
 
-.login-screen .panel-heading{
-	color:@colorPrimary;
-	font-size:24px;
+.login-screen .panel-heading {
+  color: @colorPrimary;
+  font-size: 24px;
 }
 
 .login-screen .panel .panel-body {
-	padding-top:0px;
+  padding-top: 0px;
 }
 
 .login-screen .panel-body .form-control {
-	height:50px;
+  height: 50px;
 }
 
-.panel, .panel .panel-heading{
-	border-radius:@radius;
+.panel, .panel .panel-heading {
+  border-radius: @radius;
 }
 
-.outside .panel .btn{
-	width:110%;
-	letter-spacing:normal;
-	height:50px;
-	margin-bottom:10px;
-	line-height: 34px;
+.outside .panel .btn {
+  width: 110%;
+  letter-spacing: normal;
+  height: 50px;
+  margin-bottom: 10px;
+  line-height: 34px;
 }
 
 .outside .panel a {
-	color:@colorCTA;
+  color: @colorCTA;
 }
-
 
 //
 // Profile Images
 // --------------------------------------------------
 
-.profile-size-sm{
-	width:32px;
-	height:32px;
+.profile-size-sm {
+  width: 32px;
+  height: 32px;
 }
 
-.profile-overlay-img-sm{
-	top:-32px;
+.profile-overlay-img-sm {
+  top: -32px;
 }
 
-.profile-size-md{
-	width:40px;
-	height:40px;
+.profile-size-md {
+  width: 40px;
+  height: 40px;
 }
 
-.profile-overlay-img-md{
-	top:-40px;
+.profile-overlay-img-md {
+  top: -40px;
 }
 
-.profile-size-lg{
-	width:140px;
-	height:140px;
+.profile-size-lg {
+  width: 140px;
+  height: 140px;
 }
 
-.profile-overlay-img-lg{
-	top:-140px;
+.profile-overlay-img-lg {
+  top: -140px;
 }
 
-.profile-overlay-img{
-  background-image:url('../img/tc-owlprofile.png'); 
+.profile-overlay-img {
+  background-image: url('../img/tc-owlprofile.png');
   position: relative;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   left: 0px;
-  background-size:cover;
-  background-position:center center;
+  background-size: cover;
+  background-position: center center;
 }
 
-.profile-img-navbar{
-	float: right;
-	margin-left: 10px;
+.profile-img-navbar {
+  float: right;
+  margin-left: 10px;
 }
 
 #topbar-first .nav > .account img {
-	margin-left:0px;
+  margin-left: 0px;
 }
-
 
 //
 // Home Dashboard
 // --------------------------------------------------
 
+//
+// First Use Instructions
+// --------------------------------------------------
 
+.owl-theme .owl-dots {
+  text-align: center;
+  margin-top: 20px;
+}
 
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+}
+
+.owl-carousel .owl-controls .owl-dot, .owl-carousel .owl-controls .owl-nav .owl-next, .owl-carousel .owl-controls .owl-nav .owl-prev {
+  cursor: pointer;
+  -moz-user-select: none;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: @colorPrimaryDark none repeat scroll 0% 0%;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: @colorPrimaryLight none repeat scroll 0% 0%;
+  display: block;
+  transition: opacity 200ms ease 0s;
+  border-radius: 30px;
+}
+
+.modal-instructions {
+  background-color: @colorPrimary;
+  color: white;
+  border: 5px solid lighten(@colorPrimary, 5%);
+}
+
+.modal .owl-carousel .owl-stage-outer {
+  width: 100%;
+}
+
+.modal .owl-carousel div {
+  text-align: center;
+}
+
+.modal .owl-carousel div img {
+  max-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.modal .owl-carousel .circle-bg {
+  border-radius: 100px;
+  width: 65px;
+  height: 65px;
+  margin: 0px auto;
+}
+
+.general-bg {
+  background-color: @colorCTA;
+  border: 5px solid lighten(@colorCTA, 10%);
+}
+
+.mentorcircle-bg {
+  background-color: @colorWarning;
+  border: 5px solid lighten(@colorWarning, 10%);
+}
+
+.community-bg {
+  background-color: @colorCommunity;
+  border: 5px solid lighten(@colorCommunity, 10%);
+}
+
+.modal .owl-carousel .icon {
+  font-size: 40px;
+  color: white;
+  line-height: 56px;
+}
+
+.modal .owl-carousel .btn {
+  font-size: 16px;
+  max-width: 80%;
+  white-space: normal;
+  min-height: 50px;
+  height: auto;
+}
+
+.modal .owl-carousel .btn .icon {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+  line-height: 1;
+}
+
+.modal .owl-carousel h2 {
+  margin: 0px;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.modal .owl-carousel p {
+  font-size: 16px;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.modal .owl-carousel a {
+  color: @colorCTA;
+}
+
+.modal .owl-carousel a:hover {
+  color: darken(@colorCTA, 10%);
+}
 
 //
 // Fat Footer
@@ -451,7 +560,6 @@ a {
   display: none;
 }
 
-
 //
 // Bottom Footer
 // --------------------------------------------------
@@ -473,27 +581,25 @@ a {
   .linktransition;
 }
 
-
 //
 // Error Screens
 // --------------------------------------------------
 
-.container-error .panel{
-	max-width:300px;
-	margin:0 auto;
-	text-align:center;
+.container-error .panel {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .container-error .panel .panel-heading {
-	color:@colorCTA;
-	font-size:20px;
+  color: @colorCTA;
+  font-size: 20px;
 }
 
-.container-error img{
-	max-width: 70px;
-	margin-top: 20px;
+.container-error img {
+  max-width: 70px;
+  margin-top: 20px;
 }
-
 
 //
 // Forms
@@ -535,13 +641,18 @@ a {
   color: darken(@colorBackground1, 10%);
 }
 
-
 //
 // Modals
 // --------------------------------------------------
 
 .modal {
   min-width: 310px;
+  background-image: url('../img/white-semiopaquepx.png');
+  background-color: none;
+}
+
+.modal-content {
+  box-shadow: none;
 }
 
 .modal-title {
@@ -549,8 +660,8 @@ a {
   margin-bottom: 5px;
 }
 
-.modal hr{
-   margin-bottom:20px;
+.modal hr {
+  margin-bottom: 20px;
 }
 
 .modal-dialog {
@@ -562,10 +673,15 @@ a {
   font-size: 24px;
 }
 
-.modal-body-scroll{
-	max-height:200px;
-	overflow-y:auto;
-	padding:10px;
+.modal-header .close {
+  z-index: 1000;
+  position: relative;
+}
+
+.modal-body-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .modal-footer .btn {
@@ -619,21 +735,20 @@ a {
   font-size: 20px;
 }
 
-
 //
 // Dashboard
 // --------------------------------------------------
 
 #topbar-first .dropdown.account > a, #topbar-first .dropdown.account.open > a, #topbar-first .dropdown.account > a:hover, #topbar-first .dropdown.account.open > a:hover {
-	background-color:@colorPrimary;
+  background-color: @colorPrimary;
 }
 
 #topbar-first .btn-group > a {
-    background-color: @colorPrimaryDark;
+  background-color: @colorPrimaryDark;
 }
 
 .nav-pills .dropdown-menu, .nav-tabs .dropdown-menu, .account .dropdown-menu {
-	background-color: @colorPrimaryDark;
+  background-color: @colorPrimaryDark;
 }
 
 //
@@ -829,6 +944,19 @@ a {
 
   .modal-content .modal-body {
     padding-bottom: 5px;
+  }
+
+  .modal .owl-carousel h2 {
+    font-size: 20px;
+  }
+
+  .modal .owl-carousel p {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .modal .owl-carousel .btn {
+    font-size: 14px;
   }
 
 }

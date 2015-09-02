@@ -5,6 +5,7 @@
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/flatelements.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/font/lato/lato.css" rel="stylesheet">
+<link href="<?php echo Yii::app()->theme->baseUrl; ?>/font/openionic/style.css" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme-tc.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/animate.css" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
@@ -17,7 +18,7 @@
  <script type="text/javascript"
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/animatescroll/animatescroll.min.js"></script> 
  <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/owl.carousel.min.js"></script> 
+            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/owl.carousel.js"></script> 
  <script type="text/javascript"
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <!-- end: JavaScript -->
