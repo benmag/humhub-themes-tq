@@ -130,6 +130,7 @@
             	items: 1,
                 loop: false,
                 dots: true,
+				nav:false
         	});
 
 			// Custom next button on modal
