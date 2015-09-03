@@ -157,36 +157,35 @@
             $.cookie('_viewed_welcome_modal', true, { path: '/', expires: 5 * 365 });
             // $.removeCookie('_viewed_welcome_modal', { path: '/' });
             $('#modalFirstUse').modal('show');
-            
-            $(".panel-teachingquotes .owl-carousel").owlCarousel({
-                animateOut: 'fadeOutDown',
-                animateIn: 'fadeInDown',
-                items:1,
-                margin:30,
-                stagePadding:30,
-                fluidSpeed:50,
-                autoplay:true,
-                loop:true,
-                dots: true,
-                nav: false
-            });
-            
-            // Owl Carousel for Instructions on first use in modal - initiate when modal is opened
-            $('#modalFirstUse').on('shown.bs.modal', function () {
-                $(".modal .owl-carousel").owlCarousel({
-                    items: 1,
-                    loop: false,
-                    dots: true,
-                    nav:false
-                });
-
-                // Custom next button on modal
-                $('.customNextBtn').click(function () {
-                    $(".modal .owl-carousel").trigger('next.owl.carousel');
-                })
-            });
-
         }
+                    
+        $(".panel-teachingquotes .owl-carousel").owlCarousel({
+            animateOut: 'fadeOutDown',
+            animateIn: 'fadeInDown',
+            items:1,
+            margin:30,
+            stagePadding:30,
+            fluidSpeed:50,
+            autoplay:true,
+            loop:true,
+            dots: true,
+            nav: false
+        });
+        
+        // Owl Carousel for Instructions on first use in modal - initiate when modal is opened
+        $('#modalFirstUse').on('shown.bs.modal', function () {
+            $(".modal .owl-carousel").owlCarousel({
+                items: 1,
+                loop: false,
+                dots: true,
+                nav:false
+            });
+
+            // Custom next button on modal
+            $('.customNextBtn').click(function () {
+                $(".modal .owl-carousel").trigger('next.owl.carousel');
+            })
+        });
 
     });
 
