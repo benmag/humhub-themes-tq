@@ -31,6 +31,8 @@
 // Border Radius
 @radius: 10px;
 
+
+
 //
 // Mixins
 // --------------------------------------------------
@@ -113,6 +115,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
   border-color: @colorDanger !important;
 }
 
+.regular-checkbox:checked + .regular-checkbox-box,
+.regular-checkbox + .regular-checkbox-box {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding:10px;
+}
+
+.regular-checkbox:checked + .regular-checkbox-box::after {
+  border: none;
+  background: none;
+  content: "✔";
+  font-size: 20px;
+  top: -5px;
+  left: 4px;
+  color: #888;
+}
+
 //
 // Navbar
 // --------------------------------------------------
@@ -146,6 +165,70 @@ a {
 .navbar-toggle .icon-bar {
   border: 1px solid white;
 }
+
+.comment_create .fileinput-button .icon{
+	color: #D7D7D7;
+}
+
+
+//
+// Secondary Navbar
+// --------------------------------------------------
+
+.fa-dot-circle-o::before {
+	font-family: "open-ionic" !important;
+	content: "\e601";
+	font-size:23px;
+}
+
+.fa-dashboard::before, .fa-tachometer::before {
+	font-family: "open-ionic" !important;
+	content: "\e67a";
+}
+
+.fa-stack-exchange::before {
+    font-family: "open-ionic" !important;
+	content: "\e600";
+}
+
+.fa-align-justify::before {
+    font-family: "open-ionic" !important;
+	content: "\e69d";
+	font-size:15px;
+}
+
+#topbar-second .nav > li > a {
+	color:@colorPrimaryDark;
+}
+
+#topbar-second .nav > li > a:hover, #topbar-second .nav > li > a:active, #topbar-second .nav > li > a:focus, #topbar-second .nav > li > a:hover, #topbar-second .nav .open > a, #topbar-second .nav > li.active {
+    border-bottom: 3px solid @colorPrimaryDark;
+	color: @colorPrimaryDark;
+}
+
+#topbar-second .nav > li > a i {
+    font-size: 20px;
+    height: 20px;
+    margin-bottom: -20px;
+    display: block;
+}
+
+#space-menu .caret{
+	display:none;
+}
+
+#topbar-first .notifications .btn-group > .label {
+    border-radius: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.media-list li.new {
+	background-color:white;
+}
+
 
 //
 // Login Page
@@ -202,11 +285,21 @@ a {
   margin: 10px;
 }
 
+.jumbotron .regular-checkbox:checked + .regular-checkbox-box,
 .jumbotron .regular-checkbox + .regular-checkbox-box {
-  background: none;
-  background-image: url('../img/white-transpx.png');
+  background:none;
+  background-image:url('../img/white-transpx.png');
   border: none;
-  padding: 10px;
+  padding:10px;
+}
+
+.jumbotron .regular-checkbox:checked + .regular-checkbox-box::after {
+  border: none;
+  content: "✔";
+  font-size: 20px;
+  top: -4px;
+  left: 4px;
+  color: @colorPrimaryDark;
 }
 
 .jumbotron .checkbox {
@@ -345,6 +438,17 @@ a {
 // Profile Images
 // --------------------------------------------------
 
+.profile-size-xs {
+  width: 24px;
+  height: 24px;
+  margin-right:2px;
+  margin-bottom:0px !important;
+}
+
+.profile-overlay-img-xs {
+  top: -24px;
+}
+
 .profile-size-sm {
   width: 32px;
   height: 32px;
@@ -391,9 +495,36 @@ a {
   margin-left: 0px;
 }
 
+.wall-entry .media .img-space, #topbar-first .notifications #dropdown-notifications li .media .img-space, .activities li .media .img-space, #space-menu .img-rounded, #space-profile-image {
+	border-radius:100px;
+}
+
+
 //
 // Home Dashboard
 // --------------------------------------------------
+
+.panel-teachingquotes{
+	padding:15px 0px 15px 0px;
+	text-align: center;
+	margin-top: 30px; 
+	border:1px solid @colorPrimary;
+}
+
+.panel-teachingquotes img{
+	width: 50px;
+	margin: -80px auto 0px;
+}
+
+.panel-teachingquotes p{
+	color:@colorPrimary;
+	font-size:16px;
+}
+
+.panel-teachingquotes small{
+	 color:@colorPrimaryDark;
+}
+
 
 //
 // First Use Instructions
@@ -633,13 +764,6 @@ a {
   border: 2px solid @colorCTA;
 }
 
-.regular-checkbox:checked + .regular-checkbox-box::after {
-  content: "✔";
-  font-size: 20px;
-  top: -4px;
-  left: 4px;
-  color: darken(@colorBackground1, 10%);
-}
 
 //
 // Modals
@@ -692,6 +816,7 @@ a {
 .modal .regular-checkbox + .regular-checkbox-box {
   background: #eee;
   border: 1px solid #ddd;
+  padding:10px;
 }
 
 .modal .regular-checkbox:checked + .regular-checkbox-box::after {
@@ -699,8 +824,8 @@ a {
   background: none;
   content: "✔";
   font-size: 20px;
-  top: -8px;
-  left: 2px;
+  top: -5px;
+  left: 4px;
   color: #888;
 }
 
@@ -750,6 +875,19 @@ a {
 
 .nav-pills .dropdown-menu, .nav-tabs .dropdown-menu, .account .dropdown-menu {
   background-color: @colorPrimaryDark;
+}
+
+#topbar-first .account .user-title span {
+	color:lighten(@colorPrimary,30%);
+}
+
+#topbar-first .caret {
+	border-top-color:white;
+	margin-left:10px;
+}
+
+.nav-pills .dropdown-menu li a:hover, .nav-tabs .dropdown-menu li a:hover, .account .dropdown-menu li a:hover {
+	background-color:@colorPrimary;
 }
 
 
@@ -1005,6 +1143,10 @@ a {
 
   .modal .owl-carousel .btn {
     font-size: 14px;
+  }
+  
+  .modal-footer .col-sm-6{
+	  margin-bottom:5px;
   }
 
 }

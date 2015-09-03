@@ -17,6 +17,35 @@
             ?>
         </div>
         <div class="col-md-4">
+        	
+            <div class="row">
+                <div class="col-xs-12" id="quotes">
+					<div class="panel panel-default panel-teachingquotes">
+                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png" style="">
+                        <div class="owl-carousel">
+                            <div>
+                                <p>The greatest sign of success for a teacher... is to be able to say,
+                                    'The children are now working as if I did not exist.'</p>
+                                <small>Maria Montessori</small>
+                            </div>
+    
+                            <div>
+                                <p>Here is an essential principal of education: to teach details is to bring confusion; to
+                                    establish the relationship between things is to bring knowledge.</p>
+                                <small>Maria Montessori</small>
+                            </div>
+    
+                            <div>
+                                <p>The child can only develop fully by means of experience in his environment. We call
+                                    such experience ‘work’.</p>
+                                <small>Maria Montessori</small>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <?php
 				$this->widget('application.modules_core.dashboard.widgets.DashboardSidebarWidget', array(
 					'widgets' => array(
@@ -123,6 +152,19 @@
     $(document).ready(function () {
 		
 		$('#modalFirstUse').modal('show');
+		
+		$(".panel-teachingquotes .owl-carousel").owlCarousel({
+			animateOut: 'fadeOutDown',
+			animateIn: 'fadeInDown',
+			items:1,
+			margin:30,
+			stagePadding:30,
+			fluidSpeed:50,
+			autoplay:true,
+			loop:true,
+			dots: true,
+			nav: false
+        });
 		
         // Owl Carousel for Instructions on first use in modal - initiate when modal is opened
         $('#modalFirstUse').on('shown.bs.modal', function () {
