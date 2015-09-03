@@ -40,7 +40,7 @@
 </style>
 <span class="btn btn-info fileinput-button tt" data-toggle="tooltip" data-placement="bottom" title=""
       data-original-title="<?php echo Yii::t('FileModule.widgets_views_fileUploadButton', 'Upload files'); ?>">
-    <span class="icon icon-paperclip"></span
+    <i class="icon icon-paperclip"></i>
 
     <input id="fileUploaderButton_<?php echo $uploaderId; ?>" type="file" name="files[]"
            data-url="<?php echo Yii::app()->createUrl('//file/file/upload', array('objectModel' => $objectModel, 'objectId' => $objectId)); ?>" multiple>
