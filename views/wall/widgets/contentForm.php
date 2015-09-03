@@ -66,21 +66,26 @@
 
                 function post_to_space_enablePostSubmit() { // Disable button
                     $("#post_submit_button").removeAttr("disabled");
-                    $("#post_to_space_message").show();
+                    $("#post_to_space_message").hide();
                 }
 
                 function post_to_space_disablePostSubmit() { // Enable button
                     $("#post_submit_button").prop('disabled', true);
-                    $("#post_to_space_message").hide();
+                    $("#post_to_space_message").show();
                 }
 
+                function post_to_space_selectSpace(guid) {
+                    $("#containerGuid").val(guid);
+                    $.cookie('_post_to_space', guid, { path: '/', expires: 5 * 365 })
+                    post_to_space_enablePostSubmit();
+                }
 
                 // Watch the space select box and changes the values containerGuid 
                 $( "#post_to_space" ).change(function() {
                     if(this.value != "") { // Enable post submission
-                        $("#containerGuid").val(this.value);
-                        post_to_space_enablePostSubmit();
+                        post_to_space_selectSpace(this.value);
                     } else { // Disable post submission
+                        $.removeCookie('_post_to_space', { path: '/' });
                         post_to_space_disablePostSubmit();
                     }
                 });
@@ -89,7 +94,12 @@
                 // On load, if the user is in more than one space, disable post button 
                 <?php if($showSpacePicker) { ?>
                 $(function() {
-                    post_to_space_disablePostSubmit();
+                    if($.cookie('_post_to_space')) {
+                        $('#post_to_space option[value="'+ $.cookie('_post_to_space') +'"]').attr("selected", "selected");
+                        post_to_space_selectSpace($.cookie('_post_to_space'));
+                    } else {
+                        post_to_space_disablePostSubmit();
+                    }
                 })
                 <?php } ?>
 
