@@ -11,7 +11,7 @@
         <?php
         if (Yii::app()->params['currentSpace']) {
         } else {
-            echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'My spaces');
+            echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'My circles');
         }
         ?>
         <!-- end: Show space image and name if chosen -->
