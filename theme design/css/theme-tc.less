@@ -31,6 +31,8 @@
 // Border Radius
 @radius: 10px;
 
+
+
 //
 // Mixins
 // --------------------------------------------------
@@ -166,6 +168,53 @@ a {
 
 .comment_create .fileinput-button .icon{
 	color: #D7D7D7;
+}
+
+
+//
+// Secondary Navbar
+// --------------------------------------------------
+
+.fa-dot-circle-o::before {
+	font-family: "open-ionic" !important;
+	content: "\e601";
+	font-size:23px;
+}
+
+.fa-dashboard::before, .fa-tachometer::before {
+	font-family: "open-ionic" !important;
+	content: "\e67a";
+}
+
+.fa-stack-exchange::before {
+    font-family: "open-ionic" !important;
+	content: "\e600";
+}
+
+.fa-align-justify::before {
+    font-family: "open-ionic" !important;
+	content: "\e69d";
+	font-size:15px;
+}
+
+#topbar-second .nav > li > a {
+	color:@colorPrimaryDark;
+}
+
+#topbar-second .nav > li > a:hover, #topbar-second .nav > li > a:active, #topbar-second .nav > li > a:focus, #topbar-second .nav > li > a:hover, #topbar-second .nav .open > a, #topbar-second .nav > li.active {
+    border-bottom: 3px solid @colorPrimaryDark;
+	color: @colorPrimaryDark;
+}
+
+#topbar-second .nav > li > a i {
+    font-size: 20px;
+    height: 20px;
+    margin-bottom: -20px;
+    display: block;
+}
+
+#space-menu .caret{
+	display:none;
 }
 
 //
