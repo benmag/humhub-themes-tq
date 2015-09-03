@@ -40,17 +40,17 @@
         </div>
 
         <?php
-        /** 
-         * 
-        If user is looking at a Space or User, use default functionality.
-        If the user is on the dashboard, implement the "post to space" 
-        functionality.
-
-        Once we've established they are on the right page, we set up our 
-        listeners and 
-        we just check the 
-        number of spaces the user is a member of. If it's more than  
+        /**  
+         * If they're looking at a Space or User, use default functionality.
+         * If they're on the dashboard, implement "post to space" selector.
+         *
+         * Once we've established they are on a "post to space" page and check 
+         * if the user is a member of more than one group. If the user is only 
+         * in one space, we prefill the fields and the select box is hidden.
+         * If the user is in multiple spaces, we set up our listeners and disable
+         * the post button until a selection is made
          */
+        
         // Use default behaviour when in a Space or Profile
         if(Yii::app()->params['currentSpace'] || Yii::app()->params['currentUser']) {
             echo CHtml::hiddenField("containerGuid", $contentContainer->guid);
