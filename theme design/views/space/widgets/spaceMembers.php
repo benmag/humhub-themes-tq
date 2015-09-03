@@ -52,7 +52,7 @@
     <!-- Display panel menu widget -->
     <?php $this->widget('application.widgets.PanelMenuWidget', array('id' => 'space-members-panel')); ?>
 
-    <div class="panel-heading"><?php echo Yii::t('SpaceModule.widgets_views_spaceMembers', '<strong>Space</strong> members'); ?></div>
+    <div class="panel-heading"><?php echo Yii::t('SpaceModule.widgets_views_spaceMembers', '<strong>Circle</strong> members'); ?></div>
     <div class="panel-body">
         <?php if (count($space->membershipsLimited) != 0) : ?>
             <?php $ix = 0; ?>
