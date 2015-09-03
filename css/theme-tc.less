@@ -423,7 +423,7 @@ a {
 }
 
 .outside .panel .btn {
-  width: 110%;
+  width: 100%;
   letter-spacing: normal;
   height: 50px;
   margin-bottom: 10px;
@@ -467,6 +467,15 @@ a {
   top: -40px;
 }
 
+.profile-size-xmd {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-overlay-img-xmd {
+  top: -50px;
+}
+
 .profile-size-lg {
   width: 140px;
   height: 140px;
@@ -497,6 +506,11 @@ a {
 
 .wall-entry .media .img-space, #topbar-first .notifications #dropdown-notifications li .media .img-space, .activities li .media .img-space, #space-menu .img-rounded, #space-profile-image {
 	border-radius:100px;
+}
+
+.panel-profile .panel-profile-header .img-profile-header-background, .panel-profile .panel-profile-header {
+	border-top-right-radius:@radius;
+	border-top-left-radius:@radius;
 }
 
 
@@ -642,6 +656,161 @@ a {
 .modal .owl-carousel a:hover {
   color: darken(@colorCTA, 10%);
 }
+
+
+//
+// Q&A Module
+// --------------------------------------------------
+
+.vote_control .btn:active, .btn.active {
+	box-shadow:none;
+}
+
+.vote_control .fa{
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.vote_control .text-center{
+	margin-top: 5px;
+}
+
+.qanda-form input, .qanda-form textarea {
+    border: 2px solid #EDEDED;
+    box-shadow: none;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    vertical-align: middle;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	margin-bottom:10px;
+}
+
+.qanda-form .panel-body h1{
+	font-size:24px;
+}
+
+.qanda-form textarea{
+	height:auto;
+}
+
+.qanda-form .buttons input{
+	background: @colorCTA;
+	color: white;
+	height: 50px;
+	font-size: 14px;
+	border-radius:@radius;
+	font-weight:800;
+	margin-top:20px;
+}
+
+.qanda-form .panel-body{
+	padding:30px;
+}
+
+.qanda-panel{
+	padding:0px 20px 20px 15px;
+}
+
+.qanda-panel-padding{
+	padding-top:35px;
+}
+
+.qanda-panel .display-name{
+	color:@colorPrimary;
+}
+
+.qanda-panel .qanda-button{
+	margin-left:10px;
+	margin-top:10px;
+	color:@colorPrimary;
+}
+
+.qanda-comments-panel{
+	border: 1px solid #ccc; 
+	background-color: #f2f2f2; 
+	padding:10px;
+}
+
+.qanda-comments-panel .qanda-button{
+	margin-top:0px;
+}
+
+.qanda-profile{
+	position:absolute;
+	top:0;
+	right:0; 
+	padding:5px; 
+	width:200px; 
+	background-color:@colorPrimaryDark; 
+	color:#fff;
+}
+
+.qanda-profile .profile-size-sm{
+	margin-right:5px;
+}
+
+.qanda-profile .user-title{
+	line-height:1.2;
+	max-width:150px;
+	max-height: 40px;
+	overflow-y: auto;
+}
+
+.panel-answer{
+	padding:20px;
+	background-color:#eee;
+}
+
+.panel-answer .panel-body{
+	padding:0px;
+}
+
+.panel-answer .panel-heading{
+	background:none;
+	padding-top:0px;
+}
+
+.grid-view table.items th {
+    background:none;
+    background: @colorPrimaryDark;
+}
+
+.grid-view table.items tr.selected {
+    background: lighten(@colorPrimaryLight,30%);
+}
+
+ul.yiiPager .selected a {
+    background: @colorPrimaryDark;
+	border: 1px solid @colorPrimaryDark;
+}
+
+.pager li > a:hover, .pager li > a:focus {
+    background: darken(@colorPrimaryDark,5%);
+}
+
+ul.yiiPager a:link, ul.yiiPager a:visited {
+    border: 1px solid @colorPrimaryDark;
+    font-weight: bold;
+    color: @colorPrimaryDark;
+    padding: 3px 6px;
+    text-decoration: none;
+	margin-right:2px;
+}
+
+.pager .next > a, .pager .next > span {
+    margin-left: 3px;
+}
+
 
 //
 // Fat Footer
@@ -827,6 +996,18 @@ a {
   top: -5px;
   left: 4px;
   color: #888;
+}
+
+.modal .regular-checkbox {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    margin-top: -10px;
+    border: none;
+    box-shadow: none;
+    top: -12px;
+    left: 40px;
+    display: block;
 }
 
 .modal .terms-box {

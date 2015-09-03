@@ -219,7 +219,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     <h3>Contact Us</h3>
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="contactInputName"
+                            <input type="text" class="form-control" id="contactInputName"
                                    placeholder="Enter your name">
                         </div>
                         <div class="form-group">
@@ -229,6 +229,11 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                         <div class="form-group">
                             <textarea class="form-control" id="contactInputMessage" rows="5"
                                       placeholder="Enter your message"></textarea>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" required> I agree to the above terms &amp; conditions
+                            </label>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Send</button>
@@ -285,9 +290,10 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                 
                 <div class="row">
                     <div class="form-group col-sm-8 col-sm-offset-2">
-                        <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control', 'id' =>
-                        'register-email', 'placeholder' => Yii::t('UserModule.views_auth_login', 'Enter your email'))); ?>
-                        <?php echo $form->error($registerModel, 'Enter your email'); ?>
+                    	<input class="form-control" id="register-email" required placeholder="Enter your email" name="AccountRegisterForm[email]" value="" type="email">
+                        
+                        <!-- <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control', 'id' => 'register-email','required', 'placeholder' => Yii::t('UserModule.views_auth_login', 'Enter your email'))); ?> <?php echo $form->error($registerModel, 'Enter your email'); ?> -->
+                        
                     </div>
                 </div>
                 
@@ -349,7 +355,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                		<div class="col-sm-8 col-sm-offset-2">
                        <div class="checkbox">
                             <label>
-                              <input type="checkbox"> I agree to the above terms &amp; conditions
+                              <input type="checkbox" required> I agree to the above terms &amp; conditions
                             </label>
                         </div>
                     </div>
