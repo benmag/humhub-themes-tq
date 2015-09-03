@@ -219,7 +219,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     <h3>Contact Us</h3>
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="contactInputName"
+                            <input type="text" class="form-control" id="contactInputName"
                                    placeholder="Enter your name">
                         </div>
                         <div class="form-group">
