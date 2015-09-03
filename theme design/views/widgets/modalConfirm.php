@@ -70,7 +70,7 @@ if ($confirmJS != "") {
                             ?>
                         <?php } ?>
                   	</div>
-                    
+                </div>    
             </div>
         </div>
     </div>
