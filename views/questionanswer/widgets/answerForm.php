@@ -10,7 +10,7 @@
 )); ?>
 <div class="panel panel-default panel-answer">
     <div class="panel-heading">
-        <strong>Answer</strong> this question
+        <strong>Your</strong> answer
     </div>
     <div class="panel-body">
         <?php echo $form->errorSummary($answer); ?>

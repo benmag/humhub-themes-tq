@@ -744,6 +744,11 @@ a {
 	padding:0px 20px 20px 15px;
 }
 
+.qanda-panel-question{
+	border:2px solid lighten(@colorCommunity, 30%);
+	box-shadow:none;
+}
+
 .qanda-panel .display-name{
 	color:@colorPrimary;
 }
@@ -755,10 +760,11 @@ a {
 }
 
 .qanda-comments-panel{
-	border: 1px solid #eee; 
+	border: none; 
 	background-color: none; 
-	padding:10px;
+	padding:4px;
 	border-radius:@radius;
+	margin-left:30px;
 }
 
 .qanda-comments-panel .qanda-button{
@@ -801,6 +807,10 @@ a {
 	padding-top:0px;
 }
 
+.panel-answer .btn{
+	margin-top:10px !important;
+}
+
 .grid-view table.items th {
     background:none;
     background: @colorPrimaryDark;
@@ -839,6 +849,29 @@ ul.yiiPager .selected a {
 
 .pager .next > a, .pager .next > span {
     margin-left: 3px;
+}
+
+#comment-comment-form{
+	margin-top:5px;
+}
+
+#comment-comment-form .btn-info{
+	width:100%;
+}
+
+.hidden-comment-form, .hidden-comment-form-answer{
+	.linktransition;
+	opacity:0;
+	height:0px;
+	overflow:hidden;
+}
+
+#answer-answer-form .btn{
+	width:100%;
+}
+
+.qanda-profile-timestamp{
+	margin-bottom:5px;
 }
 
 

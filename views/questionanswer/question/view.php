@@ -36,7 +36,7 @@ function makeClickableLinks($s) {
 
     <div class="row">
         <div class="col-md-9">
-            <div class="panel panel-default qanda-panel">
+            <div class="panel panel-default qanda-panel qanda-panel-question">
                 <div class="panel-body">
                     <div class="media">
                         <div class="pull-left">
@@ -87,7 +87,7 @@ function makeClickableLinks($s) {
                                         <div class="col-sm-12">
                                         	<?php 
 											if(Yii::app()->user->isAdmin() || $model->created_by == Yii::app()->user->id) {
-												echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('update', 'id'=>$model->id)); 
+												echo CHtml::link("<div class='qanda-button pull-left' style='margin-left:0px;'><span class='icon icon-pencil'></span> Edit</div>", array('update', 'id'=>$model->id)); 
 											} ?>
 											<?php if(Yii::app()->user->isAdmin()) {
                                                 echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
@@ -104,12 +104,12 @@ function makeClickableLinks($s) {
                                 </div>
                             </div>
 
-
-                            
-                            <?php
-                            $comments = Answer::model()->findByPk($model->id)->comments;
+							<div class='qanda-comments-panel'>
+                            <?php $comments = Answer::model()->findByPk($model->id)->comments;
+							echo "<h5 style='padding-left:4px;'>";
+							echo count($comments);
+							echo " Comments</h5>";
                             if($comments) {
-                                echo "<div class='qanda-comments-panel'>";
                                 foreach($comments as $comment) {
                                     echo '<div style="border-bottom:1px solid #d8d8d8; padding: 4px;">';
                                     echo $comment->post_text;
@@ -138,15 +138,33 @@ function makeClickableLinks($s) {
                                     
                                     echo '</div>';
                                 }
-                                echo "</div>";
-                            }
-                            ?>
-                            <br />
-                            <br />
-                            <?php 
-                            $this->widget('application.modules.questionanswer.widgets.CommentFormWidget', array('model' => new Comment, 'question_id' => $model->id, 'parent_id' => $model->id));
-                            ?>
-                            <a href="#"></a>
+                            } ?>
+                            	<div class="add-comment-button" style="padding-top:10px;">
+                            		<a class="add-comment-link" style="margin-left:4px;color:#ccc;">add a comment</a>								
+                                </div>
+                                <div class="hidden-comment-form">
+                                    <?php $this->widget('application.modules.questionanswer.widgets.CommentFormWidget', array('model' => new Comment, 'question_id' => $model->id, 'parent_id' => $model->id)); ?>
+                                    
+                                </div>
+                                
+                                <script type="text/javascript">
+									$(document).ready(function() { 
+										$(".add-comment-link").click(function() {
+											
+											if ($(".hidden-comment-form").css('opacity') == '0'){
+												$(".hidden-comment-form").animate({'opacity':1})
+												$('.hidden-comment-form').css("height","auto");
+											}else{
+												$(".hidden-comment-form").animate({'opacity':0}) 
+												$('.hidden-comment-form').css("height","0px");
+											}
+										});
+									});
+								</script>
+							</div>
+
+                            
+
                         </div>
                     </div>
 
@@ -220,38 +238,65 @@ function makeClickableLinks($s) {
                             </div>
                             
                             
+                            <div class='qanda-comments-panel'>
                             <?php $comments = Answer::model()->findByPk($question_answer['id'])->comments;
+							echo "<h5 style='padding-left:4px;'>";
+							echo count($comments);
+							echo " Comments</h5>";
                             if($comments) {
-                                echo "<div style=\"border: 1px solid #ccc; background-color: #f2f2f2; padding:10px; margin-top:10px;\">";
+                                
                                 foreach($comments as $comment) {
                                     echo '<div style="border-bottom:1px solid #d8d8d8; padding: 4px;">';
                                     echo $comment->post_text;
-                                    echo " &bull; <a href=\"". $this->createUrl('//user/profile', array('uguid' => $comment->user->guid)) . "\">" . $comment->user->displayName . "</a>";
-                                    
+									echo '<div class="row"><div class="col-sm-6">';
+									echo "<a class='display-name' href=\"". $this->createUrl('//user/profile', array('uguid' => $comment->user->guid)) . "\">" . $comment->user->displayName . "</a>";
+                                    echo '</div>';
+									echo '<div class="col-sm-6">';
                                     echo "<small>";
-                                    if(Yii::app()->user->isAdmin() || $comment->created_by == Yii::app()->user->id) {
-                                        echo " &#8212; ";
-                                        echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/comment/update', 'id'=>$comment->id)); 
-                                    }
-                                    
-                                    if(Yii::app()->user->isAdmin()) {
-                                        echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
+									
+									if(Yii::app()->user->isAdmin()) {
+                                        echo CHtml::linkButton('<div class="qanda-button pull-right"><span class="icon icon-trash"></span> Delete</div>',array(
                                         'submit'=>$this->createUrl('//questionanswer/comment/delete',array('id'=>$comment->id)),
                                         'confirm'=>"Are you sure want to delete?",
                                         'csrf'=>true,
                                         'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
                                     }
+									
+                                    if(Yii::app()->user->isAdmin() || $comment->created_by == Yii::app()->user->id) {
+                                        echo CHtml::link("<div class='qanda-button pull-right'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/comment/update', 'id'=>$comment->id)); 
+                                    }
+                                    
+                                    
                                     echo "</small>";
-
+									echo '</div></div>';
                                     echo '</div>';
                                 }
-                                echo "</div>";
                             }
                             ?>
-                            <br />
-                            <?php 
-                            $this->widget('application.modules.questionanswer.widgets.commentFormWidget', array('model' => new Comment, 'question_id' => $question_answer['question_id'], 'parent_id' => $question_answer['id']));
-                            ?>
+                            
+                            <div class="add-comment-button" style="padding-top:10px;">
+                            		<a class="add-comment-link<?php echo $question_answer['id'] ?>" style="margin-left:4px;color:#ccc;">add a comment</a>								
+                                </div>
+                                <div class="hidden-comment-form-answer" id="<?php echo $question_answer['id'] ?>">
+                                    <?php $this->widget('application.modules.questionanswer.widgets.commentFormWidget', array('model' => new Comment, 'question_id' => $question_answer['question_id'], 'parent_id' => $question_answer['id'])); ?>
+                                </div>
+                                
+                                <script type="text/javascript">
+									$(document).ready(function() { 
+										$(".add-comment-link<?php echo $question_answer['id'] ?>").click(function() {
+											
+											if ($("#<?php echo $question_answer['id'] ?>").css('opacity') == '0'){
+												$("#<?php echo $question_answer['id'] ?>").animate({'opacity':1})
+												$('#<?php echo $question_answer['id'] ?>').css("height","auto");
+											}else{
+												$("#<?php echo $question_answer['id'] ?>").animate({'opacity':0}) 
+												$('#<?php echo $question_answer['id'] ?>').css("height","0px");
+											}
+										});
+									});
+								</script>
+                            
+                            </div>
                         </div>
 
                     </div>
