@@ -11,11 +11,15 @@
     
     $item['style'] = "";
 
-    if($item['label'] == "Dashboard") {
-        $item['label'] = "Home";
-    } else if($item['label'] == "Directory") {
-        $item['style'] = "style=\"display:none !important; width:0;\"";
-    } 
+    switch($item['label']) {
+        case "Dashboard":
+            $item['label'] = "Home";
+        break;
+
+        case "Directory":
+            $item['style'] = "style=\"display:none !important; width:0;\"";
+        break;
+    }
 
     ?>
 
