@@ -794,10 +794,6 @@ ul.yiiPager .selected a {
 	border: 1px solid @colorPrimaryDark;
 }
 
-.pager li > a:hover, .pager li > a:focus {
-    background: darken(@colorPrimaryDark,5%);
-}
-
 ul.yiiPager a:link, ul.yiiPager a:visited {
     border: 1px solid @colorPrimaryDark;
     font-weight: bold;
@@ -805,6 +801,19 @@ ul.yiiPager a:link, ul.yiiPager a:visited {
     padding: 3px 6px;
     text-decoration: none;
 	margin-right:2px;
+}
+
+ul.yiiPager .selected a:visited {
+	color:white;
+}
+
+ul.yiiPager .selected a {
+	color:white;
+}
+
+.pager li > a:hover, .pager li > a:focus {
+    background: darken(@colorPrimaryDark,5%);
+	color:@colorPrimaryLight;
 }
 
 .pager .next > a, .pager .next > span {
