@@ -31,7 +31,7 @@
 
     <div class="row">
         <div class="col-md-9">
-            <div class="panel panel-default qanda-panel qanda-panel-padding">
+            <div class="panel panel-default qanda-panel">
                 <div class="panel-body">
                     <div class="media">
                         <div class="pull-left">
@@ -64,20 +64,23 @@
                             
                         </div>
                         
-                        <?php
-                        $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user));
-                        ?>
+                        
 
                         <div class="media-body" style="padding-top:5px; ">
                             <h3 class="media-heading">
                                 <?php echo CHtml::link(CHtml::encode($model->post_title), Yii::app()->createUrl('//questionanswer/main/view', array('id' => $model->id))); ?>
                             </h3>
                             <?php echo nl2br(CHtml::encode($model->post_text)); ?>
-                            <br /><br />
-                            <?php foreach($model->tags as $tag) { ?>
-                                <span class="label label-default tag6"><a href="<?php echo $this->createUrl('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
-                            <?php } ?>
-                            <br /><br />
+                            <div class="row qanda-details-padding">
+                            	<div class="col-sm-8">
+									<?php foreach($model->tags as $tag) { ?>
+                                        <span class="label label-default tag6"><a href="<?php echo $this->createUrl('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
+                                    <?php } ?>
+                            	</div>
+                                <div class="col-sm-4">
+                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user)); ?>
+                                </div>
+                            </div>
                             <?php
                             $comments = Answer::model()->findByPk($model->id)->comments;
                             if($comments) {
@@ -145,7 +148,7 @@
             <hr>
 
             <?php foreach($answers as $question_answer) { ?>
-            <div class="panel panel-default qanda-panel qanda-panel-padding">
+            <div class="panel panel-default qanda-panel">
                 <div class="panel-body">
                     <div class="media">
                         <div class="pull-left">
@@ -169,9 +172,7 @@
                             </div>
                         </div>
                         <?php $user = User::model()->findByPk($question_answer['created_by']); ?>                        
-                        <?php
-                        $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user));
-                        ?>
+                        
                         <div class="media-body" style="padding-top:5px; ">
                             <?php echo nl2br(CHtml::encode($question_answer['post_text'])); ?>
                             <br />
@@ -183,6 +184,16 @@
                                 'accepted_answer' => ($question_answer['answer_status'] ? true : false)
                             ));
                             ?>
+                            
+                            <div class="row qanda-details-padding">
+                            	<div class="col-sm-8">
+                            	</div>
+                                <div class="col-sm-4">
+                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user)); ?>
+                                </div>
+                            </div>
+                            
+                            
                             <?php
                             $comments = Answer::model()->findByPk($question_answer['id'])->comments;
                             if($comments) {
