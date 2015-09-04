@@ -58,7 +58,7 @@
         if(Yii::app()->params['currentSpace'] || Yii::app()->params['currentUser']) {
             echo CHtml::hiddenField("containerGuid", $contentContainer->guid);
             echo CHtml::hiddenField("containerClass", get_class($contentContainer));
-        } else if(!$showSpacePicker) { // if the user isn't in any spaces hide post area ?>
+        } else if(count($userSpaces) == 0) { // if the user isn't in any spaces hide post area ?>
             <script type="text/javascript">
                 $(function() {
                     $("#contentFormBody").hide();
