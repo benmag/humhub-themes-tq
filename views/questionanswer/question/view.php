@@ -1,6 +1,11 @@
 <?php
 /* @var $this QuestionController */
 /* @var $model Question */
+
+function makeClickableLinks($s) {
+  return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $s);
+}
+
 ?>
 
 <div class="container">
@@ -70,17 +75,37 @@
                             <h3 class="media-heading">
                                 <?php echo CHtml::link(CHtml::encode($model->post_title), Yii::app()->createUrl('//questionanswer/main/view', array('id' => $model->id))); ?>
                             </h3>
-                            <?php echo nl2br(CHtml::encode($model->post_text)); ?>
+                            <?php echo nl2br(makeClickableLinks(CHtml::encode($model->post_text))); ?>
                             <div class="row qanda-details-padding">
                             	<div class="col-sm-8">
+                                	<div class="row">
+                                    	<div class="col-sm-12">
 									<?php foreach($model->tags as $tag) { ?>
                                         <span class="label label-default tag6"><a href="<?php echo $this->createUrl('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
                                     <?php } ?>
+                                    	</div>
+                                        <div class="col-sm-12">
+                                        	<?php 
+											if(Yii::app()->user->isAdmin() || $model->created_by == Yii::app()->user->id) {
+												echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('update', 'id'=>$model->id)); 
+											} ?>
+											<?php if(Yii::app()->user->isAdmin()) {
+                                                echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
+                                                'submit'=>$this->createUrl('delete',array('id'=>$model->id)),
+                                                'confirm'=>"Are you sure want to delete?",
+                                                'csrf'=>true,
+                                                'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
+                                            } ?>
+                            	</div>
+                            	</div>
                             	</div>
                                 <div class="col-sm-4">
                                 	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user)); ?>
                                 </div>
                             </div>
+
+
+                            
                             <?php
                             $comments = Answer::model()->findByPk($model->id)->comments;
                             if($comments) {
@@ -121,22 +146,6 @@
                             <?php 
                             $this->widget('application.modules.questionanswer.widgets.CommentFormWidget', array('model' => new Comment, 'question_id' => $model->id, 'parent_id' => $model->id));
                             ?>
-                            <?php 
-                            if(Yii::app()->user->isAdmin() || $model->created_by == Yii::app()->user->id) {
-                            	echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('update', 'id'=>$model->id)); 
-                            }
-                            ?>
-							<?php
-						    if(Yii::app()->user->isAdmin()) {
-						    	echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
-							    'submit'=>$this->createUrl('delete',array('id'=>$model->id)),
-							    'confirm'=>"Are you sure want to delete?",
-								'csrf'=>true,
-							    'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
-							}
-
-							?>
-
                             <a href="#"></a>
                         </div>
                     </div>
@@ -173,10 +182,30 @@
                         </div>
                         <?php $user = User::model()->findByPk($question_answer['created_by']); ?>                        
                         
+                        
                         <div class="media-body" style="padding-top:5px; ">
-                            <?php echo nl2br(CHtml::encode($question_answer['post_text'])); ?>
-                            <br />
                             <?php 
+                            echo nl2br(CHtml::encode($question_answer['post_text']));
+							?>
+							
+                            
+                            <div class="row qanda-details-padding">
+                            	<div class="col-sm-8">
+                                	<?php
+                            if(Yii::app()->user->isAdmin() || $question_answer['created_by'] == Yii::app()->user->id) {
+                                echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/answer/update', 'id'=>$question_answer['id'])); 
+                            }
+
+                            if(Yii::app()->user->isAdmin()) {
+                                echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
+                                'submit'=>$this->createUrl('//questionanswer/answer/delete',array('id'=>$question_answer['id'])),
+                                'confirm'=>"Are you sure want to delete?",
+                                'csrf'=>true,
+                                'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
+                            }
+                            
+                            echo "<br /><br />";
+
                             $this->widget('application.modules.questionanswer.widgets.BestAnswerWidget', array(
                                 'post_id' => $question_answer['id'], 
                                 'author' => $author, 
@@ -184,9 +213,6 @@
                                 'accepted_answer' => ($question_answer['answer_status'] ? true : false)
                             ));
                             ?>
-                            
-                            <div class="row qanda-details-padding">
-                            	<div class="col-sm-8">
                             	</div>
                                 <div class="col-sm-4">
                                 	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user)); ?>
@@ -194,8 +220,7 @@
                             </div>
                             
                             
-                            <?php
-                            $comments = Answer::model()->findByPk($question_answer['id'])->comments;
+                            <?php $comments = Answer::model()->findByPk($question_answer['id'])->comments;
                             if($comments) {
                                 echo "<div style=\"border: 1px solid #ccc; background-color: #f2f2f2; padding:10px; margin-top:10px;\">";
                                 foreach($comments as $comment) {
@@ -226,21 +251,6 @@
                             <br />
                             <?php 
                             $this->widget('application.modules.questionanswer.widgets.commentFormWidget', array('model' => new Comment, 'question_id' => $question_answer['question_id'], 'parent_id' => $question_answer['id']));
-                            ?>
-                            <?php 
-                            if(Yii::app()->user->isAdmin() || $question_answer['created_by'] == Yii::app()->user->id) {
-                                echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/answer/update', 'id'=>$question_answer['id'])); 
-                            }
-                            ?>
-                            <?php
-                            if(Yii::app()->user->isAdmin()) {
-                                echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
-                                'submit'=>$this->createUrl('//questionanswer/answer/delete',array('id'=>$question_answer['id'])),
-                                'confirm'=>"Are you sure want to delete?",
-                                'csrf'=>true,
-                                'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
-                            }
-
                             ?>
                         </div>
 
