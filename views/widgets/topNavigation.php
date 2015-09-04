@@ -11,6 +11,7 @@
     
     $item['style'] = "";
 
+    // Apply custom (hardcoded) overwrites to menu items
     switch($item['label']) {
         case "Dashboard":
             $item['label'] = "Home";
