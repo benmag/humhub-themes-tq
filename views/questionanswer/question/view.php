@@ -6,6 +6,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
+        	<div class="row">
+            	<div class="col-xs-12">
+        			<div class="qa-circle-bg community-bg"><span class="icon icon-qanda"></span></div>
+        			<h1 class="qa-h1">Your Public Community Q&amp;A</h1>
+                </div>
+            </div>
             <div class="panel panel-default qanda-panel qanda-panel-padding">
                 <div class="panel-body">
                     <div class="media">
@@ -145,9 +151,7 @@
                         $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user));
                         ?>
                         <div class="media-body" style="padding-top:5px; ">
-                            <br />
                             <?php echo nl2br(CHtml::encode($question_answer['post_text'])); ?>
-                            <br />
                             <br />
                             <?php 
                             $this->widget('application.modules.questionanswer.widgets.BestAnswerWidget', array(

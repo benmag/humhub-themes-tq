@@ -19,7 +19,7 @@
        		<div class="profile-overlay-img profile-overlay-img-sm"></div>
 		</span>
 	</a>
-        <div class="user-title pull-left hidden-xs">
+        <div class="user-title pull-left">
             <strong><?php echo CHtml::encode($user->displayName); ?> <?php echo "(".KarmaUser::model()->score($user->id).")"; ?></strong><br/><span class="truncate"><?php echo CHtml::encode($user->profile->title); ?></span>
         </div>
     
