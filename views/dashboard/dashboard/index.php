@@ -152,13 +152,13 @@
     $(document).ready(function () {
 		
         // Only show welcome modal on first view
-        if($.cookie('__viewed_welcome_modal') != undefined) {
+        if($.cookie('_viewed_welcome_modal') == undefined) {
 
             $.cookie('_viewed_welcome_modal', true, { path: '/', expires: 5 * 365 });
             // $.removeCookie('_viewed_welcome_modal', { path: '/' });
             $('#modalFirstUse').modal('show');
         }
-                    
+
         $(".panel-teachingquotes .owl-carousel").owlCarousel({
             animateOut: 'fadeOutDown',
             animateIn: 'fadeInDown',
