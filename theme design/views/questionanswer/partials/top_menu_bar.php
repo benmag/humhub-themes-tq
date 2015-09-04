@@ -1,4 +1,4 @@
-                <div class="panel-heading">
+               <div class="panel-heading">
                     <ul class="nav nav-tabs qanda-header-tabs" id="filter">
                         <li class="dropdown active">
                             <a style="cursor:pointer;" href="<?php echo Yii::app()->createUrl('//questionanswer/question/index'); ?>">Questions</a>
@@ -34,7 +34,7 @@
                             </li>
                         <?php } ?>
                         <li class="dropdown pull-right">
-                            <?php echo CHtml::link('<i class="fa fa-plus"></i> Ask Question', Yii::app()->createAbsoluteUrl('//questionanswer/question/create'), array('class'=>'dropdown-toggle btn btn-info', 'style'=>"padding:8px;")); ?>
+                            <?php echo CHtml::link('<i class="fa fa-plus"></i> Ask Question', Yii::app()->createAbsoluteUrl('//questionanswer/question/create'), array('class'=>'dropdown-toggle btn btn-community', 'style'=>"padding:8px;")); ?>
                         </li>
                     </ul>
                 </div>
