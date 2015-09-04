@@ -50,15 +50,21 @@
          * If the user is in multiple spaces, we set up our listeners and disable
          * the post button until a selection is made
          */
-        
+        $userSpaces = SpaceMembership::GetUserSpaces();
+        $showSpacePicker = (count($userSpaces) > 1) ? true : false;
+
+
         // Use default behaviour when in a Space or Profile
         if(Yii::app()->params['currentSpace'] || Yii::app()->params['currentUser']) {
             echo CHtml::hiddenField("containerGuid", $contentContainer->guid);
             echo CHtml::hiddenField("containerClass", get_class($contentContainer));
-        } else { // Use new when not in a space
-
-            $userSpaces = SpaceMembership::GetUserSpaces();
-            $showSpacePicker = (count($userSpaces) > 1) ? true : false;
+        } else if(!$showSpacePicker) { // if the user isn't in any spaces hide post area ?>
+            <script type="text/javascript">
+                $(function() {
+                    $("#contentFormBody").hide();
+                });
+            </script>
+        <?php } else { // Use new when not in a space
             echo CHtml::hiddenField("containerGuid", ($showSpacePicker ? "" : $userSpaces[0]->guid));
             echo CHtml::hiddenField("containerClass", "Space");
             ?>
