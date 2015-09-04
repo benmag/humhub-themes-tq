@@ -140,6 +140,9 @@
 
                 </div>
             </div>
+            
+            <h4><?php echo count($answers) ?> Answers</h4>
+            <hr>
 
             <?php foreach($answers as $question_answer) { ?>
             <div class="panel panel-default qanda-panel qanda-panel-padding">
