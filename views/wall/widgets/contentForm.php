@@ -69,7 +69,6 @@
             echo CHtml::hiddenField("containerClass", "Space");
             ?>
             <script type="text/javascript">
-
                 function post_to_space_enablePostSubmit() { // Disable button
                     $("#post_submit_button").removeAttr("disabled");
                     $("#post_to_space_message").hide();
@@ -82,7 +81,8 @@
 
                 function post_to_space_selectSpace(guid) {
                     $("#containerGuid").val(guid);
-                    $.cookie('_post_to_space', guid, { path: '/', expires: 5 * 365 })
+                    $("#post_to_space_message").hide();
+                    $.cookie('_post_to_space', guid, { path: '/', expires: 5 * 365 });
                     post_to_space_enablePostSubmit();
                 }
 
@@ -97,8 +97,13 @@
                 });
 
 
-                // On load, if the user is in more than one space, disable post button 
+                // _post_to_space cookie not available, if not, dump cookie
+                if($('#post_to_space option[value="'+ $.cookie('_post_to_space') +'"]').length == 0) {
+                    $.removeCookie('_post_to_space', { path: '/' });
+                }
+
                 <?php if($showSpacePicker) { ?>
+                // On load, if the user is in more than one space, disable post button 
                 $(function() {
                     if($.cookie('_post_to_space')) {
                         $('#post_to_space option[value="'+ $.cookie('_post_to_space') +'"]').attr("selected", "selected");
@@ -113,7 +118,7 @@
         <?php } ?>
 
         <div class="contentForm_options">
-            <p id="post_to_space_message">Select a circle to post your message into.</p>
+            <p id="post_to_space_message" style="display:none; color:red;">Select a circle to post your message into.</p>
             <hr>
             <div class="btn_container">
 
