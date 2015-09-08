@@ -532,7 +532,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 						TeachConnect is a broad and growing collaboration of teachers and academics across Queensland. The project is about facilitating an online network of as many stakeholders as possible, to best help teachers to transition from university into service. If you wish to be a part of TeachConnect then do get in touch with us on teachconnect@outlook.com - we'd love to hear from you.
 					</p>
 					<p>
-						TeachConnect is made possible by the Step Up project (www.stepup.edu.au) and the Queensland College of Teachers. The universities currently taking part in TeachConnect are:
+						TeachConnect is made possible by the <a href="http://stepup.edu.au">Step Up</a> project and the <a href="https://www.qct.edu.au/">Queensland College of Teachers</a>. The universities currently taking part in TeachConnect are:
 						<ul>
 							<li>University of Southern Queensland (USQ)</li>
 							<li>Queensland University of Technology (QUT)</li>
