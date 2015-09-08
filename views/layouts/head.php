@@ -10,6 +10,7 @@
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/animate.css" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
 <link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+<link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
 <!-- end: CSS -->
 
 <!-- start: JavaScript -->
@@ -21,4 +22,7 @@
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/owl.carousel.js"></script> 
  <script type="text/javascript"
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+ <script type="text/javascript"
+            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-select/dist/js/bootstrap-select.js"></script>
+            
 <!-- end: JavaScript -->

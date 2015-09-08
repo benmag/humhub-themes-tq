@@ -20,7 +20,7 @@ if(count($userSpaces) > 1 && !Yii::app()->params['currentSpace'] && !Yii::app()-
 }
 ?>
 
-<select id="post_to_space" <?php if(!$showSpacePicker) echo "style=\"display: none;\""; ?>>
+<select id="post_to_space" class="selectpicker show-tick form-control" <?php if(!$showSpacePicker) echo "style=\"display: none;\""; ?>>
 	<?php echo($showSpacePicker ? "<option value=\"\">Choose a circle</option>" : ""); ?>
 	<?php foreach($userSpaces as $space) { ?>
 		<option value="<?php echo $space->guid; ?>"><?php echo $space->name; ?></option>
