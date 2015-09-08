@@ -123,11 +123,11 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="col-md-5 col-md-offset-1 col-sm-12 text-left about-section-text" id="about">
             <h2>Welcome to your teaching community</h2>
 
-            <p>TeachConnect is completely free altruistic network of all the teachers in QLD that are going to educate
-                the next generation. We're trying to do everything that we can to setup the site with a positive
-                culture, to remind teachers of the importance and the possibilities of education. And at the same time
-                remove ourselves from having a presence - we're trying to facilitate, not control
-                this service. </p>
+            <p>TeachConnect is an altruistic network of all pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by us, the teachers.<br />
+			<br />
+			TeachConnect is a simple idea - it’s about the ability to talk to other teachers in a similar situation and to connect to experienced mentor teachers. It’s about the people involved much more than it is about the technology.<br /><br />
+			As teachers, we love to help each other out. TeachConnect is about making sure that this expertise is re-used as much as possible.
+			</p>
         </div>
         <div class="col-md-6 col-sm-12 about-section-img"></div>
         <div class="clearfix"></div>
@@ -146,7 +146,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12 text-center">
             <h3>Mentorship Circles</h3>
-            <p>Your mentorship circle is a private space for you to ask questions & obtain feedback about topics that arise during your teaching placement. </p>
+            <p>Your mentorship circle is a private space for you to chat with a small group of peers about anything and everything teaching related. Each circle has a couple of experienced teachers taking part to give their opinion on whatever you may want to talk about. These circles are a trusted, closed space in which anything happening in or outside the classroom can be reflected upon.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the Community</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -157,7 +157,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-sm-push-6 col-xs-12">
             <h3>Q&amp;A Forum</h3>
-            <p>We’re building up a searchable repository of teaching knowledge for you to ask for, find and discuss valuable information.</p>
+            <p>The Q&A forum is a public space within the community for more asking about what matters most to you. Every time you ask a question on the site, you contribute towards building up a searchable repository of knowledge - about all the things most important to Queensland teachers. And that way when you go to ask a question, you may just find that it’s already been discussed by the community!</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Ask your Questions</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-sm-pull-6 col-xs-12">
@@ -167,8 +167,8 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12">
-            <h3>Career Opportunities</h3>
-            <p>Explore teaching career opportunities through the teach connect platform and connect with your peers from across QLD.</p>
+            <h3>Best of both worlds</h3>
+            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, as well as a large, statewide community ready to answer anything you may want to ask. Jump in and give it a try!</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your Peers</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -189,9 +189,14 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>TeachConnect is a completely free social network for teachers to provide emotional
-                                support, to facilitate discussion of teaching practice and to provide assistance with
-                                the development of lesson plans.</p>
+                            <p>Have something about TeachConnect that you want to discuss anything with us? Whether it’s ideas, suggestions or problems, don’t hesitate to get in touch with us on teachconnect@outlook.com or just use the form to the right - we’ll get back to you soon.</p>
+							
+							<p>
+							TeachConnect is an inclusive collaboration of many stakeholders, all of whom have an interest in helping teachers. If you or your organisation want to take part, then do get in touch. 
+							</p>
+							<p>
+							Support for the production of this website has been provided by the Australian Government Office for Learning and Teaching (OLT). Further support has been provided by the Queensland College of Teachers (QCT) and the Australian Research Council (ARC). The website is powered by the Connected Communities platform (ARC Linkage Grant LP140101062). The views expressed in this website do not necessarily reflect the views of any of these financial partners.
+							</p>
                         </div>
                     </div>
                 </div>
@@ -226,7 +231,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="container row-padding-sm">
             <div class="row">
                 <div class="cox-xs-12">
-                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | designed by Hunted Hive</p>
+                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">Who Are We?</a> | designed by Hunted Hive and powered by Connected Communities</p>
                 </div>
             </div>
         </div>
@@ -468,6 +473,66 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         </div>
     </div>
 </div>
+
+<!-- Who Are We Modal -->
+<div class="modal fade" id="modalWhoAreWe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title" id="myModalLabel">Who Are We?</h3>
+            </div>
+            
+            <div class="modal-body">
+            	<hr>
+                <div class="modal-body-scroll">
+					<p>
+						<strong>Who are we?</strong>
+						TeachConnect is a broad and growing collaboration of academics from universities across Queensland. The project has been about facilitating an online network that can best help teachers to transition from university into service.
+					</p>
+					<p>
+						TeachConnect is made possible by the Step Up project (www.stepup.edu.au) and the Queensland College of Teachers. Universities currently taking part in TeachConnect include: University of Southern Queensland (USQ), Queensland University of Technology (QUT), Griffith University, University of Queensland (UQ), James Cook University (JCU), University of the Sunshine Coast (USQ) and Central Queensland University (CQU).
+					</p>
+					<p>
+						The TeachConnect platform has been developed in a collaboration between Step Up and Connected Communities. It runs on the Connected Communities platform, developed under ARC Linkage Grant LP140101062.
+					</p>
+                    <p>
+						<strong>TeachConnect Development Team</strong>
+					</p>
+					<p>
+						<ul>
+							<li>Dr Nick Kelly, USQ (Project Co-leader)</li>
+							<li>Steven Kickbusch, QUT (Project Co-leader)</li>
+							<li>Dr Nick Russell, QUT </li>
+							<li>Dr Rune Rasmussen, QUT</li>
+							<li>Ben Maggacis (Web Developer)</li>
+						</ul>
+					</p>
+					
+					
+                    <p>Add in some kind of biographies here and references</p>
+    
+                    <p>Dicant copiosae mel an, per ne ancillae accusata petentium. Ex his tempor oporteat, tale torquatos vituperatoribus ne vim, pri et melius apeirian. Pro cu noster bonorum adipiscing, vidisse ornatus torquatos vim at. At novum postea instructior eos, pri eu vivendo assentior. Delicata maluisset an sit.</p>
+    
+                    <p>Est ad doctus luptatum democritum, ex nisl stet voluptatum usu. No vim posse apeirian lucilius, te quis alienum sed. Est no oratio vivendum sententiae. Ad ignota indoctum sit, eos eu munere debitis ancillae, an laoreet theophrastus quo. Et accusam principes instructior pro.</p>
+    
+                    <p>Ius an ferri omnium erroribus, vix integre oblique eleifend ex. No eius erant cum, qui error scriptorem ne, tibique deleniti pro ne. Qui enim postea intellegebat eu, in elitr maluisset vix, ei ius essent lucilius. Quo ne fuisset tacimates. Quod splendide his ex, ei has lorem facilisis interpretaris, qui ut bonorum mediocrem. Te iusto scripta blandit ius, cum ea paulo latine. Tation reprehendunt sit et, cu mei sint efficiendi.</p>
+            	</div> 
+            </div>
+            
+            <div class="modal-footer">
+            	<div class="row">
+                	 <div class="col-sm-8 col-sm-offset-2">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <script type="text/javascript">
