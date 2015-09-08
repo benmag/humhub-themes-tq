@@ -230,11 +230,6 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                             <textarea class="form-control" id="contactInputMessage" rows="5"
                                       placeholder="Enter your message"></textarea>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                              <input type="checkbox" required> I agree to the above terms &amp; conditions
-                            </label>
-                        </div>
 
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
