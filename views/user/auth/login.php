@@ -231,7 +231,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="container row-padding-sm">
             <div class="row">
                 <div class="cox-xs-12">
-                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">Who Are We?</a> | designed by Hunted Hive and powered by Connected Communities</p>
+                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">who are we?</a> | designed by Hunted Hive and powered by Connected Communities</p>
                 </div>
             </div>
         </div>
@@ -423,7 +423,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     
                     <p>The data produced by your actions will be analysed and may be published by the researchers. Data will remain anonymous and by used in an unidentifiable way in published research.</p>
     
-    
+   
                     <p>Participation in the project through this website is entirely voluntary. If you do not wish to take part you are not obliged to. If you decide to take part and later change your mind, you are free to withdraw from the project at any stage. Any information already obtained from you will be destroyed.</p>
                     
                     
@@ -489,36 +489,55 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
             	<hr>
                 <div class="modal-body-scroll">
 					<p>
-						<strong>Who are we?</strong>
-						TeachConnect is a broad and growing collaboration of academics from universities across Queensland. The project has been about facilitating an online network that can best help teachers to transition from university into service.
+						TeachConnect is a broad and growing collaboration of teachers and academics across Queensland. The project is about facilitating an online network of as many stakeholders as possible, to best help teachers to transition from university into service. If you wish to be a part of TeachConnect then do get in touch with us on teachconnect@outlook.com - we'd love to hear from you.
 					</p>
 					<p>
-						TeachConnect is made possible by the Step Up project (www.stepup.edu.au) and the Queensland College of Teachers. Universities currently taking part in TeachConnect include: University of Southern Queensland (USQ), Queensland University of Technology (QUT), Griffith University, University of Queensland (UQ), James Cook University (JCU), University of the Sunshine Coast (USQ) and Central Queensland University (CQU).
+						TeachConnect is made possible by the Step Up project (www.stepup.edu.au) and the Queensland College of Teachers. The universities currently taking part in TeachConnect are:
+						<ul>
+							<li>University of Southern Queensland (USQ)</li>
+							<li>Queensland University of Technology (QUT)</li>
+							<li>Griffith University</li>
+							<li>University of Queensland (UQ)</li>
+							<li>James Cook University (JCU)</li>
+							<li>University of the Sunshine Coast (USC)</li>
+							<li>Central Queensland University (CQU).</li>
 					</p>
 					<p>
-						The TeachConnect platform has been developed in a collaboration between Step Up and Connected Communities. It runs on the Connected Communities platform, developed under ARC Linkage Grant LP140101062.
+						The TeachConnect platform has been developed as a collaboration between Step Up and Connected Communities. Step Up is about transforming mathematics and science pre-service secondary education in Queensland, OLT Grant MS13-3184. TeachConnect runs on the Connected Communities platform, developed under ARC Linkage Grant LP140101062.
 					</p>
                     <p>
 						<strong>TeachConnect Development Team</strong>
 					</p>
 					<p>
+						TeachConnect has been developed by:
 						<ul>
 							<li>Dr Nick Kelly, USQ (Project Co-leader)</li>
 							<li>Steven Kickbusch, QUT (Project Co-leader)</li>
-							<li>Dr Nick Russell, QUT </li>
-							<li>Dr Rune Rasmussen, QUT</li>
 							<li>Ben Maggacis (Web Developer)</li>
+							<li>Dr Nick Russell, QUT</li>
+							<li>Dr Rune Rasmussen, QUT</li>
 						</ul>
 					</p>
 					
+                    <p><a href="http://nickkellyresearch.com/">Nick Kelly</a> is a Research Fellow at the University of Southern Queensland.</p>
+    
+                    <p><a href="https://au.linkedin.com/pub/steven-kickbusch/36/679/405">Steven Kickbusch</a> is a Learning Designer at the Queensland University of Technology.</p>
+    
+                    <p><a href="https://au.linkedin.com/in/benmaggacis">Ben Maggacis</a> is a full stack web developer.</p>
+    
+                    <p><a href="http://staff.qut.edu.au/staff/russelnc/">Nick Russell</a> is a Principal Research Fellow at the Queensland University of Technology.</p>
 					
-                    <p>Add in some kind of biographies here and references</p>
-    
-                    <p>Dicant copiosae mel an, per ne ancillae accusata petentium. Ex his tempor oporteat, tale torquatos vituperatoribus ne vim, pri et melius apeirian. Pro cu noster bonorum adipiscing, vidisse ornatus torquatos vim at. At novum postea instructior eos, pri eu vivendo assentior. Delicata maluisset an sit.</p>
-    
-                    <p>Est ad doctus luptatum democritum, ex nisl stet voluptatum usu. No vim posse apeirian lucilius, te quis alienum sed. Est no oratio vivendum sententiae. Ad ignota indoctum sit, eos eu munere debitis ancillae, an laoreet theophrastus quo. Et accusam principes instructior pro.</p>
-    
-                    <p>Ius an ferri omnium erroribus, vix integre oblique eleifend ex. No eius erant cum, qui error scriptorem ne, tibique deleniti pro ne. Qui enim postea intellegebat eu, in elitr maluisset vix, ei ius essent lucilius. Quo ne fuisset tacimates. Quod splendide his ex, ei has lorem facilisis interpretaris, qui ut bonorum mediocrem. Te iusto scripta blandit ius, cum ea paulo latine. Tation reprehendunt sit et, cu mei sint efficiendi.</p>
+					<p><a href="http://staff.qut.edu.au/staff/rasmussr/">Rune Rasmussen</a> is a Lecturer at the Queensland University of Technology.</p>
+					
+					<p>
+						<strong>References about TeachConnect</strong>
+					</p>
+					<p>
+						<li>Clara M., Kelly N., Mauri T. and Danaher P. (In press). Challenges of teachers’ practice-oriented virtual communities for enabling reflection, Asia-Pacific Journal of Teacher Education </li>
+						<li>Kelly N., Reushle S., Chakrabarty S. and Kinnane A. (2014). Augmenting the support for pre-service teachers into practice through large online communities of knowledge-sharing, Australian Journal of Teacher Education 39(4), pp. 68-82 [<a href="http://ro.ecu.edu.au/ajte/vol39/iss4/4/">link</a>]</li>
+						<li>Kelly, N. (2013). An opportunity to support beginning teachers in the transition from higher education into practice, Proceedings of ASCILITE 2013, Sydney [<a href="http://eprints.usq.edu.au/24188">link</a>]</li>
+						<li></li>
+					</p>
             	</div> 
             </div>
             
