@@ -1,5 +1,5 @@
 <?php
-if(isset(Yii::app()->modules['anon_saccounts'])) {
+if(isset(Yii::app()->modules['anon_accounts'])) {
 
 	Yii::app()->request->redirect(Yii::app()->createUrl('//anon_accounts/main/index', array('token' => $_GET['token'])));
 
