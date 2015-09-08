@@ -111,26 +111,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row quote-section">
         <div class="col-xs-12" id="quotes">
         	<img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png">
-            
-            <div class="owl-carousel">
-              <div> 
-                <p>The greatest sign of success for a teacher... is to be able to say,<br>
-                'The children are now working as if I did not exist.'</p>
-                <small>Maria Montessori</small>
-              </div>
-              
-              <div> 
-                <p>Here is an essential principal of education: to teach details is to bring confusion; to establish the relationship between things is to bring knowledge.</p>
-                <small>Maria Montessori</small>
-              </div>
-              
-              <div> 
-                <p>The child can only develop fully by means of experience in his environment.<br>  We call such experience ‘work’.</p>
-                <small>Maria Montessori</small>
-              </div>
-
-            </div>
-       
+            <?php include("quotes.php"); ?> 
         </div>
 
     </div>
