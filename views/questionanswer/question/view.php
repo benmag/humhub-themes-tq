@@ -115,6 +115,7 @@ function makeClickableLinks($s) {
                                     echo $comment->post_text;
 									echo '<div class="row"><div class="col-sm-6">';
                                     echo "<a class='display-name' href=\"". $this->createUrl('//user/profile', array('uguid' => $comment->user->guid)) . "\">" . $comment->user->displayName . "</a>";
+                                    echo " &bull; ".date('Y-m-d H:i:s', strtotime($comment->created_at)); 
                                     echo '</div>';
 									echo '<div class="col-sm-6">';
                                     echo "<small>";
@@ -250,9 +251,11 @@ function makeClickableLinks($s) {
                                     echo $comment->post_text;
 									echo '<div class="row"><div class="col-sm-6">';
 									echo "<a class='display-name' href=\"". $this->createUrl('//user/profile', array('uguid' => $comment->user->guid)) . "\">" . $comment->user->displayName . "</a>";
+                                    echo " &bull; ".date('Y-m-d H:i:s', strtotime($comment->created_at)); 
                                     echo '</div>';
 									echo '<div class="col-sm-6">';
                                     echo "<small>";
+
 									
 									if(Yii::app()->user->isAdmin()) {
                                         echo CHtml::linkButton('<div class="qanda-button pull-right"><span class="icon icon-trash"></span> Delete</div>',array(
