@@ -123,9 +123,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="col-md-5 col-md-offset-1 col-sm-12 text-left about-section-text" id="about">
             <h2>Welcome to your teaching community</h2>
 
-            <p>TeachConnect is an altruistic network of all pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by us, the teachers.<br />
+            <p>TeachConnect is an altruistic network of all pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers.<br />
 			<br />
-			TeachConnect is a simple idea - it’s about the ability to talk to other teachers in a similar situation and  connect to experienced mentor teachers. It’s about the people involved much more than it is about the technology.<br /><br />
+			TeachConnect is a simple idea - a platform to let you talk to similar teachers and to connect to experienced mentor teachers. Teachers tend to be generous in sharing knowledge with each other freely - it's just what they do. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.<br /><br />
 			As teachers, we love to help each other out. TeachConnect is about making sure that this expertise is re-used as much as possible.
 			</p>
         </div>
@@ -146,7 +146,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12 text-center">
             <h3>Mentorship Circles</h3>
-            <p>The mentorship circle is a private space to chat with a small group of peers about anything and everything teaching related. Each circle has a couple of experienced teachers taking part to give their opinion on whatever you may want to talk about.</p>
+            <p>The mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the Community</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -157,7 +157,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-sm-push-6 col-xs-12">
             <h3>Q&amp;A Forum</h3>
-            <p>The Q&A forum is a public space within the community for asking about what matters most to you. Every time you ask a question on the site, you contribute towards building up a searchable repository of knowledge.</p>
+            <p>We’re building up a searchable repository of teaching knowledge for you to ask for, find and discuss valuable information.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Ask your Questions</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-sm-pull-6 col-xs-12">
@@ -168,7 +168,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12">
             <h3>Best of both worlds</h3>
-            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, as well as a large, statewide community ready to answer anything you may want to ask.</p>
+            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, and a large community ready to answer anything you may want to ask.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your Peers</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -195,7 +195,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 							TeachConnect is an inclusive collaboration of many stakeholders, all of whom have an interest in helping teachers. If you or your organisation want to take part, then do get in touch. 
 							</p>
 							<p>
-							Support for the production of this website has been provided by the Australian Government Office for Learning and Teaching (OLT). Further support has been provided by the Queensland College of Teachers (QCT) and the Australian Research Council (ARC). The website is powered by the Connected Communities platform (ARC Linkage Grant LP140101062). The views expressed in this website do not necessarily reflect the views of any of these financial partners.
+							Support for the production of this website has been provided by the Australian Government Office for Learning and Teaching (OLT). Further support has been provided by the Queensland College of Teachers (QCT) and the Australian Research Council (ARC). The website is powered by the Connected Communities platform developed by the Connected Community Research Initiative. The views expressed in this website do not necessarily reflect the views of any of these partners.
 							</p>
                         </div>
                     </div>
@@ -231,7 +231,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="container row-padding-sm">
             <div class="row">
                 <div class="cox-xs-12">
-                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">who are we?</a> | designed by Hunted Hive and powered by Connected Communities</p>
+                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">who are we?</a> | powered by Connected Communities</p>
                 </div>
             </div>
         </div>
@@ -528,7 +528,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 							<li>Central Queensland University (CQU).</li>
 					</p>
 					<p>
-						The TeachConnect platform has been developed as a collaboration between Step Up and Connected Communities. Step Up is about transforming mathematics and science pre-service secondary education in Queensland, OLT Grant MS13-3184. TeachConnect runs on the Connected Communities platform, developed under ARC Linkage Grant LP140101062.
+						The TeachConnect platform instance has been developed as a collaboration between Step Up and Connected Communities Research Initiative. Step Up is about transforming mathematics and science pre-service secondary education in Queensland, OLT Grant MS13-3184. The TeachConnect platform instance is powered by the Connected Communities platform. 
+						
+						The Connected Communities platform is a product of the Connected Communities Research Initiative conducted by the Service Science Discipline, QUT. The research undertaken by the Connected Communities Research Initiative is partially funded by ARC Linkage Grant LP140101062.
 					</p>
                     <p>
 						<strong>TeachConnect Development Team</strong>
