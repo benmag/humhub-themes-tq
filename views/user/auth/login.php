@@ -125,7 +125,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 
             <p>TeachConnect is an altruistic network of all pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by us, the teachers.<br />
 			<br />
-			TeachConnect is a simple idea - it’s about the ability to talk to other teachers in a similar situation and to connect to experienced mentor teachers. It’s about the people involved much more than it is about the technology.<br /><br />
+			TeachConnect is a simple idea - it’s about the ability to talk to other teachers in a similar situation and  connect to experienced mentor teachers. It’s about the people involved much more than it is about the technology.<br /><br />
 			As teachers, we love to help each other out. TeachConnect is about making sure that this expertise is re-used as much as possible.
 			</p>
         </div>
@@ -146,7 +146,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12 text-center">
             <h3>Mentorship Circles</h3>
-            <p>Your mentorship circle is a private space for you to chat with a small group of peers about anything and everything teaching related. Each circle has a couple of experienced teachers taking part to give their opinion on whatever you may want to talk about. These circles are a trusted, closed space in which anything happening in or outside the classroom can be reflected upon.</p>
+            <p>The mentorship circle is a private space to chat with a small group of peers about anything and everything teaching related. Each circle has a couple of experienced teachers taking part to give their opinion on whatever you may want to talk about.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the Community</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -157,7 +157,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-sm-push-6 col-xs-12">
             <h3>Q&amp;A Forum</h3>
-            <p>The Q&A forum is a public space within the community for more asking about what matters most to you. Every time you ask a question on the site, you contribute towards building up a searchable repository of knowledge - about all the things most important to Queensland teachers. And that way when you go to ask a question, you may just find that it’s already been discussed by the community!</p>
+            <p>The Q&A forum is a public space within the community for asking about what matters most to you. Every time you ask a question on the site, you contribute towards building up a searchable repository of knowledge.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Ask your Questions</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-sm-pull-6 col-xs-12">
@@ -168,7 +168,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12">
             <h3>Best of both worlds</h3>
-            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, as well as a large, statewide community ready to answer anything you may want to ask. Jump in and give it a try!</p>
+            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, as well as a large, statewide community ready to answer anything you may want to ask.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your Peers</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -189,7 +189,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>Have something about TeachConnect that you want to discuss anything with us? Whether it’s ideas, suggestions or problems, don’t hesitate to get in touch with us on teachconnect@outlook.com or just use the form to the right - we’ll get back to you soon.</p>
+                            <p>Have something about TeachConnect that you want to discuss with us? Whether it’s ideas, suggestions or problems, don’t hesitate to get in touch with us on teachconnect@outlook.com or just use the form to the right - we’ll get back to you soon.</p>
 							
 							<p>
 							TeachConnect is an inclusive collaboration of many stakeholders, all of whom have an interest in helping teachers. If you or your organisation want to take part, then do get in touch. 
@@ -374,15 +374,40 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
             <div class="modal-body">
             	<hr>
                 <div class="modal-body-scroll">
-                    <p>Lorem ipsum dolor sit amet, scaevola quaestio at vis, epicuri facilisis concludaturque per ex. Stet facer graeco vim ex, te omnes consetetur vel, sea cu alterum periculis. Gloriatur complectitur no cum, in pro veri alterum equidem, et reque sententiae qui. Sonet molestiae usu te, an nec ullum detracto. Labores laoreet meliore cu his, scripta moderatius constituam id mea.</p>
+                    <p><strong>General</strong><br>
+					TeachConnect is an initiative of the StepUp project led by the Queensland University of Technology in partnership with the Australian Catholic University, Griffith University, James Cook University and the University of Queensland.  The social platform called TeachConnect, which is a service provided by the TeachConnect initiative for pre-service and service teachers, holds personal information about its community members. As such, the TeachConnect initiative in the administration of the TeachConnect social platform is bound by the QUT privacy policy, which can be found <a href="http://www.governance.qut.edu.au/compliance/privacy/">here</a>. 
+					</p>
+
+                    <p><strong>Information we collect and how we use it</strong><br>
+					The TeachConnect platform stores personal information in order to properly and efficiently carry out its functions. The project only uses personal information for the purpose(s) for which it was given to the platform and the wider TeachConnect initiative and for directly related purposes (unless otherwise required by or authorised by law) or as consented to by the individual concerned.</p>
     
-                    <p>Ex legendos democritum assueverit usu. Ne mei efficiantur voluptatibus, mea no torquatos inciderint. Vix te viris civibus, populo patrioque prodesset per an. Hinc tractatos repudiare usu ad. Sit oratio sententiae ne, quod meis dolor an nam.</p>
+                    <p><strong>Communication - Emails and Electronic Forms</strong><br>
+					The TeachConnect platform stores a record your email address if you sign-up. Your email address will not be added to any mailing lists that are not related to the TeachConnect initiative. The information collected by email or electronic forms will be used only for the purpose for which you provided it, and we will not disclose it to anyone outside of the TeachConnect initiative.</p>
     
-                    <p>Dicant copiosae mel an, per ne ancillae accusata petentium. Ex his tempor oporteat, tale torquatos vituperatoribus ne vim, pri et melius apeirian. Pro cu noster bonorum adipiscing, vidisse ornatus torquatos vim at. At novum postea instructior eos, pri eu vivendo assentior. Delicata maluisset an sit.</p>
+                    <p><strong>Cookies</strong><br>
+					A cookie is a small file containing a string of characters on your computer that uniquely identifies your browser. It is information that your web browser sends back to our web site server whenever you visit it again. We use cookies to 'remember' your browser between page visits. In this situation, the cookie identifies your browser, not you personally. No personal information is stored within the cookies of the TeachConnect platform.</p>
     
-                    <p>Est ad doctus luptatum democritum, ex nisl stet voluptatum usu. No vim posse apeirian lucilius, te quis alienum sed. Est no oratio vivendum sententiae. Ad ignota indoctum sit, eos eu munere debitis ancillae, an laoreet theophrastus quo. Et accusam principes instructior pro.</p>
-    
-                    <p>Ius an ferri omnium erroribus, vix integre oblique eleifend ex. No eius erant cum, qui error scriptorem ne, tibique deleniti pro ne. Qui enim postea intellegebat eu, in elitr maluisset vix, ei ius essent lucilius. Quo ne fuisset tacimates. Quod splendide his ex, ei has lorem facilisis interpretaris, qui ut bonorum mediocrem. Te iusto scripta blandit ius, cum ea paulo latine. Tation reprehendunt sit et, cu mei sint efficiendi.</p>
+                    <p><strong>Google Analytics</strong><br>
+					The TeachConnect initiative uses Google Analytics to collect information about visitors to its TeachConnect platform. Google Analytics uses first-party cookies and JavaScript code to help analyse how users use the site. It anonymously tracks how our visitors interact with this website, including how they have accessed the site (for example from a search engine, a link, an advertisement, etc) and what they did on the site. Google will use this information for the purposes of compiling reports on website activity and providing other services relating to website activity and internet usage. You may refuse the use of tracking cookies by selecting the appropriate settings on your browser.</p>
+					
+					<p><strong>Information Security</strong><br>
+					We take all reasonable steps:
+					<ul>
+					<li>To protect the personal information held in our possession against loss, unauthorised access, use, modification, disclosure or misuse; and</li>
+					<li>To ensure that, where we have given personal information to a contractor (that carries out a service on the TeachConnect platform), the contractor complies with our information privacy principles.</li>
+					</p>
+					
+					<p><strong>Data integrity</strong><br>
+					We take reasonable steps to make sure that the personal information we collect and store is accurate, relevant, up-to-date, complete and not misleading.
+					</p>
+					
+					<p><strong>Enforcement</strong><br>
+					The TeachConnect initiative regularly review their compliance with this Policy. If you have any questions/complaints about privacy or confidentiality, or you wish to access or amend your personal information, please email us at: teachconnect@outlook.com
+					</p>
+					
+					<p><strong>Changes to this policy</strong><br>/
+					Please note that this Privacy Policy may change from time to time.
+					</p>
             	</div> 
             </div>
             
