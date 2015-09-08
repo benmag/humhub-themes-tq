@@ -20,11 +20,13 @@ if(count($userSpaces) > 1 && !Yii::app()->params['currentSpace'] && !Yii::app()-
 }
 ?>
 
-<select id="post_to_space" class="selectpicker show-tick form-control" <?php if(!$showSpacePicker) echo "style=\"display: none;\""; ?>>
+<div <?php if(!$showSpacePicker) echo "style='display:none !important;'"; ?>>
+<select id="post_to_space" class="btn-group selectpicker show-tick form-control" <?php if(!$showSpacePicker) echo "style='display:none !important;'"; ?>>
 	<?php echo($showSpacePicker ? "<option value=\"\">Choose a circle</option>" : ""); ?>
 	<?php foreach($userSpaces as $space) { ?>
 		<option value="<?php echo $space->guid; ?>"><?php echo $space->name; ?></option>
 	<?php } ?>
-</select>	
+</select>
+</div>
 
 <?php echo CHtml::textArea("message", '', array('id'=>'contentForm_message', 'class' => 'form-control autosize contentForm', 'rows' => '1', 'placeholder' => Yii::t("PostModule.widgets_views_postForm", "What's on your mind?"))); ?>
