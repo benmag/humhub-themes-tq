@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-xs-12 qanda-profile-timestamp">
-            <small>posted DD/MM/YY at 12:12</small>
+            <small>posted <?php echo $timestamp; ?></small>
         </div>
     </div>
     <div class="row">

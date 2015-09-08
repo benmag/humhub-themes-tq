@@ -100,7 +100,7 @@ function makeClickableLinks($s) {
                             	</div>
                             	</div>
                                 <div class="col-sm-4">
-                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user)); ?>
+                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user, 'timestamp' => $model->created_at)); ?>
                                 </div>
                             </div>
 
@@ -233,7 +233,7 @@ function makeClickableLinks($s) {
                             ?>
                             	</div>
                                 <div class="col-sm-4">
-                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user)); ?>
+                                	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user, 'timestamp' => $question_answer['created_at'])); ?>
                                 </div>
                             </div>
                             
