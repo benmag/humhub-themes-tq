@@ -21,13 +21,13 @@
                                 ?>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <!--<li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sorting<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" class="wallSorting" id="sorting_c"><i class="fa fa-check-square-o"></i> Creation time</a></li>
                                 <li><a href="#" class="wallSorting" id="sorting_u"><i class="fa fa-square-o"></i> Last update</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                         <?php if(Yii::app()->user->isAdmin()) { ?>
                             <li class="dropdown">
                                 <?php echo CHtml::link('Admin', Yii::app()->createUrl('//questionanswer/question/admin'), array()); ?>
