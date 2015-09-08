@@ -202,22 +202,38 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                 
                 <div class="col-lg-3 col-lg-offset-2 col-md-4 col-md-offset-1 text-center" id="contact">
                     <h3>Contact Us</h3>
-                    <form>
+                    <form class="form" id="mailgun" role="form" method="POST"> 
                         <div class="form-group">
-                            <input type="text" class="form-control" id="contactInputName"
-                                   placeholder="Enter your name">
+                            <input type="name" id="name" name="name" class="form-control" placeholder="Name" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" class="form-control" id="contactInputEmail"
-                                   placeholder="Enter your email">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
+
                         <div class="form-group">
-                            <textarea class="form-control" id="contactInputMessage" rows="5"
-                                      placeholder="Enter your message"></textarea>
+                            <textarea id="message" name="message" rows="6" class="form-control" placeholder="Message" required></textarea> 
                         </div>
 
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
+
+                    <!--<form id="email_form" method="post" action="<?php echo Yii::app()->theme->baseUrl; ?>/mail.php">
+                        <div class="form-group">
+                            <input name="email_name" type="text" class="form-control" id="contactInputName"
+                                   placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <input name="email_address" type="email" class="form-control" id="contactInputEmail"
+                                   placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="email_message" class="form-control" id="contactInputMessage" rows="5"
+                                      placeholder="Enter your message"></textarea>
+                        </div>
+
+                        <button id="send_email" type="submit" class="btn btn-primary">Send</button>
+                    </form>-->
                 </div>
                 
             </div>
@@ -637,6 +653,48 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 		dots: true,
 		nav: false
 	  });
+
+        // Submit email
+        var mailgunURL;
+         
+        mailgunURL = '<?php echo Yii::app()->theme->baseUrl; ?>/mail.php';
+         
+        $('#mailgun').on('submit',function(e) {
+          e.preventDefault();
+         
+          $('#mailgun *').fadeOut(200);
+          $('#mailgun').prepend('Your submission is being processed...');
+         
+          $.ajax({
+            type     : 'POST',
+            cache    : false,
+            url      : mailgunURL,
+            data     : $(this).serialize(),
+            success  : function(data) {
+              responseSuccess(data);
+              console.log(data);
+            },
+            error  : function(data) {
+              console.log('Silent failure.');
+            }
+          });
+         
+          return false;
+         
+        });
+         
+        function responseSuccess(data) {
+         
+          data = JSON.parse(data);
+         
+          if(data.status === 'success') {
+            $('#mailgun').html('Submission sent succesfully.');
+          } else {
+            $('#mailgun').html('Submission failed, please contact directly.');
+          }
+         
+        }
+
 	});
 	
 </script>
