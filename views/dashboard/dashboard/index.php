@@ -59,7 +59,7 @@
                                 <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
                                 <h2>Welcome to Teach Connect</h2>
                                 <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-welcome.png">
-								TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others. Teachers tend to be generous in sharing their knowledge. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.
+								TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.
                             </div>
                         </div>
                         <div class="row">
@@ -80,7 +80,8 @@
                                 <h2>Your Private Mentorship Circle</h2>
                                 <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
 
-                                <p>A mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
+                                <p>Your mentorship circle is a private space for you to ask questions & obtain feedback
+                                    about topics that arise during your teaching placement.</p>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">

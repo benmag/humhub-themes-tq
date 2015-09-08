@@ -544,10 +544,10 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 					</p>
 					<p>
 						The TeachConnect platform instance has been developed as a collaboration between Step Up and Connected Communities Research Initiative. Step Up is about transforming mathematics and science pre-service secondary education in Queensland, OLT Grant MS13-3184. The TeachConnect platform instance is powered by the Connected Communities platform. 
-						
+						</p><p>
 						The Connected Communities platform is a product of the Connected Communities Research Initiative conducted by the Service Science Discipline, QUT. The research undertaken by the Connected Communities Research Initiative is partially funded by ARC Linkage Grant LP140101062.
 					</p>
-                    <p>
+					<p>
 						<strong>TeachConnect Development Team</strong>
 					</p>
 					<p>
@@ -572,13 +572,20 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 					<p><a href="http://staff.qut.edu.au/staff/rasmussr/">Rune Rasmussen</a> is a Lecturer at the Queensland University of Technology.</p>
 					
 					<p>
+					Design for TeachConnect provided by <a href="http://huntedhive.com/">HuntedHive</a>.
+					</p>
+					<p>
+					Initial work on the project was made possible by seed funding and support from the Australian Government's "Digital Futures" Collaborative Research Network, USQ.
+					</p>
+                    
+					<p>
 						<strong>References about TeachConnect</strong>
 					</p>
 					<p>
 						<li>Clara M., Kelly N., Mauri T. and Danaher P. (In press). Challenges of teachers’ practice-oriented virtual communities for enabling reflection, Asia-Pacific Journal of Teacher Education </li>
 						<li>Kelly N., Reushle S., Chakrabarty S. and Kinnane A. (2014). Augmenting the support for pre-service teachers into practice through large online communities of knowledge-sharing, Australian Journal of Teacher Education 39(4), pp. 68-82 [<a href="http://ro.ecu.edu.au/ajte/vol39/iss4/4/">link</a>]</li>
 						<li>Kelly, N. (2013). An opportunity to support beginning teachers in the transition from higher education into practice, Proceedings of ASCILITE 2013, Sydney [<a href="http://eprints.usq.edu.au/24188">link</a>]</li>
-						<li></li>
+						
 					</p>
             	</div> 
             </div>
