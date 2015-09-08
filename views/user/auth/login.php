@@ -111,7 +111,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row quote-section">
         <div class="col-xs-12" id="quotes">
         	<img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png">
-            <?php include("quotes.php"); ?> 
+            <?php $this->renderPartial('//quotes/quotes', array()); ?> 
         </div>
 
     </div>
