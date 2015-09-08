@@ -123,10 +123,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="col-md-5 col-md-offset-1 col-sm-12 text-left about-section-text" id="about">
             <h2>Welcome to your teaching community</h2>
 
-            <p>TeachConnect is an altruistic network of all pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers.<br />
+            <p>TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers.<br />
 			<br />
-			TeachConnect is a simple idea - a platform to let you talk to similar teachers and to connect to experienced mentor teachers. Teachers tend to be generous in sharing knowledge with each other freely - it's just what they do. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.<br /><br />
-			As teachers, we love to help each other out. TeachConnect is about making sure that this expertise is re-used as much as possible.
+			TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others. Teachers tend to be generous in sharing their knowledge. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.
 			</p>
         </div>
         <div class="col-md-6 col-sm-12 about-section-img"></div>
@@ -146,7 +145,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12 text-center">
             <h3>Mentorship Circles</h3>
-            <p>The mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
+            <p>A mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the Community</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
@@ -168,7 +167,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12">
             <h3>Best of both worlds</h3>
-            <p>In TeachConnect you get the best of both worlds: a private circle of teachers to reflect upon practice in a closed space with people that you trust, and a large community ready to answer anything you may want to ask.</p>
+            <p>In TeachConnect you get the best of both worlds: a private circle of trusted colleagues, and a large public community ready to answer anything you may want to ask.</p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your Peers</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">

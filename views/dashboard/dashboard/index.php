@@ -59,13 +59,7 @@
                                 <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
                                 <h2>Welcome to Teach Connect</h2>
                                 <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-welcome.png">
-
-                                <p>TeachConnect is completely free altruistic network of all the teachers in QLD that
-                                    are going to educate the next generation. We're trying to do everything that we can
-                                    to setup the site with a positive culture, to remind teachers of the importance and
-                                    the possibilities of education. And at the same time remove ourselves from having a
-                                    presence - we're trying to facilitate, not control this service.</p>
-
+								TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others. Teachers tend to be generous in sharing their knowledge. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.
                             </div>
                         </div>
                         <div class="row">
@@ -86,8 +80,7 @@
                                 <h2>Your Private Mentorship Circle</h2>
                                 <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
 
-                                <p>Your mentorship circle is a private space for you to ask questions & obtain feedback
-                                    about topics that arise during your teaching placement.</p>
+                                <p>A mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
