@@ -30,11 +30,17 @@
             placement: "bottom"
         },
         {
-            element: ".dropdown.account",
-            title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Account</strong> Menu')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'The account menu gives you access to your private settings and allows you to manage your profile.<br><br>The next guide will show you your mentorship circle:')); ?> + "<br><br><a href='javascript:gotoSpace = true; tourCompleted();'><?php echo Yii::t("TourModule.widgets_views_index", "<strong>Start</strong> space guide"); ?></a><br><br>",
-            placement: "bottom"
-        }
+			element: ".dropdown.account",
+			title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Account</strong> Menu')); ?>,
+			content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'The account menu gives you access to your private settings and allows you to manage your public profile.')); ?>,
+			placement: "bottom"
+		},
+		{
+			element: "#space-menu",
+			title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Circle</strong> Menu')); ?>,
+			content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'This is another way to access your mentorship circle.<br><br>The next guide will show you what you can do in your circle:')); ?> + "<br><br><a href='javascript:gotoSpace = true; tourCompleted();'><?php echo Yii::t("TourModule.widgets_views_index", "<strong>Start</strong> space guide"); ?></a><br><br>",
+			placement: "bottom"
+		}
     ]);
 
     // Initialize tour plugin
