@@ -30,11 +30,11 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a onclick="$('#about').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
-                	What is Teach Connect</a></li>
+                	What is TeachConnect?</a></li>
                 <li><a onclick="$('#community').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
                 	What the community offers</a></li>
                 <li><a onclick="$('#contact').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
-                	Contact Us</a></li>
+                	Contact us</a></li>
                 <li>
                     <form class="navbar-form navbar-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister">
@@ -188,7 +188,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p>Have something about TeachConnect that you want to discuss with us? Whether it’s ideas, suggestions or problems, don’t hesitate to get in touch with us on teachconnect@outlook.com or just use the form to the right - we’ll get back to you soon.</p>
+                            <p>Have something about TeachConnect that you want to discuss with us? Whether it’s ideas, suggestions or problems, don’t hesitate to get in touch with us on <a href="mailto:teachconnect@outlook.edu.au?Subject=TeachConnect%20Feedback" target="_top">teachconnect@outlook.edu.au</a> or just use the form to the right - we’ll get back to you soon.</p>
 							
 							<p>
 							TeachConnect is an inclusive collaboration of many stakeholders, all of whom have an interest in helping teachers. If you or your organisation want to take part, then do get in touch. 
@@ -417,7 +417,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 					</p>
 					
 					<p><strong>Enforcement</strong><br>
-					The TeachConnect initiative regularly review their compliance with this Policy. If you have any questions/complaints about privacy or confidentiality, or you wish to access or amend your personal information, please email us at: teachconnect@outlook.com
+					The TeachConnect initiative regularly review their compliance with this Policy. If you have any questions/complaints about privacy or confidentiality, or you wish to access or amend your personal information, please email us at: <a href="mailto:teachconnect@outlook.edu.au?Subject=TeachConnect%20Feedback" target="_top">teachconnect@outlook.edu.au</a>
 					</p>
 					
 					<p><strong>Changes to this policy</strong><br>/
@@ -529,7 +529,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
             	<hr>
                 <div class="modal-body-scroll">
 					<p>
-						TeachConnect is a broad and growing collaboration of teachers and academics across Queensland. The project is about facilitating an online network of as many stakeholders as possible, to best help teachers to transition from university into service. If you wish to be a part of TeachConnect then do get in touch with us on teachconnect@outlook.com - we'd love to hear from you.
+						TeachConnect is a broad and growing collaboration of teachers and academics across Queensland. The project is about facilitating an online network of as many stakeholders as possible, to best help teachers to transition from university into service. If you wish to be a part of TeachConnect then do get in touch with us on <a href="mailto:teachconnect@outlook.edu.au?Subject=TeachConnect%20Feedback" target="_top">teachconnect@outlook.edu.au</a> - we'd love to hear from you.
 					</p>
 					<p>
 						TeachConnect is made possible by the <a href="http://stepup.edu.au">Step Up</a> project and the <a href="https://www.qct.edu.au/">Queensland College of Teachers</a>. The universities currently taking part in TeachConnect are:
