@@ -32,13 +32,13 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                 <li class="active"><a onclick="$('#about').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
                 	What is Teach Connect</a></li>
                 <li><a onclick="$('#community').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
-                	What the Community Offers</a></li>
+                	What the community offers</a></li>
                 <li><a onclick="$('#contact').animatescroll({padding:50, scrollSpeed:1000,easing:'easeInOutCirc'});">
                 	Contact Us</a></li>
                 <li>
                     <form class="navbar-form navbar-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegister">
-                            Join the Community
+                            Join the community
                         </button>
                     </form>
                 </li>
@@ -125,7 +125,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 
             <p>TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers.<br />
 			<br />
-			TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others. Teachers tend to be generous in sharing their knowledge. TeachConnect is about making sure that this knowledge can be re-used. It’s about the people and the community, facilitated by design.
+			TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others. Teachers tend to be generous in sharing their knowledge. TeachConnect is about making sure that this knowledge can be re-used by the whole community of Queensland teachers - today and tomorrow.
 			</p>
         </div>
         <div class="col-md-6 col-sm-12 about-section-img"></div>
