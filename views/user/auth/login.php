@@ -144,9 +144,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-xs-12 text-center">
-            <h3>Mentorship Circles</h3>
+            <h3>Mentorship circles</h3>
             <p>A mentorship circle is a private space to chat with a small group of peers and experienced teachers about anything and everything teaching related.</p>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the Community</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Join the community</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
             <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
@@ -155,9 +155,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     
     <div class="row row-padding-md">
         <div class="col-sm-4 col-sm-offset-1 col-sm-push-6 col-xs-12">
-            <h3>Q&amp;A Forum</h3>
+            <h3>Q&amp;A forum</h3>
             <p>We’re building up a searchable repository of teaching knowledge for you to ask for, find and discuss valuable information.</p>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Ask your Questions</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Ask your questions</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-sm-pull-6 col-xs-12">
         	<img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-2.png">
@@ -168,7 +168,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="col-sm-4 col-sm-offset-1 col-xs-12">
             <h3>Best of both worlds</h3>
             <p>In TeachConnect you get the best of both worlds: a private circle of trusted colleagues, and a large public community ready to answer anything you may want to ask.</p>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your Peers</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRegister">Connect with your peers</button>
         </div>
         <div class="col-sm-3 col-sm-offset-2 col-xs-12">
             <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-3.png">
