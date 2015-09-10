@@ -73,7 +73,7 @@ function makeClickableLinks($s) {
 
                         <div class="media-body" style="padding-top:5px; ">
                             <h3 class="media-heading">
-                                <?php echo CHtml::link(CHtml::encode($model->post_title), Yii::app()->createUrl('//questionanswer/main/view', array('id' => $model->id))); ?>
+                                <?php echo CHtml::link(CHtml::encode($model->post_title), Yii::app()->createUrl('//questionanswer/question/view', array('id' => $model->id))); ?>
                             </h3>
                             <?php echo nl2br(makeClickableLinks(CHtml::encode($model->post_text))); ?>
                             <div class="row qanda-details-padding">
@@ -322,7 +322,7 @@ function makeClickableLinks($s) {
                 <?php if(count($related) > 0) { ?>
                     <div class="list-group">
                         <?php foreach ($related as $question) { ?>
-                            <a class="list-group-item" href="<?php echo Yii::app()->createUrl('//questionanswer/main/view', array('id' => $question['id'])); ?>"><?php echo CHtml::encode($question['post_title']); ?></a>
+                            <a class="list-group-item" href="<?php echo Yii::app()->createUrl('//questionanswer/question/view', array('id' => $question['id'])); ?>"><?php echo CHtml::encode($question['post_title']); ?></a>
                         <?php } ?>
                     </div>
                     <br>
