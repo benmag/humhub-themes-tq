@@ -417,7 +417,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 					</p>
 					
 					<p><strong>Enforcement</strong><br>
-					The TeachConnect initiative regularly review their compliance with this Policy. If you have any questions/complaints about privacy or confidentiality, or you wish to access or amend your personal information, please email us at: <a href="mailto:teachconnect@outlook.edu.au?Subject=TeachConnect%20Feedback" target="_top">teachconnect@outlook.edu.au</a>
+					The TeachConnect initiative regularly review their compliance with this Policy. If you have any questions/complaints about privacy or confidentiality, or you wish to access or amend your personal information, please email us at: <a href="mailto:teachconnect@outlook.com?Subject=TeachConnect%20Feedback" target="_top">teachconnect@outlook.com</a>
 					</p>
 					
 					<p><strong>Changes to this policy</strong><br>/
