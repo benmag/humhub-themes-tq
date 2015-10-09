@@ -74,9 +74,9 @@
     <script type="text/javascript"
             src="<?php echo Yii::app()->baseUrl; ?>/js/jquery.color-2.1.0.min.js?ver=<?php echo $ver; ?>"></script>
             
+         
     <!-- start: render additional head (css and js files) -->
     <?php $this->renderPartial('//layouts/head'); ?>
-
     <!-- end: render additional head -->
 
     <!-- Global app functions -->

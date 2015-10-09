@@ -74,8 +74,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <?php echo CHtml::submitButton(Yii::t('UserModule.views_auth_login', 'Sign in'), array('class' =>
-                        'btn btn-large btn-primary')); ?>
+                        	<?php echo CHtml::submitButton(Yii::t('UserModule.views_auth_login', 'Sign in'), array('class' =>'btn btn-large btn-primary')); ?>
                     </div>
                     <?php echo $form->error($model, 'username'); ?>
 					<?php echo $form->error($model, 'password'); ?>
@@ -121,6 +120,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 
     <div class="row-fluid">
         <div class="col-md-5 col-md-offset-1 col-sm-12 text-left about-section-text" id="about">
+            
             <h2>Welcome to your teaching community</h2>
 
             <p>TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers.<br />
