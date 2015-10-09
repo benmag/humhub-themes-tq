@@ -125,11 +125,15 @@
 
         <div class="notifications pull-right">
 
+            <span data-toggle="tooltip" data-placement="bottom" title="View your latest notifications">
             <!-- global notifications dropdown -->
-            <?php $this->widget('application.modules_core.notification.widgets.NotificationListWidget'); ?>
+            	<?php $this->widget('application.modules_core.notification.widgets.NotificationListWidget'); ?>
+            </span>
 
+			<span data-toggle="tooltip" data-placement="bottom" title="View your latest messages">
             <!-- Notification addon widget for modules -->
-            <?php $this->widget('application.widgets.NotificationAddonWidget', array('widgets' => array())); ?>
+            	<?php $this->widget('application.widgets.NotificationAddonWidget', array('widgets' => array())); ?>
+          	</span>
 
         </div>
 
@@ -151,7 +155,7 @@
         </ul>
      
 
-        <ul class="nav pull-right" id="search-menu-nav">
+        <ul class="nav pull-right" id="search-menu-nav" data-toggle="tooltip" data-placement="bottom" title="Search for posts and users in TeachConnect">
             <li class="dropdown">
                 <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span> 		

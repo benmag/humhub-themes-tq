@@ -10,25 +10,35 @@
 <?php foreach ($this->getItems() as $item) :
     
     $item['style'] = "";
+	$item['title'] = "";
 
     // Apply custom (hardcoded) overwrites to menu items
     switch($item['label']) {
         case "Dashboard":
             $item['label'] = "Home";
+			$item['title'] = "title=\"Access your home dashboard news feed\"";
         break;
 
         case "Directory":
             $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
+		
+		case "Messages":
+            $item['title'] = "title=\"Access your message inbox\"";
+        break;
+		
+		case "Q&A":
+            $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+        break;
     }
 
     ?>
 
-    <li class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
+    <li data-toggle="tooltip" data-placement="bottom" class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
     }
-    ?>" <?php echo $item['style']; ?>>
+    ?>" <?php echo $item['style']; ?> <?php echo $item['title']; ?>>
             <?php echo HHtml::link($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
     </li>
 <?php endforeach; ?>
