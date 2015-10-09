@@ -149,11 +149,13 @@
             <!-- load navigation from widget -->
             <?php $this->widget('application.widgets.TopMenuWidget', array()); ?>
         </ul>
+     
 
         <ul class="nav pull-right" id="search-menu-nav">
             <li class="dropdown">
                 <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-search"></i></a>
+                    <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span> 		
+                </a>
                 <ul class="dropdown-menu pull-right" id="search-menu-dropdown">
                     <?php
                     $this->widget('application.widgets.TopMenuRightStackWidget', array(
