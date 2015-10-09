@@ -246,7 +246,7 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         <div class="container row-padding-sm">
             <div class="row">
                 <div class="cox-xs-12">
-                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | | <a data-toggle="modal" data-target="#modalWhoAreWe">who are we?</a> | powered by Connected Communities</p>
+                    <p>&copy; TeachConnect 2015 | <a data-toggle="modal" data-target="#modalPrivacy">privacy policy</a> | <a  data-toggle="modal" data-target="#modalTerms">terms &amp; conditions</a> | <a data-toggle="modal" data-target="#modalWhoAreWe">who are we?</a> | powered by Connected Communities</p>
                 </div>
             </div>
         </div>
