@@ -65,6 +65,10 @@ body {
   font-family: @font-family;
 }
 
+.container{
+	min-width:320px;
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
   font-family: @font-family;
   font-weight: 400;
@@ -1487,5 +1491,48 @@ ul.yiiPager .selected a {
   .modal-footer .col-sm-6{
 	  margin-bottom:5px;
   }
+  
+  // Responsive Profile Headers
+  
+  .panel-profile .panel-profile-header .img-profile-data h1, .panel-profile .panel-profile-header .img-profile-data h2.space {
+	white-space:normal;
+	overflow:visible;	
+	max-width:none;
+}
 
+.panel-profile .panel-profile-header .img-profile-data {
+    height: auto;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    padding:10px;
+    text-align: left;
+	padding-left:100px;
+}
+
+.panel-profile .panel-profile-header .profile-user-photo-container {
+	width:70px !important;
+	height: 70px !important;
+}
+
+.panel-profile .panel-profile-header .profile-user-photo-container img {
+	width:100% !important;
+	height:100% !important;
+}
+
+.img-profile-header-background-qanda {
+    max-height: 105px;
+}
+
+.panel-profile .panel-profile-header .profile-user-photo-container {
+    bottom: -35px;
+}
+
+}
+
+@media (max-width: 480px) {
+	.panel-profile .panel-profile-header .img-profile-data h2.space {
+		display:none;
+	}
+	
 }
