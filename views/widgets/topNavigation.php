@@ -34,7 +34,7 @@
 
     ?>
 
-    <li data-toggle="tooltip" data-placement="bottom" class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
+    <li class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
     }

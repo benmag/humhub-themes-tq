@@ -1,4 +1,4 @@
-<li class="dropdown" data-toggle="tooltip" data-placement="bottom" title="Access your private mentorship circles">
+<li class="dropdown" title="Access your private mentorship circles">
 	
         <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
             <!-- start: Show space image and name if chosen -->
