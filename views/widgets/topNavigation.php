@@ -27,8 +27,16 @@
             $item['title'] = "title=\"Access your message inbox\"";
         break;
 		
+		case "About":
+			$item['title'] = "title=\"About the site and contact details\"";
+        break;
+		
 		case "Q&A":
             $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+        break;
+		
+		case "Privacy Policy":
+            $item['title'] = "title=\"TeachConnect privacy policy\"";
         break;
     }
 
