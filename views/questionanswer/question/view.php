@@ -1,11 +1,6 @@
 <?php
 /* @var $this QuestionController */
 /* @var $model Question */
-
-function makeClickableLinks($s) {
-  return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a href="$1" target="_blank">$1</a>', $s);
-}
-
 ?>
 
 <div class="container">
@@ -75,14 +70,15 @@ function makeClickableLinks($s) {
                             <h3 class="media-heading">
                                 <?php echo CHtml::link(CHtml::encode($model->post_title), Yii::app()->createUrl('//questionanswer/question/view', array('id' => $model->id))); ?>
                             </h3>
-                            <?php echo nl2br(makeClickableLinks(CHtml::encode($model->post_text))); ?>
+                            <?php print HHtml::enrichText($model->post_text); ?>
+                            <?php $this->widget('application.modules_core.file.widgets.ShowFilesWidget', array('object' => $model)); ?>
                             <div class="row qanda-details-padding">
                             	<div class="col-sm-8">
                                 	<div class="row">
                                     	<div class="col-sm-12">
-									<?php foreach($model->tags as $tag) { ?>
-                                        <span class="label label-default tag6"><a href="<?php echo $this->createUrl('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
-                                    <?php } ?>
+									    <?php foreach($model->tags as $tag) { ?>
+                                            <span class="label label-default tag6"><a href="<?php echo $this->createUrl('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
+                                        <?php } ?>
                                     	</div>
                                         <div class="col-sm-12">
                                         	<?php 
@@ -96,8 +92,9 @@ function makeClickableLinks($s) {
                                                 'csrf'=>true,
                                                 'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
                                             } ?>
-                            	</div>
-                            	</div>
+                            	       </div>
+                            	   </div>
+                            
                             	</div>
                                 <div class="col-sm-4">
                                 	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $model->user, 'timestamp' => $model->created_at)); ?>
@@ -203,35 +200,35 @@ function makeClickableLinks($s) {
                         
                         
                         <div class="media-body" style="padding-top:5px; ">
-                            <?php 
-                            echo nl2br(CHtml::encode($question_answer['post_text']));
-							?>
-							
-                            
+                            <?php print HHtml::enrichText($question_answer['post_text']); ?>
+                            <?php
+                            $answerModel = Answer::model()->findByPk($question_answer['id']);
+                            ?>
                             <div class="row qanda-details-padding">
                             	<div class="col-sm-8">
+                                    <?php $this->widget('application.modules_core.file.widgets.ShowFilesWidget', array('object' => $answerModel)); ?>
                                 	<?php
-                            if(Yii::app()->user->isAdmin() || $question_answer['created_by'] == Yii::app()->user->id) {
-                                echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/answer/update', 'id'=>$question_answer['id'])); 
-                            }
+                                    if(Yii::app()->user->isAdmin() || $question_answer['created_by'] == Yii::app()->user->id) {
+                                        echo CHtml::link("<div class='qanda-button pull-left'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/answer/update', 'id'=>$question_answer['id'])); 
+                                    }
 
-                            if(Yii::app()->user->isAdmin()) {
-                                echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
-                                'submit'=>$this->createUrl('//questionanswer/answer/delete',array('id'=>$question_answer['id'])),
-                                'confirm'=>"Are you sure want to delete?",
-                                'csrf'=>true,
-                                'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
-                            }
-                            
-                            echo "<br /><br />";
+                                    if(Yii::app()->user->isAdmin()) {
+                                        echo CHtml::linkButton('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>',array(
+                                        'submit'=>$this->createUrl('//questionanswer/answer/delete',array('id'=>$question_answer['id'])),
+                                        'confirm'=>"Are you sure want to delete?",
+                                        'csrf'=>true,
+                                        'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
+                                    }
+                                    
+                                    echo "<br /><br />";
 
-                            $this->widget('application.modules.questionanswer.widgets.BestAnswerWidget', array(
-                                'post_id' => $question_answer['id'], 
-                                'author' => $author, 
-                                'model' => new QuestionVotes, 
-                                'accepted_answer' => ($question_answer['answer_status'] ? true : false)
-                            ));
-                            ?>
+                                    $this->widget('application.modules.questionanswer.widgets.BestAnswerWidget', array(
+                                        'post_id' => $question_answer['id'], 
+                                        'author' => $author, 
+                                        'model' => new QuestionVotes, 
+                                        'accepted_answer' => ($question_answer['answer_status'] ? true : false)
+                                    ));
+                                    ?>
                             	</div>
                                 <div class="col-sm-4">
                                 	<?php $this->widget('application.modules.questionanswer.widgets.ProfileWidget', array('user' => $user, 'timestamp' => $question_answer['created_at'])); ?>
@@ -240,15 +237,17 @@ function makeClickableLinks($s) {
                             
                             
                             <div class='qanda-comments-panel'>
-                            <?php $comments = Answer::model()->findByPk($question_answer['id'])->comments;
+                            <?php
+                            $comments = $answerModel->comments;
 							echo "<h5 style='padding-left:4px;'>";
 							echo count($comments);
 							echo " Comments</h5>";
+                            
                             if($comments) {
                                 
                                 foreach($comments as $comment) {
                                     echo '<div style="border-bottom:1px solid #d8d8d8; padding: 4px;">';
-                                    echo $comment->post_text;
+                                    print HHtml::enrichText($comment->post_text);
 									echo '<div class="row"><div class="col-sm-6">';
 									echo "<a class='display-name' href=\"". $this->createUrl('//user/profile', array('uguid' => $comment->user->guid)) . "\">" . $comment->user->displayName . "</a>";
                                     echo " &bull; ".date('Y-m-d H:i:s', strtotime($comment->created_at)); 
