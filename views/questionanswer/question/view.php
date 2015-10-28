@@ -54,7 +54,6 @@
                         
                                 ?>
 
-
                                 <?php $this->widget('application.modules.questionanswer.widgets.VoteButtonWidget', array('post_id' => $model->id, 'model' => new QuestionVotes, 'vote_on' => 'question', 'vote_type' => 'up', 'class' => $upBtnClass, 'should_open_question' => 1));  ?>
                                 <div class="text-center"><strong>
                                 <?php echo QuestionVotes::model()->score($model->id); ?>
@@ -92,6 +91,11 @@
                                                 'csrf'=>true,
                                                 'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
                                             } ?>
+                                            <?php
+                                            $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
+                                                'content' => $model
+                                            ));
+                                            ?>
                             	       </div>
                             	   </div>
                             
