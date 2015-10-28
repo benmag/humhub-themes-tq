@@ -2,7 +2,7 @@
     <?php
     $object = $reportedContent->getSource();
     if(get_class($object) == "Question") {
-        echo CHtml::link("View", $object::model()->getUrl(array('id'=>$object->id)));
+        echo CHtml::link("View", $object::model()->getUrl(array('id'=>$object->id)), array('class' => 'btn btn-primary'));
     } else { ?>
         <p id="content-message-<?php echo $reportedContent->id?>" style="display: inline;" class="contentAnchor">
             <?php print HHtml::enrichText($reportedContent->getSource()->message) ?>
