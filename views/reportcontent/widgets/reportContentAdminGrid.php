@@ -24,7 +24,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'htmlOptions' => array('style'=> 'font-weight:bold', 'valign' => 'middle')
         ),
         array(
-            'value' => 'CHtml::image($data->content->user->profileImage->getUrl(), "48x48", array("style"=>"height:48px; width:48px"))',
+            'value' => 'CHtml::image($data->user->profileImage->getUrl(), "48x48", array("style"=>"height:48px; width:48px"))',
             'type' => 'raw',
             'htmlOptions' => array('width' => '48px'),
         ),
