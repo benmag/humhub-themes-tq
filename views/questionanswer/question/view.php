@@ -92,9 +92,11 @@
                                                 'params'=> array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken)));
                                             } ?>
                                             <?php
-                                            $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
-                                                'content' => $model
-                                            ));
+                                            if($model->reportModuleEnabled()) {
+                                                $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
+                                                    'content' => $model
+                                                ));
+                                            }
                                             ?>
                             	       </div>
                             	   </div>
