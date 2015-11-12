@@ -605,9 +605,29 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
 
 <script type="text/javascript">
     
+    /**
+     * Check to see if IE is being used
+     */
+     function IECheck() {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+            // If Internet Explorer, return version number
+            var IEVersion = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+
+            alert("Unfortunately you will not be able to register using Internet Explorer at this time. Please use another browser such as Chrome or Firefox whilst we work on a fixing TeachConnect for Internet Explorer.")
+        }
+        
+        return false;
+    }
+
     $(function() {
         // set cursor to login field
         $('#login_username').focus();
+
+        IECheck();
+            
     })
 
     // Shake panel after wrong validation
