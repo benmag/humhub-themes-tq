@@ -284,6 +284,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                 ));
                 ?>
                 
+                <div id="ie-alert-message" class="alert alert-danger" style="display:none;">
+                    Unfortunately you will not be able to register using Internet Explorer at this time. Please use another browser such as Chrome or Firefox whilst we work on fixing TeachConnect for Internet Explorer.
+                </div>
                 <div class="row">
                     <div class="form-group col-sm-8 col-sm-offset-2">
                     	<input class="form-control" id="register-email" required placeholder="Enter your email" name="AccountRegisterForm[email]" value="" type="email">
@@ -615,8 +618,10 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
             // If Internet Explorer, return version number
             var IEVersion = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+            $("#ie-alert-message").show();
 
-            alert("Unfortunately you will not be able to register using Internet Explorer at this time. Please use another browser such as Chrome or Firefox whilst we work on a fixing TeachConnect for Internet Explorer.")
+        } else {
+            $("#ie-alert-message").hide();
         }
         
         return false;
