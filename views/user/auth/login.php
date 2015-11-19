@@ -270,29 +270,38 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
                     Join</strong> the TeachConnect Community') ?></h3>
             </div>
             
+            <?php if ($canRegister) : ?>
+                <?php
+                $form = $this->beginWidget('CActiveForm', array(
+                'id' => 'account-register-form',
+                'enableAjaxValidation' => false
+                ));
+                ?>
             <div class="modal-body">
 
-                <?php if ($canRegister) : ?>
 
                 <p class="text-center">
                     <?php echo Yii::t('UserModule.views_auth_login', "Join the community by entering your e-mail address below."); ?>
                 </p>
-                <?php
-                $form = $this->beginWidget('CActiveForm', array(
-                'id' => 'account-register-form',
-                'enableAjaxValidation' => false,
-                ));
-                ?>
                 
                 <div id="ie-alert-message" class="alert alert-danger" style="display:none;">
                     Unfortunately you will not be able to register using Internet Explorer at this time. Please use another browser such as Chrome or Firefox whilst we work on fixing TeachConnect for Internet Explorer.
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-8 col-sm-offset-2">
-                    	<input class="form-control" id="register-email" required placeholder="Enter your email" name="AccountRegisterForm[email]" value="" type="email">
+                    	<!-- <input class="form-control" id="register-email" required placeholder="Enter your email" name="AccountRegisterForm[email]" value="" type="email"> -->
                         
-                        <!-- <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control', 'id' => 'register-email','required', 'placeholder' => Yii::t('UserModule.views_auth_login', 'Enter your email'))); ?> <?php echo $form->error($registerModel, 'Enter your email'); ?> -->
-                        
+                        <?php echo $form->textField($registerModel, 'email', 
+                            array(
+                                'class' => 'form-control', 
+                                'id' => 'register-email',
+                                'required' => 'true',
+                                'type' => 'email',
+                                'placeholder' => Yii::t('UserModule.views_auth_login', 'email')
+                                )
+                            );
+                        ?>
+                        <?php echo $form->error($registerModel, 'email'); ?>
                     </div>
                 </div>
                 
@@ -631,8 +640,11 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
         // set cursor to login field
         $('#login_username').focus();
 
-        IECheck();
-            
+        //IECheck();
+
+        <?php if(strlen($form->error($registerModel, 'email')) > 0){ ?>
+            $('#modalRegister').modal('show');
+        <?php } ?>
     })
 
     // Shake panel after wrong validation
