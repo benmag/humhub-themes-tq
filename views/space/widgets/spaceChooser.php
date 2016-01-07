@@ -1,16 +1,28 @@
+<?php
+/* @var $this \humhub\components\WebView */
+/* @var $currentSpace \humhub\modules\space\models\Space */
+
+use yii\helpers\Url;
+use yii\helpers\Html;
+use humhub\libs\Helpers;
+
+$this->registerJsFile("@web/resources/space/spacechooser.js");
+$this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
+?>
+
 <li class="dropdown" title="Access your private mentorship circles">
 	
         <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
             <!-- start: Show space image and name if chosen -->
-            <?php if (Yii::app()->params['currentSpace']) { ?>
+            <?php if ($currentSpace) { ?>
                 <img
-                    src="<?php echo Yii::app()->params['currentSpace']->getProfileImage()->getUrl(); ?>"
+                    src="<?php echo $currentSpace->getProfileImage()->getUrl(); ?>"
                     width="32" height="32" alt="32x32" data-src="holder.js/24x24"
                     style="width: 32px; height: 32px; margin-right: 3px; margin-top: 3px;" class="img-rounded"/>
                 <?php } ?>
     
             <?php
-            if (Yii::app()->params['currentSpace']) {
+            if ($currentSpace) {
             } else {
                 echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'My circles');
             }
@@ -44,11 +56,11 @@
                 </li>
             </ul>
         </li>
-        <?php if (Yii::app()->user->canCreateSpace()): ?>
+        <?php if ($canCreateSpace): ?>
             <li>
                 <div class="dropdown-footer">
                     <?php
-                    echo CHtml::link(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), $this->createUrl('//space/create/create'), array('class' => 'btn btn-info col-md-12', 'data-toggle' => 'modal', 'data-target' => '#globalModal'));
+                    echo Html::a(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), Url::to(['/space/create/create']), array('class' => 'btn btn-info col-md-12', 'data-target' => '#globalModal'));
                     ?>
                 </div>
             </li>
