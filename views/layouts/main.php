@@ -131,26 +131,32 @@ $foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\m
 <div id="topbar-first" class="topbar">
     <div class="container">
         <div class="topbar-brand hidden-xs">
-            <?php $this->widget('application.widgets.LogoWidget', array()); ?>
+            <?php echo \humhub\widgets\SiteLogo::widget(); ?>
         </div>
 
         <div class="topbar-actions pull-right">
-            <?php $this->widget('application.modules_core.user.widgets.AccountTopMenuWidget'); ?>
+            <?php echo \humhub\modules\user\widgets\AccountTopMenu::widget(); ?>
         </div>
 
         <div class="notifications pull-right">
 
-            <span title="View your latest notifications">
-            <!-- global notifications dropdown -->
-            	<?php $this->widget('application.modules_core.notification.widgets.NotificationListWidget'); ?>
-            </span>
+            <?php
+            echo \humhub\widgets\NotificationArea::widget(['widgets' => [
+                [\humhub\modules\notification\widgets\Overview::className(), [], ['sortOrder' => 10]],
+            ]]);
+            ?>
 
-			<span title="View your latest messages">
-            <!-- Notification addon widget for modules -->
-            	<?php $this->widget('application.widgets.NotificationAddonWidget', array('widgets' => array())); ?>
-          	</span>
 
         </div>
+
+<!--        <div class="notifications pull-right">-->
+<!---->
+<!--			<span title="View your latest messages">-->
+<!--            <!-- Notification addon widget for modules -->-->
+<!--            	--><?php //$this->widget('application.widgets.NotificationAddonWidget', array('widgets' => array())); ?>
+<!--          	</span>-->
+<!---->
+<!--        </div>-->
 
     </div>
 
