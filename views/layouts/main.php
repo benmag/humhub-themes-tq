@@ -169,10 +169,10 @@ $foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\m
     <div class="container">
         <ul class="nav ">
             <!-- load space chooser widget -->
-            <?php $this->widget('application.modules_core.space.widgets.SpaceChooserWidget', array()); ?>
+            <?php echo \humhub\modules\space\widgets\Chooser::widget(); ?>
 
             <!-- load navigation from widget -->
-            <?php $this->widget('application.widgets.TopMenuWidget', array()); ?>
+            <?php echo \humhub\widgets\TopMenu::widget(); ?>
         </ul>
      
 
@@ -182,13 +182,7 @@ $foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\m
                     <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span> 		
                 </a>
                 <ul class="dropdown-menu pull-right" id="search-menu-dropdown">
-                    <?php
-                    $this->widget('application.widgets.TopMenuRightStackWidget', array(
-                        'widgets' => array(
-                            array('application.modules.extend_search.widgets.SearchMenuWidget', array())
-                        )
-                    ));
-                    ?>
+                    <?php echo \humhub\widgets\TopMenuRightStack::widget(); ?>
                 </ul>
             </li>
         </ul>
@@ -230,6 +224,6 @@ $foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\m
     $('body').find(':checkbox, :radio').flatelements();
 </script>
 
-<?php echo HSetting::GetText('trackingHtmlCode'); ?>
+<?php echo humhub\models\Setting::GetText('trackingHtmlCode'); ?>
 </body>
 </html>
