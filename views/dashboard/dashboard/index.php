@@ -7,20 +7,14 @@
             }
             ?>
 
-            <?php echo humhub\modules\content\widgets\Stream::widget([
+            <?php
+            echo humhub\modules\content\widgets\Stream::widget([
                 'streamAction' => '//dashboard/dashboard/stream',
                 'showFilters' => false,
                 'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index',
                     '<b>Your dashboard is empty!</b><br>Post
 					something on your profile or join some spaces!'),
             ]);
-                /*
-				$this->widget('application.modules_core.wall.widgets.StreamWidget', array(
-					'streamAction' => '//dashboard/dashboard/stream',
-					'showFilters' => false,
-					'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index', '<b>Your dashboard is empty!</b><br>Post
-					something on your profile or join some spaces!'),
-				)); */
             ?>
         </div>
         <div class="col-md-4">
@@ -35,12 +29,10 @@
             </div>
 
             <?php
-				$this->widget('application.modules_core.dashboard.widgets.DashboardSidebarWidget', array(
-					'widgets' => array(
-						array('application.modules_core.activity.widgets.ActivityStreamWidget', array('streamAction' =>
-						'//dashboard/dashboard/stream'), array('sortOrder' => 10)),
-					)
-				));
+            echo \humhub\modules\dashboard\widgets\Sidebar::widget(['widgets' => [
+                [\humhub\modules\activity\widgets\Stream::className(),
+                    ['streamAction' => '/dashboard/dashboard/stream'], ['sortOrder' => 150]]
+            ]]);
             ?>
         </div>
     </div>
