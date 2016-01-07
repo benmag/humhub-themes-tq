@@ -116,7 +116,13 @@ AppAsset::register($this);
 </head>
 
 <body>
-<?php if (Yii::app()->user->getModel()->getSetting("enable_html5_desktop_notifications", 'core', HSetting::Get('enable_html5_desktop_notifications', 'notification'))) : ?>
+<?php
+$user = Yii::$app->user->getIdentity();
+$foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\models\Setting::Get('enable_html5_desktop_notifications', 'notification'));
+
+?>
+
+<?php if ($foo) : ?>
     <script type="text/javascript" src="<?php echo Yii::getAlias("@web"); ?>/js/desktop-notify-min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::getAlias("@web"); ?>/js/desktop-notify-config.js"></script>
 <?php endif; ?>
