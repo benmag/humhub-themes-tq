@@ -57,7 +57,7 @@
                             <div class="col-xs-12">
                                 <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
                                 <h2>Welcome to Teach Connect</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-welcome.png">
+                                <img class="img-responsive" src="<?php echo $this->theme->baseUrl; ?>/img/tc-welcome.png">
 								TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             <div class="col-xs-12">
                                 <div class="circle-bg mentorcircle-bg"><span class="icon icon-circle"></span></div>
                                 <h2>Your Private Mentorship Circle</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
+                                <img class="img-responsive" src="<?php echo $this->theme->baseUrl; ?>/img/tc-community-1.png">
 
                                 <p>Your mentorship circle is a private space for you to ask questions & obtain feedback
                                     about topics that arise during your teaching placement.</p>
@@ -97,7 +97,7 @@
                             <div class="col-xs-12">
                                 <div class="circle-bg community-bg"><span class="icon icon-qanda"></span></div>
                                 <h2>Your Public Community</h2>
-                                <img class="img-responsive"  src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-2.png">
+                                <img class="img-responsive"  src="<?php echo $this->theme->baseUrl; ?>/img/tc-community-2.png">
 
                                 <p>We’re building up a searchable repository of teaching knowledge for you to ask for,
                                     find and discuss valuable information.</p>
