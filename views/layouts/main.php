@@ -4,7 +4,7 @@
 <head>
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <title><?php echo $this->pageTitle; ?></title>
     <!-- end: Meta -->
 
     <!-- start: Mobile Specific -->
