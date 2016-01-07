@@ -61,7 +61,7 @@ AppAsset::register($this);
     <script type="text/javascript"
             src="<?php echo Yii::getAlias("@web"); ?>/js/jquery.timeago.js"></script>
     <script type="text/javascript"
-            src="<?php echo Yii::getAlias("@web"); ?>/js/locales/jquery.timeago.<?php echo Yii::app()->locale->getLanguageId(Yii::app()->language); ?>.js"></script>
+            src="<?php echo Yii::getAlias("@web"); ?>/js/locales/jquery.timeago.<?php echo Yii::$app->language; ?>.js"></script>
     <script type="text/javascript"
             src="<?php echo Yii::getAlias("@web"); ?>/js/jquery.knob.min.js"></script>
     <script type="text/javascript"
