@@ -7,13 +7,20 @@
             }
             ?>
 
-            <?php
+            <?php echo humhub\modules\content\widgets\Stream::widget([
+                'streamAction' => '//dashboard/dashboard/stream',
+                'showFilters' => false,
+                'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index',
+                    '<b>Your dashboard is empty!</b><br>Post
+					something on your profile or join some spaces!'),
+            ]);
+                /*
 				$this->widget('application.modules_core.wall.widgets.StreamWidget', array(
 					'streamAction' => '//dashboard/dashboard/stream',
 					'showFilters' => false,
 					'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index', '<b>Your dashboard is empty!</b><br>Post
 					something on your profile or join some spaces!'),
-				));
+				)); */
             ?>
         </div>
         <div class="col-md-4">
