@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-xs-12" id="quotes">
 					<div class="panel panel-default panel-teachingquotes">
-                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png" style="">
+                        <img src="<?php echo $this->theme->baseUrl; ?>/img/tc-apple.png" style="">
                         <?php $this->renderPartial('//quotes/quotes', array()); ?> 
                     </div>
                 </div>
