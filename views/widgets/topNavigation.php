@@ -6,8 +6,11 @@
  *
  * @source humhub.widgets
  * @since 0.5 */
+
+use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
-<?php foreach ($this->getItems() as $item) :
+<?php foreach ($this->context->getItems() as $item) :
     
     $item['style'] = "";
 	$item['title'] = "";
@@ -47,7 +50,7 @@
         echo $item['id'];
     }
     ?>" <?php echo $item['style']; ?> <?php echo $item['title']; ?>>
-            <?php echo HHtml::link($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
+            <?php echo Html::a($item['label'], $item['url'], $item['htmlOptions']); ?>
     </li>
 <?php endforeach; ?>
 
@@ -58,7 +61,7 @@
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
-        <?php foreach ($this->getItems() as $item) : 
+        <?php foreach ($this->context->getItems() as $item) :
             $item['style'] = "";
 
             if($item['label'] == "Dashboard") {
@@ -69,7 +72,7 @@
             ?>
 
             <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>" <?php echo $item['style']; ?>>
-                <?php echo HHtml::link($item['label'], $item['url'], $item['htmlOptions']); ?>
+                <?php echo Html::a($item['label'], $item['url'], $item['htmlOptions']); ?>
             </li>
         <?php endforeach; ?>
 
