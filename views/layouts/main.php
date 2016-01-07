@@ -85,7 +85,7 @@ AppAsset::register($this);
             
          
     <!-- start: render additional head (css and js files) -->
-    <?php $this->renderPartial('//layouts/head'); ?>
+    <?php $this->render('head'); ?>
     <!-- end: render additional head -->
 
     <!-- Global app functions -->
@@ -189,7 +189,7 @@ AppAsset::register($this);
 
 <!-- start: show content (and check, if exists a sublayout -->
 <?php if (isset($this->subLayout) && $this->subLayout != "") : ?>
-    <?php echo $this->renderPartial($this->subLayout, array('content' => $content)); ?>
+    <?php echo $this->render($this->subLayout, array('content' => $content)); ?>
 <?php else: ?>
     <?php echo $content; ?>
 <?php endif; ?>
