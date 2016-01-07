@@ -61,7 +61,7 @@ AppAsset::register($this);
     <script type="text/javascript"
             src="<?php echo Yii::getAlias("@web"); ?>/js/jquery.timeago.js"></script>
     <script type="text/javascript"
-            src="<?php echo Yii::getAlias("@web"); ?>/js/locales/jquery.timeago.<?php echo Yii::app()->locale->getLanguageId(Yii::app()->language); ?>.js"></script>
+            src="<?php echo Yii::getAlias("@web"); ?>/js/locales/jquery.timeago.<?php echo Yii::$app->language; ?>.js"></script>
     <script type="text/javascript"
             src="<?php echo Yii::getAlias("@web"); ?>/js/jquery.knob.min.js"></script>
     <script type="text/javascript"
@@ -85,7 +85,7 @@ AppAsset::register($this);
             
          
     <!-- start: render additional head (css and js files) -->
-    <?php $this->renderPartial('//layouts/head'); ?>
+    <?php $this->render('head'); ?>
     <!-- end: render additional head -->
 
     <!-- Global app functions -->
@@ -93,19 +93,19 @@ AppAsset::register($this);
     <!-- end: JavaScript -->
 
     <!-- start: Favicon and Touch Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo Yii::app()->theme->baseUrl; ?>//ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->theme->baseUrl; ?>/ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $this->theme->baseUrl; ?>//ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->theme->baseUrl; ?>/ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $this->theme->baseUrl; ?>/ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $this->theme->baseUrl; ?>/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $this->theme->baseUrl; ?>/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $this->theme->baseUrl; ?>/ico/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -116,7 +116,13 @@ AppAsset::register($this);
 </head>
 
 <body>
-<?php if (Yii::app()->user->getModel()->getSetting("enable_html5_desktop_notifications", 'core', HSetting::Get('enable_html5_desktop_notifications', 'notification'))) : ?>
+<?php
+$user = Yii::$app->user->getIdentity();
+$foo = $user->getSetting("enable_html5_desktop_notifications", 'core', \humhub\models\Setting::Get('enable_html5_desktop_notifications', 'notification'));
+
+?>
+
+<?php if ($foo) : ?>
     <script type="text/javascript" src="<?php echo Yii::getAlias("@web"); ?>/js/desktop-notify-min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::getAlias("@web"); ?>/js/desktop-notify-config.js"></script>
 <?php endif; ?>
@@ -189,7 +195,7 @@ AppAsset::register($this);
 
 <!-- start: show content (and check, if exists a sublayout -->
 <?php if (isset($this->subLayout) && $this->subLayout != "") : ?>
-    <?php echo $this->renderPartial($this->subLayout, array('content' => $content)); ?>
+    <?php echo $this->render($this->subLayout, array('content' => $content)); ?>
 <?php else: ?>
     <?php echo $content; ?>
 <?php endif; ?>
