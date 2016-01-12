@@ -1,36 +1,17 @@
-<?php $ver = HVersion::VERSION; ?>
+<link href="<?php echo $this->theme->getBaseUrl() . '/css/theme.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/font/open_sans/open-sans.css'; ?>" rel="stylesheet">
 
-<!-- start: CSS -->
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/datepicker.css?ver=<?php echo $ver; ?>" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme.css?ver=<?php echo $ver; ?>" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/flatelements.css?ver=<?php echo $ver; ?>" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/font/lato/lato.css" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/font/openionic/style.css" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/theme-tc.css?ver=<?php echo $ver; ?>" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/animate.css" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet">
-<link href="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
-<!-- end: CSS -->
+<link href="<?php echo $this->theme->getBaseUrl() . '/css/datepicker.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/css/theme.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/css/flatelements.css'; ?>" rel="stylesheet">
 
-<!-- start: JavaScript -->
- <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/respond.js"></script> 
- <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/animatescroll/animatescroll.min.js"></script> 
- <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/owl-carousel/owl.carousel.js"></script> 
- <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
- <script type="text/javascript"
-            src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-select/dist/js/bootstrap-select.js"></script>
-            
-<script type="text/javascript">
-	// Initiate Bootstrap Tooltips
-	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-	
-</script>
-            
-<!-- end: JavaScript -->
+<link href="<?php echo $this->theme->getBaseUrl() . '/font/lato/lato.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/font/openionic/style.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/font/open_sans/open-sans.css'; ?>" rel="stylesheet">
+
+<link href="<?php echo $this->theme->getBaseUrl() . '/css/theme-tc.css'; ?>" rel="stylesheet">
+
+<link href="<?php echo $this->theme->getBaseUrl() . '/js/owl-carousel/animate.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/js/owl-carousel/assets/owl.carousel.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/js/scrollbar/jquery.mCustomScrollbar.min.css'; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl() . '/js/bootstrap-select/dist/css/bootstrap-select.css'; ?>" rel="stylesheet">
