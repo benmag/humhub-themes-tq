@@ -23,7 +23,7 @@
                 <div class="col-xs-12" id="quotes">
                     <div class="panel panel-default panel-teachingquotes">
                         <img src="<?php echo $this->theme->getBaseUrl() . '/img/tc-apple.png'?>" style="">
-                        <?php $this->render('../../quotes/quotes', array()); ?>
+                        <?php echo $this->render('../../quotes/quotes'); ?>
                     </div>
                 </div>
             </div>
