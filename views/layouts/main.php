@@ -104,6 +104,13 @@ AppAsset::register($this);
     <?php echo $this->render('main\_global-modal'); ?>
     <!-- end: Modal -->
 
+    <!-- start: Flatelement replacement -->
+    <script type="text/javascript">
+        // Replace the standard checkbox and radio buttons
+        $('body').find(':checkbox, :radio').flatelements();
+    </script>
+    <!-- end: Flatelements -->
+
     <?php echo \humhub\models\Setting::GetText('trackingHtmlCode'); ?>
     <?php $this->endBody() ?>
     </body>
