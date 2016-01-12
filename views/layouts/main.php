@@ -83,11 +83,11 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
 
     <!-- start: first top navigation bar -->
-    <?php echo $this->render('_top-nav-bar-first'); ?>
+    <?php echo $this->render('main\_top-nav-bar-first'); ?>
     <!-- end: first top navigation bar -->
 
     <!-- start: second top navigation bar -->
-    <?php echo $this->render('_top-nav-bar-second'); ?>
+    <?php echo $this->render('main\_top-nav-bar-second'); ?>
     <!-- end: second top navigation bar -->
 
     <?php echo \humhub\modules\tour\widgets\Tour::widget(); ?>
@@ -101,7 +101,7 @@ AppAsset::register($this);
     <!-- end: show content -->
 
     <!-- start: Modal (every lightbox will/should use this construct to show content)-->
-    <?php echo $this->render('_global-modal'); ?>
+    <?php echo $this->render('main\_global-modal'); ?>
     <!-- end: Modal -->
 
     <?php echo \humhub\models\Setting::GetText('trackingHtmlCode'); ?>
