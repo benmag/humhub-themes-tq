@@ -10,8 +10,8 @@
         <div class="panel panel-default qanda-form">
 
             <div class="panel-body">
-            <h1>Update Answer <?php echo $model->id; ?></h1>
-			<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+                <h1>Update Answer <?php echo $model->id; ?></h1>
+                <?php echo $this->render('_form', array('model'=>$model)); ?>
 			</div>
 		</div>
 
