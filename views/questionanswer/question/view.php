@@ -110,7 +110,7 @@ use yii\helpers\url;
                             
                             	</div>
                                 <div class="col-sm-4">
-                                	<?php \humhub\modules\questionanswer\widgets\ProfileWidget::widget(array('user' => $model->user, 'timestamp' => $model->created_at)); ?>
+                                	<?php echo \humhub\modules\questionanswer\widgets\ProfileWidget::widget(array('user' => $model->user, 'timestamp' => $model->created_at)); ?>
                                 </div>
                             </div>
 
@@ -230,7 +230,6 @@ use yii\helpers\url;
                                     }
 
                                     if(Yii::$app->user->isAdmin()) {
-                                        //TODO: Should be linkButton?
                                         echo Html::a('<div class="qanda-button pull-left"><span class="icon icon-trash"></span> Delete</div>', ['//questionanswer/answer/delete', 'id'=>$question_answer['id']], array(
                                         'submit'=>url::to('//questionanswer/answer/delete',array('id'=>$question_answer['id'])),
                                         'confirm'=>"Are you sure want to delete?",
