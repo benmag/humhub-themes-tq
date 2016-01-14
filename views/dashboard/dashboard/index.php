@@ -3,7 +3,7 @@
         <div class="col-md-8">
             <?php
             if ($showProfilePostForm) {
-                $this->widget('application.modules_core.post.widgets.PostFormWidget', array('contentContainer' => Yii::app()->user->model));
+                echo \humhub\modules\post\widgets\Form::widget(['contentContainer' => \Yii::$app->user->getIdentity()]);
             }
             ?>
 
