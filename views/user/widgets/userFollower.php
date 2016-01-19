@@ -15,14 +15,15 @@ $followers = $user->getFollowers(User::find()->limit(16));
 
         <div class="panel-body">
             <?php foreach ($followers as $follower): ?>
-                <a href="<?php echo $follower->getUrl(); ?>">
-                    <img class="profile-size-xs pull-left" src="<?php echo $follower->getProfileImage()->getUrl(); ?>" class="img-rounded tt img_margin"
+                <a class="profile-size-xs pull-left" href="<?php echo $follower->getUrl(); ?>">
+                    <img src="<?php echo $follower->getProfileImage()->getUrl(); ?>" class="img-rounded tt img_margin  profile-size-xs "
                          height="24" width="24" alt="24x24" data-src="holder.js/24x24"
                          style="width: 24px; height: 24px;"
                          data-toggle="tooltip" data-placement="top" title=""
                          data-original-title="<?php echo Html::encode($follower->displayName); ?>">
+
                     <div class="profile-overlay-img profile-overlay-img-xs tt" data-toggle="tooltip" data-placement="top" title=""
-                         data-original-title="<strong><?php echo Html::encode($follower->displayName); ?></strong><br><?php echo Html::encode($follower->profile->title); ?>"></div>
+                         data-original-title="<?php echo Html::encode($follower->displayName); ?>"></div>
 
                 </a>
             <?php endforeach; ?>
@@ -51,8 +52,9 @@ $following = $user->getFollowingObjects(User::find()->limit(16));
                          style="width: 24px; height: 24px;"
                          data-toggle="tooltip" data-placement="top" title=""
                          data-original-title="<?php echo Html::encode($followingUser->displayName); ?>">
+
                     <div class="profile-overlay-img profile-overlay-img-xs tt" data-toggle="tooltip" data-placement="top" title=""
-                         data-original-title="<strong><?php echo Html::encode($followingUser->displayName); ?></strong><br><?php echo Html::encode($followingUser->profile->title); ?>"></div>
+                         data-original-title="<?php echo Html::encode($followingUser->displayName); ?>"></div>
 
                 </a>
             <?php endforeach; ?>
