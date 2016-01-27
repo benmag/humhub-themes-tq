@@ -76,8 +76,8 @@ use yii\helpers\url;
                             <h3 class="media-heading">
                                 <?php echo Html::a(Html::encode($model->post_title), url::to('//questionanswer/question/view', array('id' => $model->id))); ?>
                             </h3>
-                            <?php print humhub\widgets\RichText::widget(['text' => $model->post_text]); ?>
-                            <?php \humhub\modules\file\widgets\ShowFiles::widget(['object' => $model]); ?>
+                            <?php echo humhub\widgets\RichText::widget(['text' => $model->post_text]); ?>
+                            <?php echo \humhub\modules\file\widgets\ShowFiles::widget(['object' => $model]); ?>
                             <div class="row qanda-details-padding">
                             	<div class="col-sm-8">
                                 	<div class="row">
@@ -214,7 +214,7 @@ use yii\helpers\url;
 
 
                         <div class="media-body" style="padding-top:5px; ">
-                            <?php print humhub\widgets\RichText::widget(['text' => $question_answer['post_text']]); ?>
+                            <?php echo humhub\widgets\RichText::widget(['text' => $question_answer['post_text']]); ?>
                             <?php
                             $answerModel = Answer::findOne($question_answer['id']);
                             ?>
@@ -248,7 +248,7 @@ use yii\helpers\url;
                                     ?>
                             	</div>
                                 <div class="col-sm-4">
-                                	<?php \humhub\modules\questionanswer\widgets\ProfileWidget::widget(array('user' => $user, 'timestamp' => $question_answer['created_at'])); ?>
+                                	<?php echo \humhub\modules\questionanswer\widgets\ProfileWidget::widget(array('user' => $user, 'timestamp' => $question_answer['created_at'])); ?>
                                 </div>
                             </div>
                             
@@ -297,7 +297,7 @@ use yii\helpers\url;
                             		<a class="add-comment-link<?php echo $question_answer['id'] ?>" style="margin-left:4px;color:#ccc;">add a comment</a>								
                                 </div>
                                 <div class="hidden-comment-form-answer" id="<?php echo $question_answer['id'] ?>">
-                                    <?php \humhub\modules\questionanswer\widgets\CommentFormWidget::widget(array('model' => new Comment, 'question_id' => $question_answer['question_id'], 'parent_id' => $question_answer['id'])); ?>
+                                    <?php echo \humhub\modules\questionanswer\widgets\CommentFormWidget::widget(array('model' => new Comment, 'question_id' => $question_answer['question_id'], 'parent_id' => $question_answer['id'])); ?>
                                 </div>
                                 
                                 <script type="text/javascript">
