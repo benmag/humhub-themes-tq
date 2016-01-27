@@ -154,7 +154,7 @@ use yii\helpers\url;
                             		<a class="add-comment-link" style="margin-left:4px;color:#ccc;">add a comment</a>								
                                 </div>
                                 <div class="hidden-comment-form">
-                                    <?php \humhub\modules\questionanswer\widgets\CommentFormWidget::widget(array('model' => new Comment, 'question_id' => $model->id, 'parent_id' => $model->id)); ?>
+                                    <?php echo \humhub\modules\questionanswer\widgets\CommentFormWidget::widget(array('model' => new Comment, 'question_id' => $model->id, 'parent_id' => $model->id)); ?>
                                     
                                 </div>
                                 
