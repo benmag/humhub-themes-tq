@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default qanda-panel">
-                <?php echo $this->render('../../../../../protected/modules/questionanswer/views/partials/top_menu_bar');
+                <?php echo $this->render('/partials/top_menu_bar');
                 //TODO:: Paths ?>
                 <div class="panel-body">
 
@@ -54,7 +54,7 @@
                 echo \yii\widgets\ListView::widget(([
                     'dataProvider'=>$dataProvider,
                     'itemView'=>function($model) {
-                        return $this->render('../../../../../protected/modules/questionanswer/views/question/_view', ['data' => $model]);
+                        return $this->render('/question/_view', ['data' => $model]);
                     }
                 ]))
 				?>
