@@ -115,7 +115,7 @@ use yii\helpers\url;
                             </div>
 
 							<div class='qanda-comments-panel'>
-                            <?php $comments = Answer::findOne($model->id)->comments;
+                            <?php $comments = Comment::findAll(['parent_id' => $model->id]);
 							echo "<h5 style='padding-left:4px;'>";
 							echo count($comments);
 							echo " Comments</h5>";
@@ -142,7 +142,7 @@ use yii\helpers\url;
                                     if(Yii::$app->user->isAdmin() || $comment->created_by == Yii::$app->user->id) {
                                         echo Html::a("<div class='qanda-button pull-right'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/comment/update', 'id'=>$comment->id));
                                     }
-                                    
+
                                     
                                     echo "</small>";
 									echo '</div></div>';
@@ -191,7 +191,7 @@ use yii\helpers\url;
                     <div class="media">
                         <div class="pull-left">
                             <div class="vote_control pull-left" style="padding:5px; padding-right:10px; border-right:1px solid #eee; margin-right:10px;">
-                                <?php 
+                                <?php
                                 $upBtnClass = ""; $downBtnClass = "";
                                 //$vote = QuestionVotes::model()->post($question_answer['id'])->user(Yii::$app->user->id)->find();
                                 $vote = QuestionVotes::findOne(['post_id' => $model->id, 'created_by' => Yii::$app->user->id]);
@@ -216,7 +216,7 @@ use yii\helpers\url;
                         <div class="media-body" style="padding-top:5px; ">
                             <?php echo humhub\widgets\RichText::widget(['text' => $question_answer['post_text']]); ?>
                             <?php
-                            $answerModel = Answer::findOne($question_answer['id']);
+                            $answerModel = Answer::findOne(['id' => $question_answer['id']]);
                             ?>
                             <div class="row qanda-details-padding">
                             	<div class="col-sm-8">
@@ -259,9 +259,8 @@ use yii\helpers\url;
 							echo "<h5 style='padding-left:4px;'>";
 							echo count($comments);
 							echo " Comments</h5>";
-                            
+
                             if($comments) {
-                                
                                 foreach($comments as $comment) {
                                     echo '<div style="border-bottom:1px solid #d8d8d8; padding: 4px;">';
                                     print humhub\widgets\RichText::widget(['text' => $comment->post_text]);
@@ -272,15 +271,15 @@ use yii\helpers\url;
 									echo '<div class="col-sm-6">';
                                     echo "<small>";
 
-									
-									if(Yii::$app->user->isAdmin()) {
-                                        echo Html::a('<div class="qanda-button pull-right"><span class="icon icon-trash"></span> Delete</div>',array(
-                                        'submit'=>url::to('//questionanswer/comment/delete',array('id'=>$comment->id)),
+
+                                    if(Yii::$app->user->isAdmin()) {
+                                        echo Html::a('<div class="qanda-button pull-right"><span class="icon icon-trash"></span> Delete</div>', ['delete', 'id'=>$comment->id], array(
+                                        'submit'=>url::to('delete',array('id'=>$comment->id)),
                                         'confirm'=>"Are you sure want to delete?",
                                         'csrf'=>true,
                                         'params'=> array('YII_CSRF_TOKEN' => Yii::$app->request->csrfToken)));
                                     }
-									
+
                                     if(Yii::$app->user->isAdmin() || $comment->created_by == Yii::$app->user->id) {
                                         echo Html::a("<div class='qanda-button pull-right'><span class='icon icon-pencil'></span> Edit</div>", array('//questionanswer/comment/update', 'id'=>$comment->id));
                                     }
