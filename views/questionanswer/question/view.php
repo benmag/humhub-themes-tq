@@ -100,9 +100,13 @@ use yii\helpers\url;
                                             } ?>
                                             <?php
                                             if($model->reportModuleEnabled()) {
-                                                $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
+                                                echo \humhub\modules\questionanswer\widgets\QAReportContentWidget::widget(array(
                                                     'content' => $model
                                                 ));
+
+//                                                $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
+//                                                    'content' => $model
+//                                                ));
                                             }
                                             ?>
                             	       </div>
