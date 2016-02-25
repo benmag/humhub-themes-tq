@@ -24,7 +24,7 @@
                     	<?php //echo $form->error($model,'post_text'); ?>
                     	<?php echo $form->field($model,'post_text')->textArea(array('id' => "contentForm_answersText", 'rows' => '5', 'style' => 'height: auto !important;', "class" => "form-control contentForm", "placeholder" => "Question details...")); ?>
                     <br />
-                        <?php echo yii\helpers\Html::textarea('Tags', null, array('class' => 'form-control autosize contentForm', "placeholder" => "Tags... Specify at least one tag for your question")); ?>
+                        <?php echo yii\helpers\Html::textInput('Tags', null, array('class' => 'form-control autosize contentForm', "placeholder" => "Tags... Specify at least one tag for your question")); ?>
                     </div>
                     <div class="pull-left" style="margin-top:5px;">
                     <?php
@@ -52,10 +52,9 @@
                     </script>
                     <?php
                     // Creates a list of already uploaded Files
-                    //TODO: UPDATE
-//                    $this->widget('application.modules_core.file.widgets.FileUploadListWidget', array(
-//                        'uploaderId' => 'contentFormFiles'
-//                    ));
+                    echo \humhub\modules\file\widgets\FileUploadList::widget(array(
+                        'uploaderId' => 'contentFormFiles'
+                    ));
                     ?>
                     </div>
 
