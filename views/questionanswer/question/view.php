@@ -83,7 +83,7 @@ use yii\helpers\url;
                                 	<div class="row">
                                     	<div class="col-sm-12">
 									    <?php foreach($model->tags as $tag) { ?>
-                                            <span class="label label-default tag6"><a href="<?php echo url::to('//questionanswer/main/tag', array('id' => $tag->tag_id)); ?>"><?php echo $tag->tag->tag; ?></a></span>
+                                            <span class="label label-default"><a href="<?php echo Url::toRoute(['question/tag', 'id' => $tag->tag_id]); ?>"><?php echo $tag->tag->tag; ?></a></span>
                                         <?php } ?>
                                     	</div>
                                         <div class="col-sm-12">
