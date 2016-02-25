@@ -103,10 +103,6 @@ use yii\helpers\url;
                                                 echo \humhub\modules\questionanswer\widgets\QAReportContentWidget::widget(array(
                                                     'content' => $model
                                                 ));
-
-//                                                $this->widget('application.modules.questionanswer.widgets.QAReportContentWidget', array(
-//                                                    'content' => $model
-//                                                ));
                                             }
                                             ?>
                             	       </div>
@@ -226,7 +222,7 @@ use yii\helpers\url;
                             	<div class="col-sm-8">
                                     <?php
                                     //TODO: fix next line, answermodel->getWallEntryWidget is returning false.
-                                    //\humhub\modules\file\widgets\ShowFiles::widget(['object' => $answerModel]);
+                                    echo \humhub\modules\file\widgets\ShowFiles::widget(['object' => $answerModel]);
                                     ?>
                                 	<?php
                                     if(Yii::$app->user->isAdmin() || $question_answer['created_by'] == Yii::$app->user->id) {
