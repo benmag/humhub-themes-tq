@@ -7,6 +7,7 @@ use yii\helpers\Html;
 <li class="dropdown">
     <a href="<?php echo Url::to(['/search/search/index']); ?>" id="search-menu" class="dropdown-toggle" >
         <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span>
+    </a>
 </li>
 <!--<li class="dropdown">
     <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
