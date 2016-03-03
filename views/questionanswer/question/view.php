@@ -43,12 +43,10 @@ use yii\helpers\url;
                     <div class="media">
                         <div class="pull-left">
                             <div class="vote_control pull-left" style="padding:5px; padding-right:10px; border-right:1px solid #eee; margin-right:10px;">
-                            
-                                <?php 
+                                <?php
                                 $upBtnClass = ""; $downBtnClass = "";
 
                                 // Change the button class to 'active' if the user has voted
-                                //$vote = QuestionVotes::model()->post($model->id)->user(Yii::$app->user->id)->find();
                                 $vote = QuestionVotes::findOne(['post_id' => $model->id, 'created_by' => Yii::$app->user->id]);
                                 if($vote) {
                                     if($vote->vote_type == "up") {
@@ -61,11 +59,11 @@ use yii\helpers\url;
                                 }
                                 ?>
 
-                                <?php echo VoteButtonWidget::widget(array('post_id' => $model->id, 'model' => new QuestionVotes, 'vote_on' => 'question', 'vote_type' => 'up', 'class' => $upBtnClass, 'should_open_question' => 1));  ?>
+                                <?php echo VoteButtonWidget::widget(array('post_id' => $model->id, 'model' => new QuestionVotes, 'vote_on' => 'question', 'vote_type' => 'up', 'btn_class' => $upBtnClass, 'should_open_question' => 1));  ?>
                                 <div class="text-center"><strong>
                                 <?php echo QuestionVotes::score($model->id); ?>
                                 </strong><br /></div>
-								<?php echo VoteButtonWidget::widget(array('post_id' => $model->id, 'model' => new QuestionVotes, 'vote_on' => 'question', 'vote_type' => 'down', 'class' => $downBtnClass,  'should_open_question' => 1)); ?>
+								<?php echo VoteButtonWidget::widget(array('post_id' => $model->id, 'model' => new QuestionVotes, 'vote_on' => 'question', 'vote_type' => 'down', 'btn_class' => $downBtnClass,  'should_open_question' => 1)); ?>
                             </div>
 
                         </div>
@@ -205,9 +203,9 @@ use yii\helpers\url;
                                     }
                                 }
                                 ?>
-                                <?php echo VoteButtonWidget::widget(array('post_id' => $question_answer['id'], 'model' => new QuestionVotes, 'vote_on' => 'answer', 'vote_type' => 'up', 'class' => $upBtnClass, 'should_open_question' => 1));  ?>
+                                <?php echo VoteButtonWidget::widget(array('post_id' => $question_answer['id'], 'model' => new QuestionVotes, 'vote_on' => 'answer', 'vote_type' => 'up', 'btn_class' => $upBtnClass, 'should_open_question' => 1));  ?>
                                 <div class="text-center"><strong><?php echo $question_answer['score']; ?></strong><br /></div>
-                                <?php echo VoteButtonWidget::widget(array('post_id' => $question_answer['id'], 'model' => new QuestionVotes, 'vote_on' => 'answer', 'vote_type' => 'down', 'class' => $downBtnClass, 'should_open_question' => 1)); ?>
+                                <?php echo VoteButtonWidget::widget(array('post_id' => $question_answer['id'], 'model' => new QuestionVotes, 'vote_on' => 'answer', 'vote_type' => 'down', 'btn_class' => $downBtnClass, 'should_open_question' => 1)); ?>
                             </div>
                         </div>
                         <?php $user = User::findOne($question_answer['created_by']); ?>
