@@ -16,7 +16,7 @@
                                 <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
                                 <h2>Welcome to Teach Connect</h2>
                                 <img class="img-responsive" src="<?php echo $this->theme->baseUrl; ?>/img/tc-welcome.png">
-                                TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.
+                                TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.<br/>
                             </div>
                         </div>
                         <div class="row">
