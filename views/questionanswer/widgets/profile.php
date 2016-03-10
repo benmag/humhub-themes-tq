@@ -20,7 +20,7 @@ use humhub\modules\karma\models\KarmaUser;
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <a href="<?php echo yii\helpers\url::to('//user/profile', array('uguid' => $user->guid)); ?>">
+            <a href="<?php echo\yii\helpers\Url::toRoute(['/user/profile', 'uguid' => $user->guid]); ?>">
                 <span class="pull-left profile-size-sm">
                     <img class="media-object img-rounded profile-size-sm"
                      src="<?php echo $user->getProfileImage()->getUrl(); ?>"
