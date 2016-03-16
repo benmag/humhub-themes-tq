@@ -21,7 +21,7 @@
 	<?php echo $form->field($model,'question_id'); ?>
 	<?php echo $form->field($model,'parent_id'); ?>
 	<?php echo $form->field($model,'post_title'); ?>
-	<?php echo $form->field($model,'post_text'); ?>
+	<?php echo $form->field($model,'post_text')->textArea(['rows' => '6']) ?>
 	<?php echo $form->field($model,'post_type'); ?>
 	<?php echo $form->field($model,'created_at'); ?>
 	<?php echo $form->field($model,'created_by'); ?>
