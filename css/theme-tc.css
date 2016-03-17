@@ -933,6 +933,7 @@ ul.yiiPager .selected a {
 }
 .modal-footer .btn {
     /*width: 100%;*/
+
 }
 .modal .regular-checkbox:checked + .regular-checkbox-box,
 .modal .regular-checkbox + .regular-checkbox-box {
@@ -1244,5 +1245,7 @@ ul.yiiPager .selected a {
         padding-bottom: 15px;
         padding-top: 15px !important;
         border-bottom: 1px solid #EEE;
+        display: inline-block;
+        margin-bottom: 20px;
     }
 }
