@@ -32,7 +32,7 @@ function ajaxResponse($status, $message, $data = NULL, $mg = NULL) {
 }
 
 function sendMailgun($data) {
-    $send_to = 'teachconnect@outlook.com';
+    $send_to = 'info@teachconnect.edu.au';
     $api_key = 'key-6dae6cb5370e99bda1661eec070a10c3';
     $api_domain = 'sandboxf8c26364c2f040cb9fda90f27ad44af0.mailgun.org';
 
