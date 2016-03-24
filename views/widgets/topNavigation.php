@@ -7,47 +7,31 @@
  * @source humhub.widgets
  * @since 0.5 */
 ?>
-<?php foreach ($this->getItems() as $item) :
-    
-    $item['style'] = "";
-	$item['title'] = "";
 
-    // Apply custom (hardcoded) overwrites to menu items
-    switch($item['label']) {
-        case "Dashboard":
-            $item['label'] = "Home";
-			$item['title'] = "title=\"Access your home dashboard news feed\"";
-        break;
+<?php
 
-        case "Directory":
-            $item['style'] = "style=\"display:none !important; width:0;\"";
-        break;
-		
-		case "Messages":
-            $item['title'] = "title=\"Access your message inbox\"";
-        break;
-		
-		case "About":
-			$item['title'] = "title=\"About the site and contact details\"";
-        break;
-		
-		case "Q&A":
-            $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
-        break;
-		
-		case "Privacy Policy":
-            $item['title'] = "title=\"TeachConnect privacy policy\"";
-        break;
-    }
-
-    ?>
-
+use yii\helpers\Html;
+?>
+<?php foreach ($this->context->getItems() as $item) : ?>
     <li class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
     }
-    ?>" <?php echo $item['style']; ?> <?php echo $item['title']; ?>>
-            <?php echo HHtml::link($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
+    ?>">
+        <?php
+        switch($item['label']){
+            case 'Directory':
+                // Do nothing, because we don't want to show Directory  
+                break;
+
+            case 'Dashboard':
+                echo Html::a($item['icon'] . "<br />" . 'Home', $item['url'], $item['htmlOptions']);
+                break;
+
+            default:
+                echo Html::a($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']);
+        }
+        ?>
     </li>
 <?php endforeach; ?>
 
@@ -56,20 +40,24 @@
         <i class="fa fa-align-justify"></i><br>
         <?php echo Yii::t('base', 'Menu'); ?>
         <b class="caret"></b></a>
-    <ul class="dropdown-menu pull-right">
+    <ul class="dropdown-menu">
 
-        <?php foreach ($this->getItems() as $item) : 
-            $item['style'] = "";
+        <?php foreach ($this->context->getItems() as $item) : ?>
+            <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
+                <?php
+                switch($item['label']){
+                    case 'Directory':
+                        // Do nothing, because we don't want to show Directory
+                        break;
 
-            if($item['label'] == "Dashboard") {
-                $item['label'] = "Home";
-            } else if($item['label'] == "Directory") {
-                $item['style'] = "hidden";
-            } 
-            ?>
+                    case 'Dashboard':
+                        echo Html::a('Home', $item['url'], $item['htmlOptions']);
+                        break;
 
-            <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>" <?php echo $item['style']; ?>>
-                <?php echo HHtml::link($item['label'], $item['url'], $item['htmlOptions']); ?>
+                    default:
+                        echo Html::a($item['label'], $item['url'], $item['htmlOptions']);
+                }
+                ?>
             </li>
         <?php endforeach; ?>
 

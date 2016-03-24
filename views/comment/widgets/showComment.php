@@ -1,14 +1,11 @@
 <?php
-/**
- * This view represents the comment itself.
- *
- * @property User $user which created this comment
- * @property User $user which created this comment
- *
- * @package humhub.modules_core.comment
- * @since 0.5
- */
+
+use yii\helpers\Html;
+use yii\helpers\Url;
+use humhub\widgets\AjaxButton;
 ?>
+
+
 <?php
 $canWrite = $comment->canWrite();
 $canDelete = $comment->canDelete();
@@ -26,10 +23,17 @@ $canDelete = $comment->canDelete();
                     <?php if ($canWrite): ?>
                         <li>
                             <?php
-                            echo HHtml::ajaxLink('<i class="fa fa-pencil"></i> '. Yii::t('CommentModule.widgets_views_showComment', 'Edit'), Yii::app()->createAbsoluteUrl('//comment/comment/edit', array('contentModel'=> $comment->object_model, 'contentId'=>$comment->object_id, 'id' => $comment->id)), array(
-                                'success' => "js:function(html){ $('.preferences .dropdown').removeClass('open'); $('#comment_editarea_" . $comment->id . "').replaceWith(html); $('#comment_input_" . $comment->id . "_contenteditable').focus(); }"
-                            ));
+                            echo AjaxButton::widget([
+                                'label' => '<i class="fa fa-pencil"></i> ' . Yii::t('CommentModule.widgets_views_showComment', 'Edit'),
+                                'ajaxOptions' => [
+                                    'type' => 'POST',
+                                    'success' => new yii\web\JsExpression("function(html){ $('.preferences .dropdown').removeClass('open'); $('#comment_editarea_" . $comment->id . "').replaceWith(html); $('#comment_input_" . $comment->id . "_contenteditable').focus(); }"),
+                                    'url' => Url::to(['/comment/comment/edit', 'contentModel' => $comment->object_model, 'contentId' => $comment->object_id, 'id' => $comment->id]),
+                                ],
+                                'tag' => 'a'
+                            ]);
                             ?>
+
                         </li>
                     <?php endif; ?>
 
@@ -38,7 +42,7 @@ $canDelete = $comment->canDelete();
 
                             <!-- load modal confirm widget -->
                             <?php
-                            $this->widget('application.widgets.ModalConfirmWidget', array(
+                            echo humhub\widgets\ModalConfirm::widget(array(
                                 'uniqueID' => 'modal_commentdelete_' . $comment->id,
                                 'linkOutput' => 'a',
                                 'title' => Yii::t('CommentModule.widgets_views_showComment', '<strong>Confirm</strong> comment deleting'),
@@ -46,8 +50,8 @@ $canDelete = $comment->canDelete();
                                 'buttonTrue' => Yii::t('CommentModule.widgets_views_showComment', 'Delete'),
                                 'buttonFalse' => Yii::t('CommentModule.widgets_views_showComment', 'Cancel'),
                                 'linkContent' => '<i class="fa fa-trash-o"></i> ' . Yii::t('CommentModule.widgets_views_showComment', 'Delete'),
-                                'linkHref' => $this->createUrl("//comment/comment/delete", array('contentModel' => $comment->object_model, 'contentId' => $comment->object_id, 'id' => $comment->id)),
-                                'confirmJS' => "function(html) { $('#comment_".$comment->id."').slideUp(); }"
+                                'linkHref' => Url::to(["/comment/comment/delete", 'contentModel' => $comment->object_model, 'contentId' => $comment->object_id, 'id' => $comment->id]),
+                                'confirmJS' => "function(html) { $('#comment_" . $comment->id . "').slideUp(); }"
                             ));
                             ?>
                         </li>
@@ -59,30 +63,29 @@ $canDelete = $comment->canDelete();
     <?php endif; ?>
 
     <a href="<?php echo $user->getUrl(); ?>" class="pull-left profile-size-md">
-        <img class="media-object profile-size-md img-rounded user-image user-<?php echo $user->guid; ?>" src="<?php echo $user->getProfileImage()->getUrl(); ?>"
-             alt="40x40" data-src="holder.js/40x40"/>
+        <img class="media-object img-rounded user-image user-<?php echo $user->guid; ?>" src="<?php echo $user->getProfileImage()->getUrl(); ?>"
+             width="40"
+             height="40" alt="40x40" data-src="holder.js/40x40" style="width: 40px; height: 40px;"/>
         <div class="profile-overlay-img profile-overlay-img-md"></div>
     </a>
 
     <div class="media-body">
-        <h4 class="media-heading"><a href="<?php echo $user->getProfileUrl(); ?>"><?php echo CHtml::encode($user->displayName); ?></a>
-            <small><?php echo HHtml::timeago($comment->created_at); ?>
-                <?php if ($comment->created_at != $comment->updated_at): ?>
-                    (<?php echo Yii::t('CommentModule.widgets_views_showComment', 'Updated :timeago', array(':timeago' => HHtml::timeago($comment->updated_at))); ?>)
+        <h4 class="media-heading"><a href="<?php echo $user->getUrl(); ?>"><?php echo Html::encode($user->displayName); ?></a>
+            <small><?php echo \humhub\widgets\TimeAgo::widget(['timestamp' => $comment->created_at]); ?>
+                <?php if ($comment->updated_at != "" && $comment->created_at != $comment->updated_at): ?>
+                    (<?php echo Yii::t('CommentModule.widgets_views_showComment', 'Updated :timeago', array(':timeago' => \humhub\widgets\TimeAgo::widget(['timestamp' => $comment->updated_at]))); ?>)
                 <?php endif; ?>
             </small>
         </h4>
 
 
         <div class="content" id="comment_editarea_<?php echo $comment->id; ?>">
-            <span id="comment-message-<?php echo $comment->id; ?>"><?php print HHtml::enrichText($comment->message); ?></span>
-            <?php $this->widget('application.modules_core.file.widgets.ShowFilesWidget', array('object' => $comment)); ?>
+            <span id="comment-message-<?php echo $comment->id; ?>"><?php echo humhub\widgets\RichText::widget(['text' => $comment->message, 'record' => $comment]); ?></span>
+            <?php echo humhub\modules\file\widgets\ShowFiles::widget(array('object' => $comment)); ?>
         </div>
 
-
-
         <div class="wall-entry-controls">
-            <?php Yii::app()->getController()->widget('application.modules_core.like.widgets.LikeLinkWidget', array('object' => $comment)); ?>
+            <?php echo humhub\modules\like\widgets\LikeLink::widget(array('object' => $comment)); ?>
         </div>
     </div>
     <hr>
@@ -93,17 +96,17 @@ $canDelete = $comment->canDelete();
         $('#comment-message-<?php echo $comment->id; ?>').addClass('highlight');
         $('#comment-message-<?php echo $comment->id; ?>').delay(200).animate({backgroundColor: 'transparent'}, 1000);
     </script>
-<?php endif; ?>    
+<?php endif; ?>
 
 <?php if ($comment->canDelete()) : ?>
     <script type="text/javascript">
-        $('.comment .media').mouseover(function() {
+        $('.comment .media').mouseover(function () {
             // find dropdown menu
             var element = $(this).find('.preferences');
             element.show();
         })
 
-        $('.comment .media').mouseout(function() {
+        $('.comment .media').mouseout(function () {
 
             // find dropdown menu
             var element = $(this).find('.preferences');

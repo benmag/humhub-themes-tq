@@ -1,14 +1,13 @@
 <?php
-if(isset(Yii::app()->modules['anon_accounts'])) {
+use yii\helpers\Url;
 
-	Yii::app()->request->redirect(Yii::app()->createUrl('//anon_accounts/main/index', array('token' => $_GET['token'])));
-
+if(Yii::$app->hasModule('anon_accounts')) {
+    Yii::$app->getResponse()->redirect(Url::toRoute(['//anon_accounts/main/index', 'token' => $_GET['token']]));
 } else {
-
-	$controller = Yii::app()->controller;
-	$controller->renderPartial('application.modules.user.views.auth.createAccount_original', array(
-        'form' => $form,
-        'needAproval' => false)
+    $controller = Yii::$app->controller;
+    echo $controller->render('createAccount_original', array(
+            'hForm' => $hForm,
+            'needAproval' => false)
     );
 }
 ?>

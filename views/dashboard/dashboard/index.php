@@ -3,137 +3,56 @@
         <div class="col-md-8">
             <?php
             if ($showProfilePostForm) {
-                $this->widget('application.modules_core.post.widgets.PostFormWidget', array('contentContainer' => Yii::app()->user->model));
+                echo \humhub\modules\post\widgets\Form::widget(['contentContainer' => \Yii::$app->user->getIdentity()]);
             }
             ?>
 
             <?php
-				$this->widget('application.modules_core.wall.widgets.StreamWidget', array(
-					'streamAction' => '//dashboard/dashboard/stream',
-					'showFilters' => false,
-					'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index', '<b>Your dashboard is empty!</b><br>Post
+            echo humhub\modules\content\widgets\Stream::widget([
+                'streamAction' => '//dashboard/dashboard/stream',
+                'showFilters' => false,
+                'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index',
+                    '<b>Your dashboard is empty!</b><br>Post
 					something on your profile or join some spaces!'),
-				));
+            ]);
             ?>
         </div>
         <div class="col-md-4">
-        	
+
             <div class="row">
                 <div class="col-xs-12" id="quotes">
-					<div class="panel panel-default panel-teachingquotes">
-                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png" style="">
-                        <?php $this->renderPartial('//quotes/quotes', array()); ?> 
+                    <div class="panel panel-default panel-teachingquotes">
+                        <img src="<?php echo $this->theme->getBaseUrl() . '/img/tc-apple.png'?>" style="">
+                        <?php echo $this->render('../../quotes/quotes'); ?>
                     </div>
                 </div>
             </div>
 
             <?php
-				$this->widget('application.modules_core.dashboard.widgets.DashboardSidebarWidget', array(
-					'widgets' => array(
-						array('application.modules_core.activity.widgets.ActivityStreamWidget', array('streamAction' =>
-						'//dashboard/dashboard/stream'), array('sortOrder' => 10)),
-					)
-				));
+            echo \humhub\modules\dashboard\widgets\Sidebar::widget(['widgets' => [
+                [\humhub\modules\activity\widgets\Stream::className(),
+                    ['streamAction' => '/dashboard/dashboard/stream'], ['sortOrder' => 150]]
+            ]]);
             ?>
         </div>
     </div>
 </div>
 
 
-<!-- First Use Modal -->
-<div class="modal fade" id="modalFirstUse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content modal-instructions">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                	<span aria-hidden="true">&times;</span></button>
-            </div>
-
-            <div class="modal-body">
-            	
-                <div id="owl-fader" class="owl-carousel owl-theme">
-                    <div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
-                                <h2>Welcome to Teach Connect</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-welcome.png">
-								TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="button" class="btn btn-primary customNextBtn">
-                                    Communicate with your Private Mentorship Circle <span
-                                        class="icon icon-arrow-right"></span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="circle-bg mentorcircle-bg"><span class="icon icon-circle"></span></div>
-                                <h2>Your Private Mentorship Circle</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
-
-                                <p>Your mentorship circle is a private space for you to ask questions & obtain feedback
-                                    about topics that arise during your teaching placement.</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <button type="button" class="btn btn-primary customNextBtn">
-                                        Find Answers from your Public Community <span class="icon icon-arrow-right"></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="circle-bg community-bg"><span class="icon icon-qanda"></span></div>
-                                <h2>Your Public Community</h2>
-                                <img class="img-responsive"  src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-2.png">
-
-                                <p>We’re building up a searchable repository of teaching knowledge for you to ask for,
-                                    find and discuss valuable information.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                    Get Started!
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
+<!-- Render: First Use Modal -->
+<?php echo $this->render('_first-use-modal.php'); ?>
 
 
 <script type="text/javascript">
     // Owl Carousel Script - for rotating quotations
     $(document).ready(function () {
-		
+
         // Only show welcome modal on first view
         if($.cookie('_viewed_welcome_modal') == undefined) {
-
             $.cookie('_viewed_welcome_modal', true, { path: '/', expires: 5 * 365 });
             // $.removeCookie('_viewed_welcome_modal', { path: '/' });
             $('#modalFirstUse').modal('show');
         }
-
         $(".panel-teachingquotes .owl-carousel").owlCarousel({
             animateOut: 'fadeOutDown',
             animateIn: 'fadeInDown',
@@ -146,7 +65,7 @@
             dots: true,
             nav: false
         });
-        
+
         // Owl Carousel for Instructions on first use in modal - initiate when modal is opened
         $('#modalFirstUse').on('shown.bs.modal', function () {
             $(".modal .owl-carousel").owlCarousel({
@@ -155,13 +74,10 @@
                 dots: true,
                 nav:false
             });
-
             // Custom next button on modal
             $('.customNextBtn').click(function () {
                 $(".modal .owl-carousel").trigger('next.owl.carousel');
             })
         });
-
     });
-
 </script>
