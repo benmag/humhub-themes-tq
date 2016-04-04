@@ -613,7 +613,9 @@ $this->pageTitle = Yii::t('UserModule.views_auth_login', '<strong>Please</strong
     </div>
 </div>
 
+<!-- Put your all modals BEGIN-->
 
+<!-- END -->
 
 <script type="text/javascript">
     
