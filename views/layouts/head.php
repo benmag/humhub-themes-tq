@@ -30,7 +30,5 @@
 	$(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
-	
 </script>
-            
 <!-- end: JavaScript -->
