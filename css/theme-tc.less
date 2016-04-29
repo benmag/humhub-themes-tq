@@ -17,6 +17,10 @@
 @colorPrimaryLight: #90dddc;
 @colorCTA: #3d427f;
 @colorCommunity: #fdc015;
+@color-qanda: #fdc015;
+@color-circle-welcome:#f36229;
+@color-circle-mentorship:#158694;
+@color-chat:#009ee7;
 
 // Font colors
 @colorFont1: #bac2c7;
@@ -31,8 +35,6 @@
 // Border Radius
 @radius: 10px;
 
-
-
 //
 // Mixins
 // --------------------------------------------------
@@ -43,6 +45,25 @@
   -moz-transition: background-color .2s ease-out, color .2s ease-out;
   -webkit-transition: background-color .2s ease-out, color .2s ease-out;
   transition: background-color .2s ease-out, color .2s ease-out;
+}
+
+//
+// Colors for site areas
+// --------------------------------------------------
+.color-qanda{
+	color:@color-qanda !important;
+}
+
+.color-circle-welcome{
+	color:@color-circle-welcome !important;
+}
+
+.color-circle-mentorship{
+	color:@color-circle-mentorship !important;
+}
+
+.color-chat{
+	color:@color-chat !important;
 }
 
 //

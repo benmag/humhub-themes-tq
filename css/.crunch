@@ -1,0 +1,21 @@
+{
+	"files": {
+		"theme-tc.less": {
+			"engines": [
+				{
+					"compiler": "less",
+					"output": "theme-tc.css",
+					"options": {
+						"compress": false,
+						"ieCompat": false,
+						"strictMath": false,
+						"strictUnits": false,
+						"javascriptEnabled": false,
+						"sourcemap": true
+					}
+				}
+			],
+			"sources": []
+		}
+	}
+}
