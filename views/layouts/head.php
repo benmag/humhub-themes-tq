@@ -24,11 +24,11 @@
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
  <script type="text/javascript"
             src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap-select/dist/js/bootstrap-select.js"></script>
-            
-<script type="text/javascript">
-	// Initiate Bootstrap Tooltips
-	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-</script>
+
+<!--<script type="text/javascript">-->
+<!--	// Initiate Bootstrap Tooltips-->
+<!--	$(function () {-->
+<!--	  $('[data-toggle="tooltip"]').tooltip()-->
+<!--	})-->
+<!--</script>-->
 <!-- end: JavaScript -->
