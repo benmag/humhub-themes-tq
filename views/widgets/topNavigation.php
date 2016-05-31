@@ -8,33 +8,32 @@
  * @since 0.5 */
 ?>
 <?php foreach ($this->getItems() as $item) :
-    
+
     $item['style'] = "";
 	$item['title'] = "";
-
     // Apply custom (hardcoded) overwrites to menu items
     switch($item['label']) {
         case "Dashboard":
-            $item['label'] = "Home";
+            $item['label'] = "All circles";
 			$item['title'] = "title=\"Access your home dashboard news feed\"";
         break;
 
         case "Directory":
             $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
-		
+
 		case "Messages":
             $item['title'] = "title=\"Access your message inbox\"";
         break;
-		
+
 		case "About":
 			$item['title'] = "title=\"About the site and contact details\"";
         break;
-		
+
 		case "Q&A":
             $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
         break;
-		
+
 		case "Privacy Policy":
             $item['title'] = "title=\"TeachConnect privacy policy\"";
         break;
@@ -58,14 +57,14 @@
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
-        <?php foreach ($this->getItems() as $item) : 
+        <?php foreach ($this->getItems() as $item) :
             $item['style'] = "";
 
             if($item['label'] == "Dashboard") {
                 $item['label'] = "Home";
             } else if($item['label'] == "Directory") {
                 $item['style'] = "hidden";
-            } 
+            }
             ?>
 
             <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>" <?php echo $item['style']; ?>>
