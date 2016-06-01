@@ -16,6 +16,7 @@
         case "Dashboard":
             $item['label'] = "All circles";
 			$item['title'] = "title=\"Access your home dashboard news feed\"";
+            $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
         case "Directory":
@@ -24,14 +25,17 @@
 
 		case "Messages":
             $item['title'] = "title=\"Access your message inbox\"";
+            $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
 		case "About":
 			$item['title'] = "title=\"About the site and contact details\"";
+            $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
-		case "Q&A":
+		case "Knowledge":
             $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+            $item['class_style'] = " visible-xs visible-sm ";
         break;
 
 		case "Privacy Policy":
@@ -41,7 +45,7 @@
 
     ?>
 
-    <li class="visible-md visible-lg <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
+    <li class="visible-md visible-lg <?= isset($item['class_style'])?$item['class_style']:''?> <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
     }
@@ -50,6 +54,144 @@
     </li>
 <?php endforeach; ?>
 
+<?php if(!LogicEntry::getStatusHomeOfUser()) { ?>
+    <li class="dropdown" title="Access your private mentorship circles">
+
+        <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- start: Show space image and name if chosen -->
+
+            <?php
+            //            if (Yii::app()->params['currentSpace']) {
+            //            } else {
+            echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Mentor circles');
+            //            }
+            ?>
+            <!-- end: Show space image and name if chosen -->
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" id="space-menu-dropdown">
+            <li>
+                <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
+                                                                 class="form-control"
+                                                                 autocomplete="off"
+                                                                 placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser','Search'); ?>">
+
+                    <div class="search-reset" id="space-search-reset"><i
+                            class="fa fa-times-circle"></i></div>
+                </form>
+            </li>
+
+            <li class="divider"></li>
+            <li>
+                <ul class="media-list notLoaded" id="space-menu-spaces">
+                    <li id="loader_spaces">
+                        <div class="loader">
+                            <div class="sk-spinner sk-spinner-three-bounce">
+                                <div class="sk-bounce1"></div>
+                                <div class="sk-bounce2"></div>
+                                <div class="sk-bounce3"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <?php if (Yii::app()->user->canCreateSpace()): ?>
+                <li>
+                    <div class="dropdown-footer">
+                        <?php
+                        echo CHtml::link(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), $this->createUrl('//space/create/create'), array('class' => 'btn btn-info col-md-12', 'data-toggle' => 'modal', 'data-target' => '#globalModal'));
+                        ?>
+                    </div>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </li>
+
+    <li class="dropdown" title="Access your private mentorship circles">
+
+        <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- start: Show space image and name if chosen -->
+
+            <?php
+            //            if (Yii::app()->params['currentSpace']) {
+            //            } else {
+            echo '<i class="fa fa-tachometer"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'All circles');
+            //            }
+            ?>
+            <!-- end: Show space image and name if chosen -->
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" id="space-menu-dropdown">
+            <li>
+                <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
+                                                                 class="form-control"
+                                                                 autocomplete="off"
+                                                                 placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser','Search'); ?>">
+
+                    <div class="search-reset" id="space-search-reset"><i
+                            class="fa fa-times-circle"></i></div>
+                </form>
+            </li>
+
+            <li class="divider"></li>
+            <li>
+                <ul class="media-list notLoaded" id="space-menu-spaces">
+                    <ul class="media-list" id="space-menu-spaces" tabindex="5001" style="overflow: hidden; outline: none;">
+                        <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
+                            <li>
+                                <a href="<?= $space->url ?>">
+                                    <div class="media">
+                                        <!-- Show user image -->
+                                        <img class="media-object img-rounded pull-left" alt="24x24" data-src="holder.js/24x24" style="width: 24px; height: 24px;" src="<?= $space->getProfileImage()->getUrl() ?>">
+                                        <div class="media-body">
+                                            <strong><?= $space->name ?></strong>
+                                            <br>
+                                            <p><?= $space->description ?></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </ul>
+            </li>
+            <?php if (Yii::app()->user->canCreateSpace()): ?>
+                <li>
+                    <div class="dropdown-footer">
+                        <?php
+                        echo CHtml::link(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), $this->createUrl('//space/create/create'), array('class' => 'btn btn-info col-md-12', 'data-toggle' => 'modal', 'data-target' => '#globalModal'));
+                        ?>
+                    </div>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </li>
+
+    <script type="text/javascript">
+
+        // set niceScroll to SpaceChooser menu
+        $("#space-menu-spaces").niceScroll({
+            cursorwidth: "7",
+            cursorborder: "",
+            cursorcolor: "#555",
+            cursoropacitymax: "0.2",
+            railpadding: {top: 0, right: 3, left: 0, bottom: 0}
+        });
+
+    </script>
+
+<?php } else if(!Yii::app()->params['currentSpace']) { ?>
+    <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
+        <li class="visible-md visible-lg">
+            <a class=" active" href="<?= $space->url ?>">
+                <img class="media-object img-rounded" alt="24x24" data-src="holder.js/24x24" style="margin: 0 auto;width: 22px; height: 19px;" src="<?= $space->getProfileImage()->getUrl() ?>">
+                <span class="">Mentor circle</span>
+            </a>
+
+        </li>
+    <?php } ?>
+<?php } ?>
+
 <li class="dropdown visible-xs visible-sm">
     <a href="#" id="top-dropdown-menu" class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-align-justify"></i><br>
@@ -57,12 +199,18 @@
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
+        <?php if(!Yii::app()->params['currentSpace']) { ?>
+            <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
+                <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
+                    <?php echo HHtml::link("Mentor circle", $space->url, $item['htmlOptions']); ?>
+                </li>
+            <?php } ?>
+        <?php } ?>
+
         <?php foreach ($this->getItems() as $item) :
             $item['style'] = "";
 
-            if($item['label'] == "Dashboard") {
-                $item['label'] = "Home";
-            } else if($item['label'] == "Directory") {
+            if($item['label'] != "Live Chat") {
                 $item['style'] = "hidden";
             }
             ?>
@@ -71,6 +219,5 @@
                 <?php echo HHtml::link($item['label'], $item['url'], $item['htmlOptions']); ?>
             </li>
         <?php endforeach; ?>
-
     </ul>
 </li>

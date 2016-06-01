@@ -61,7 +61,7 @@
                 <?php if ($user == null || $user->status != User::STATUS_ENABLED) continue; ?>
                 <?php if ($ix > 23) break; ?>
                 <?php $ix++; ?>
-                        
+        
                 <a class="profile-size-xs pull-left" href="<?php echo $user->getProfileUrl(); ?>">
                     <img src="<?php echo $user->getProfileImage()->getUrl(); ?>" class="img-rounded profile-size-xs tt img_margin" alt="24x24" data-src="holder.js/32x32"
                          data-toggle="tooltip" data-placement="top" data-html="true" title=""
@@ -69,7 +69,7 @@
                    	<div class="profile-overlay-img profile-overlay-img-xs tt" data-toggle="tooltip" data-placement="top" data-html="true" title=""
                          data-original-title="<strong><?php echo CHtml::encode($user->displayName); ?></strong><br><small><?php echo CHtml::encode($user->profile->title); ?></small>"></div>
                 </a>
-               
+
                 <?php if ($space->isAdmin($user->id)) { ?>
                     <!-- output, if user is admin of this space -->
                 <?php } ?>
