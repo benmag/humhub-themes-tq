@@ -12,7 +12,7 @@
             <?php
 //            if (Yii::app()->params['currentSpace']) {
 //            } else {
-                echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Mentor circles');
+                echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Mentor circle');
 //            }
             ?>
             <!-- end: Show space image and name if chosen -->
