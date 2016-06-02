@@ -181,6 +181,7 @@
 <!-- end: second top navigation bar -->
 
 <?php $this->widget('application.modules_core.tour.widgets.TourWidget', array()); ?>
+<?php $this->widget('application.modules.questionanswer.widgets.KnowledgeTourWidget'); ?>
 
 <!-- start: show content (and check, if exists a sublayout -->
 <?php if (isset($this->subLayout) && $this->subLayout != "") : ?>
