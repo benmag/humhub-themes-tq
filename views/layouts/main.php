@@ -113,7 +113,9 @@
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/desktop-notify-min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/desktop-notify-config.js"></script>
 <?php endif; ?>
-<?php $this->widget('application.modules.chat.widgets.MyTasksWidget'); ?>
+
+<?php $this->widget('application.modules.chat.widgets.MyTasksWidget'); // add button before last activity ?>
+
 <!-- start: first top navigation bar -->
 <div id="topbar-first" class="topbar">
     <div class="container">

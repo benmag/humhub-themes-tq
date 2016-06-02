@@ -16,7 +16,7 @@
         case "Dashboard":
             $item['label'] = "All circles";
 			$item['title'] = "title=\"Access your home dashboard news feed\"";
-            $item['style'] = "style=\"display:none !important; width:0;\"";
+//            $item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
         case "Directory":
@@ -106,67 +106,6 @@
             <?php endif; ?>
         </ul>
     </li>
-
-    <li class="dropdown" title="Access your private mentorship circles">
-
-        <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
-            <!-- start: Show space image and name if chosen -->
-
-            <?php
-            //            if (Yii::app()->params['currentSpace']) {
-            //            } else {
-            echo '<i class="fa fa-tachometer"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'All circles');
-            //            }
-            ?>
-            <!-- end: Show space image and name if chosen -->
-            <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" id="space-menu-dropdown">
-            <li>
-                <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
-                                                                 class="form-control"
-                                                                 autocomplete="off"
-                                                                 placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser','Search'); ?>">
-
-                    <div class="search-reset" id="space-search-reset"><i
-                            class="fa fa-times-circle"></i></div>
-                </form>
-            </li>
-
-            <li class="divider"></li>
-            <li>
-                <ul class="media-list notLoaded" id="space-menu-spaces">
-                    <ul class="media-list" id="space-menu-spaces" tabindex="5001" style="overflow: hidden; outline: none;">
-                        <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
-                            <li>
-                                <a href="<?= $space->url ?>">
-                                    <div class="media">
-                                        <!-- Show user image -->
-                                        <img class="media-object img-rounded pull-left" alt="24x24" data-src="holder.js/24x24" style="width: 24px; height: 24px;" src="<?= $space->getProfileImage()->getUrl() ?>">
-                                        <div class="media-body">
-                                            <strong><?= $space->name ?></strong>
-                                            <br>
-                                            <p><?= $space->description ?></p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                </ul>
-            </li>
-            <?php if (Yii::app()->user->canCreateSpace()): ?>
-                <li>
-                    <div class="dropdown-footer">
-                        <?php
-                        echo CHtml::link(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), $this->createUrl('//space/create/create'), array('class' => 'btn btn-info col-md-12', 'data-toggle' => 'modal', 'data-target' => '#globalModal'));
-                        ?>
-                    </div>
-                </li>
-            <?php endif; ?>
-        </ul>
-    </li>
-
     <script type="text/javascript">
 
         // set niceScroll to SpaceChooser menu
