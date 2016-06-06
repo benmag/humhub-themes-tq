@@ -141,16 +141,22 @@
         <?php if(!Yii::app()->params['currentSpace']) { ?>
             <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
                 <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
-                    <?php echo HHtml::link("Mentor circle", $space->url, $item['htmlOptions']); ?>
+                    <?php echo HHtml::link("Mentor circle", $space->url, ['class' => '']); ?>
                 </li>
             <?php } ?>
         <?php } ?>
-
         <?php foreach ($this->getItems() as $item) :
             $item['style'] = "";
 
             if($item['label'] != "Live Chat") {
                 $item['style'] = "hidden";
+            }
+
+            if((!LogicEntry::getStatusHomeOfUser())) {
+                if ($item['label'] == "Dashboard") {
+                    $item['style'] = "";
+                    $item['label'] = 'All Circles';
+                }
             }
             ?>
 
