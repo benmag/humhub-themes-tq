@@ -119,15 +119,15 @@
 
     </script>
 
-<?php } else if(!Yii::app()->params['currentSpace']) { ?>
+<?php } else { ?>
     <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
         <li class="visible-md visible-lg">
             <a class=" active" href="<?= $space->url ?>">
-                <img class="media-object img-rounded" alt="24x24" data-src="holder.js/24x24" style="margin: 0 auto;width: 22px; height: 19px;" src="<?= $space->getProfileImage()->getUrl() ?>">
+                <i class="fa fa-dot-circle-o"></i><br>
                 <span class="">Mentor circle</span>
             </a>
-
         </li>
+
     <?php } ?>
 <?php } ?>
 
