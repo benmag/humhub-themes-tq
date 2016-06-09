@@ -138,7 +138,7 @@
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
-        <?php if(!Yii::app()->params['currentSpace']) { ?>
+        <?php if(!Yii::app()->params['currentSpace'] && LogicEntry::getStatusHomeOfUser()) { ?>
             <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
                 <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
                     <?php echo HHtml::link("Mentor circle", $space->url, ['class' => '']); ?>
