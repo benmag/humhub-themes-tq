@@ -141,7 +141,7 @@
         <?php if(!Yii::app()->params['currentSpace']) { ?>
             <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
                 <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
-                    <?php echo HHtml::link("Mentor circle", $space->url, ['class' => 'visisble-md visible-lg']); ?>
+                    <?php echo HHtml::link("Mentor circle", $space->url, ['class' => '']); ?>
                 </li>
             <?php } ?>
         <?php } ?>
