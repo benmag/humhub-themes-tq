@@ -173,7 +173,7 @@ a {
 .fa-dashboard::before,
 .fa-tachometer::before {
   font-family: "open-ionic" !important;
-  content: "\e67a";
+  content: "\e671";
 }
 .fa-stack-exchange::before {
   font-family: "open-ionic" !important;
