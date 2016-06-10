@@ -54,7 +54,7 @@
     </li>
 <?php endforeach; ?>
 
-<?php if(!LogicEntry::getStatusHomeOfUser()) { ?>
+<?php if(!LogicEntry::getStatusHomeOfUser() || (bool)User::model()->findByPk(Yii::app()->user->id)->super_admin) { ?>
     <li class="dropdown" title="Access your private mentorship circles">
 
         <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
@@ -95,7 +95,7 @@
                     </li>
                 </ul>
             </li>
-            <?php if (Yii::app()->user->canCreateSpace()): ?>
+            <?php if (Yii::app()->user->canCreateSpace() && (bool)User::model()->findByPk(Yii::app()->user->id)->super_admin): ?>
                 <li>
                     <div class="dropdown-footer">
                         <?php
@@ -120,14 +120,15 @@
     </script>
 
 <?php } else { ?>
-    <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
-        <li class="visible-md visible-lg">
-            <a class=" active" href="<?= $space->url ?>">
-                <i class="fa fa-dot-circle-o"></i><br>
-                <span class="">Mentor circle</span>
-            </a>
-        </li>
-
+    <?php if(!(bool)User::model()->findByPk(Yii::app()->user->id)->super_admin) { ?>
+        <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
+            <li class="visible-md visible-lg">
+                <a class=" active" href="<?= $space->url ?>">
+                    <i class="fa fa-dot-circle-o"></i><br>
+                    <span class="">Mentor circle</span>
+                </a>
+            </li>
+        <?php } ?>
     <?php } ?>
 <?php } ?>
 
