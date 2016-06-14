@@ -25,12 +25,12 @@
 
 		case "Messages":
             $item['title'] = "title=\"Access your message inbox\"";
-            $item['style'] = "style=\"display:none !important; width:0;\"";
+            //$item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
 		case "About":
 			$item['title'] = "title=\"About the site and contact details\"";
-            $item['style'] = "style=\"display:none !important; width:0;\"";
+            //$item['style'] = "style=\"display:none !important; width:0;\"";
         break;
 
 		case "Knowledge":
@@ -139,17 +139,18 @@
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
-        <?php if(!Yii::app()->params['currentSpace'] && LogicEntry::getStatusHomeOfUser()) { ?>
+        <?php if(!Yii::app()->params['currentSpace'] && LogicEntry::getStatusHomeOfUser() && !(bool)User::model()->findByPk(Yii::app()->user->id)->super_admin) { ?>
             <?php foreach (SpaceMembership::GetUserSpaces(Yii::app()->user->id) as $space) { ?>
                 <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
                     <?php echo HHtml::link("Mentor circle", $space->url, ['class' => '']); ?>
                 </li>
             <?php } ?>
         <?php } ?>
+        <?php $remove = ["Dashboard", "Directory" , "Mentor circle", "Knowledge"]; ?>
         <?php foreach ($this->getItems() as $item) :
             $item['style'] = "";
 
-            if($item['label'] != "Live Chat") {
+            if(in_array($item['label'], $remove)) {
                 $item['style'] = "hidden";
             }
 
