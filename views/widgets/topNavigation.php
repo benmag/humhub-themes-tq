@@ -34,8 +34,13 @@
         break;
 
 		case "Knowledge":
-            $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
-            $item['class_style'] = " visible-xs visible-sm ";
+            if((bool)User::model()->findByPk(Yii::app()->user->id)->super_admin) {
+                $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+                $item['class_style'] = "visible-lg visible-md";
+            } else {
+                $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+                $item['class_style'] = (!LogicEntry::getStatusHomeOfUser()) ? "visible-lg visible-md " : "visible-xs visible-sm ";
+            }
         break;
 
 		case "Privacy Policy":
@@ -152,6 +157,14 @@
 
             if(in_array($item['label'], $remove)) {
                 $item['style'] = "hidden";
+            }
+
+            if((bool)User::model()->findByPk(Yii::app()->user->id)->super_admin) {
+                $item['style'] = '';
+            } else {
+                if (!LogicEntry::getStatusHomeOfUser()) {
+                    $item['style'] = '';
+                }
             }
 
             if((!LogicEntry::getStatusHomeOfUser())) {
