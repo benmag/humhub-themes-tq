@@ -48,7 +48,8 @@
         {
             element: "#space-members-panel",
             title: <?php echo json_encode(Yii::t('TourModule.widgets_views_guide_spaces', '<strong>Mentorship Circle</strong> members')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_guide_spaces', 'All users who are a member of this space will be displayed here.<br /><br />New members can be added by anyone who has been given access rights by the admin.')); ?> + "<br><br><a href='javascript:gotoSpace = true; tourCompleted();'><?php echo Yii::t("TourModule.widgets_views_index", "<strong>Start</strong> chat guide"); ?></a><br><br>",
+            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_guide_spaces', 'All users who are a member of this space will be displayed here.<br /><br />New members can be added by anyone who has been given access rights by the admin.')); ?>,
+            placement: "left"
         }
     ]);
 
