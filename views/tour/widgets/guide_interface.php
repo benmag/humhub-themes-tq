@@ -36,27 +36,21 @@
             placement: "bottom"
         },
         {
-            element: "#qanda-search",
+            element: ".typeahead",
             title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Search, share something</strong> or ask a question')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Text to be defined.')); ?>",
-            placement: "bottom"
-        },
-        {
-            element: ".media-heading",
-            title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Existing questions/answers</strong> title')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Text to be defined.')); ?>",
-            placement: "bottom"
+            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Something you’re wanting to find out? Ask it here and you’ll see if anyone has already talked about it. Got something you want to share with the community? Post it here.')); ?>,
+            placement: "top"
         },
         {
             element: ".media-body",
-            title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Existing questions/answers</strong> post')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Text to be defined.')); ?>",
-            placement: "bottom"
+            title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Existing questions/answers</strong> posts')); ?>,
+            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'These are posts or questions from other community members – a title and a description. Click on the title to follow the thread and see what’s been said in the conversation – you can also add your own response.')); ?>",
+            placement: "left"
         },
         {
             element: ".btn-like",
             title: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', '<strong>Existing questions/answers</strong> karma')); ?>,
-            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Text to be defined.')); ?> + "<br><br><a href='javascript:gotoSpace = true; tourCompleted();'><?php echo Yii::t("TourModule.widgets_views_index", "<strong>Start</strong> mentorship circle guide"); ?></a><br><br>",
+            content: <?php echo json_encode(Yii::t('TourModule.widgets_views_index', 'Like what you read? Find something interesting? Click here and let them know – you will also gain karma points within the community.')); ?>,
             placement: "bottom"
         },
 
