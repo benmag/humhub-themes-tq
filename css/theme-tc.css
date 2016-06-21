@@ -99,6 +99,10 @@ p {
   left: 4px;
   color: #888;
 }
+.custom-right-arrow {
+    margin: 14px;
+    font-size: 19px !important;
+}
 .tooltip-inner {
   background-color: #3d427f;
   color: white;
