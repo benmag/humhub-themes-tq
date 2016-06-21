@@ -23,7 +23,7 @@
                 <?php
                 $this->widget('application.modules_core.space.widgets.SpaceSidebarWidget', array(
                     'widgets' => array(
-                        array('application.modules_core.activity.widgets.ActivityStreamWidget', array('contentContainer' => $this->getSpace(), 'streamAction' => '//space/space/stream'), array('sortOrder' => 100)),
+                        array('application.modules_core.activity.widgets.ActivityStreamWidget', array('streamAction' => '//dashboard/dashboard/stream')),
                         array('application.modules_core.space.widgets.SpaceMemberWidget', array('space' => $this->getSpace()), array('sortOrder' => 200)),
                     )
                 ));
