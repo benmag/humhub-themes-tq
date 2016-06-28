@@ -29,7 +29,14 @@ use humhub\modules\karma\models\KarmaUser;
                 </span>
             </a>
             <div class="user-title pull-left">
-                <strong><?php echo Html::encode($user->displayName); ?> <?php echo "(".KarmaUser::score($user->id).")"; ?></strong><br/><span class="truncate"><?php echo Html::encode($user->profile->title); ?></span>
+                <strong>
+                    <?php echo Html::encode($user->displayName); ?>
+                    <?php
+                    if(isset(Yii::$app->modules['karma'])) {
+                        echo "(" . KarmaUser::score($user->id) . ")";
+                    }
+                    ?>
+                </strong><br/><span class="truncate"><?php echo Html::encode($user->profile->title); ?></span>
             </div>
         </div>
     </div>
