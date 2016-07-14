@@ -18,6 +18,8 @@ if(count($userSpaces) > 1 && !Yii::app()->params['currentSpace'] && !Yii::app()-
 } else {
 	$showSpacePicker = false;
 }
+
+new ManageRegistration;
 ?>
 
 <div <?php if(!$showSpacePicker) echo "style='display:none !important;'"; ?>>

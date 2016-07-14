@@ -1,3 +1,9 @@
+<?php
+
+use humhub\libs\HHtml;
+
+?>
+
 <!-- add Tooltip to link -->
 <?php
 $tooltip = "";
@@ -62,11 +68,20 @@ if ($confirmJS != "") {
                     
                 	<div class="col-sm-6">
 						<?php if ($buttonTrue != "") { ?>
-                            <?php echo HHtml::ajaxButton($buttonTrue, $linkHref, array(
-                                'type' => 'POST',
-                                'data' => array(Yii::app()->request->csrfTokenName => Yii::app()->request->csrfToken),
-                                'success' => $confirm,
-                            ), array('class' => 'btn btn-primary', 'data-dismiss' => "modal"));
+                            <?php
+                            echo \humhub\widgets\AjaxButton::widget([
+                                'label' => $buttonTrue,
+                                'ajaxOptions' => [
+                                    'type' => 'POST',
+                                    'success' => $confirm,
+                                    'url' => $linkHref,
+                                ],
+                                'htmlOptions' => [
+                                    'return' => 'true',
+                                    'class' => 'btn btn-primary',
+                                    'data-dismiss' => 'modal'
+                                ]
+                            ]);
                             ?>
                         <?php } ?>
                   	</div>

@@ -1258,3 +1258,11 @@ img.bounceIn {
 }
 
 /*# sourceMappingURL=theme.css.map */
+
+.container .jumbotron, .container-fluid .jumbotron {
+   border-radius: 0px !important;
+}
+
+.media > .pull-left {
+  padding-right: 0 !important;
+}

@@ -3,37 +3,29 @@
         <div class="col-md-8">
             <?php
             if ($showProfilePostForm) {
-                $this->widget('application.modules_core.post.widgets.PostFormWidget', array('contentContainer' => Yii::app()->user->model));
+                echo \humhub\modules\post\widgets\Form::widget(['contentContainer' => Yii::$app->user->getIdentity()]);
             }
             ?>
-
             <?php
-				$this->widget('application.modules_core.wall.widgets.StreamWidget', array(
-					'streamAction' => '//dashboard/dashboard/stream',
-					'showFilters' => false,
-					'messageStreamEmpty' => Yii::t('DashboardModule.views_dashboard_index', '<b>Your dashboard is empty!</b><br>Post
-					something on your profile or join some spaces!'),
-				));
+                echo \humhub\modules\content\widgets\Stream::widget([
+                    'streamAction' => '/dashboard/dashboard/stream',
+                    'showFilters' => false,
+                    'messageStreamEmpty' => \Yii::t('DashboardModule.views_dashboard_index', '<b>Your dashboard is empty!</b><br>Post something on your profile or join some spaces!'),
+                ]);
             ?>
         </div>
         <div class="col-md-4">
-        	
+
             <div class="row">
                 <div class="col-xs-12" id="quotes">
 					<div class="panel panel-default panel-teachingquotes">
-                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-apple.png" style="">
-                        <?php $this->renderPartial('//quotes/quotes', array()); ?> 
+                        <img src="<?php echo $this->theme->baseUrl; ?>/img/tc-apple.png" style="">
+                        <?php echo $this->renderFile($this->theme->basePath  . '/views/quotes/quotes.php'); ?>
                     </div>
                 </div>
             </div>
-
             <?php
-				$this->widget('application.modules_core.dashboard.widgets.DashboardSidebarWidget', array(
-					'widgets' => array(
-						array('application.modules_core.activity.widgets.ActivityStreamWidget', array('streamAction' =>
-						'//dashboard/dashboard/stream'), array('sortOrder' => 10)),
-					)
-				));
+                echo \humhub\modules\activity\widgets\Stream::widget(['streamAction' => '/dashboard/dashboard/stream']);
             ?>
         </div>
     </div>
@@ -51,14 +43,14 @@
             </div>
 
             <div class="modal-body">
-            	
+
                 <div id="owl-fader" class="owl-carousel owl-theme">
                     <div>
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="circle-bg general-bg"><span class="icon icon-owl"></span></div>
                                 <h2>Welcome to Teach Connect</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-welcome.png">
+                                <img class="img-responsive" src="<?php echo $this->theme->baseUrl; ?>/img/tc-welcome.png">
 								<p>TeachConnect is an altruistic network of pre-service, current and experienced teachers across Queensland. It’s free and always will be - because it’s owned by you, the teachers. TeachConnect is a simple idea - a platform to let you talk to other teachers and to benefit from the experiences of others.</p>
                             </div>
                         </div>
@@ -78,7 +70,7 @@
                             <div class="col-xs-12">
                                 <div class="circle-bg mentorcircle-bg"><span class="icon icon-circle"></span></div>
                                 <h2>Your Private Mentorship Circle</h2>
-                                <img class="img-responsive" src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-1.png">
+                                <img class="img-responsive" src="<?php echo $this->theme->baseUrl; ?>/img/tc-community-1.png">
 
                                 <p>Your mentorship circle is a private space for you to ask questions & obtain feedback
                                     about topics that arise during your teaching placement.</p>
@@ -98,7 +90,7 @@
                             <div class="col-xs-12">
                                 <div class="circle-bg community-bg"><span class="icon icon-qanda"></span></div>
                                 <h2>Your Public Community</h2>
-                                <img class="img-responsive"  src="<?php echo Yii::app()->theme->baseUrl; ?>/img/tc-community-2.png">
+                                <img class="img-responsive"  src="<?php echo $this->theme->baseUrl; ?>/img/tc-community-2.png">
 
                                 <p>We’re building up a searchable repository of teaching knowledge for you to ask for,
                                     find and discuss valuable information.</p>
@@ -125,7 +117,7 @@
 <script type="text/javascript">
     // Owl Carousel Script - for rotating quotations
     $(document).ready(function () {
-		
+
         // Only show welcome modal on first view
         if($.cookie('_viewed_welcome_modal') == undefined) {
 
@@ -146,7 +138,7 @@
             dots: true,
             nav: false
         });
-        
+
         // Owl Carousel for Instructions on first use in modal - initiate when modal is opened
         $('#modalFirstUse').on('shown.bs.modal', function () {
             $(".modal .owl-carousel").owlCarousel({
