@@ -94,7 +94,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
             <!-- end: Show space image and name if chosen -->
             <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu" id="space-menu-dropdown">
+        <ul class="dropdown-menu" id="space-menu-dropdown" style="padding-bottom: 10px; !important">
             <li>
                 <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
                                                                  class="form-control"
@@ -138,7 +138,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 
                 </ul>
             </li>
-            <?php if (LogicEntry::canCreateSpace()): ?>
+            <?php if (LogicEntry::canCreateSpace() && (bool)\Yii::$app->user->identity->super_admin): ?>
                 <li>
                     <div class="dropdown-footer">
                         <?php
