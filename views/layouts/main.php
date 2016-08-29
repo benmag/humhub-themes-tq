@@ -130,7 +130,7 @@ TeachConnectAsset::register($this);
 </div>
 
 <!-- end: second top navigation bar -->
-<?= \humhub\modules\tour\widgets\Tour::widget();  ?>
+<?//= \humhub\modules\tour\widgets\Tour::widget();  ?>
 <?= \humhub\modules\questionanswer\widgets\KnowledgeTourWidget::widget();  ?>
 
 <!-- start: show content (and check, if exists a sublayout -->
