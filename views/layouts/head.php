@@ -3,6 +3,7 @@
 <!-- start: CSS -->
 <link href="<?php echo $this->theme->getBaseUrl(); ?>/css/datepicker.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo $this->theme->getBaseUrl(); ?>/css/theme.css?ver=<?php echo $ver; ?>" rel="stylesheet">
+<link href="<?php echo $this->theme->getBaseUrl(); ?>/css/theme-tc.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo $this->theme->getBaseUrl(); ?>/css/flatelements.css?ver=<?php echo $ver; ?>" rel="stylesheet">
 <link href="<?php echo $this->theme->getBaseUrl(); ?>/font/lato/lato.css" rel="stylesheet">
 <link href="<?php echo $this->theme->getBaseUrl(); ?>/font/openionic/style.css" rel="stylesheet">

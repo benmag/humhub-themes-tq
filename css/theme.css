@@ -466,14 +466,17 @@ input[type=select] {
   font-weight: 300;
   font-size: 16px;
   padding: 15px;
+  font-family: 'latoregular', sans-serif;
 }
 .popover .popover-content {
   font-size: 13px;
   padding: 5px 15px;
   color: #555555;
+  font-family: 'latoregular', sans-serif;
 }
 .popover .popover-content a {
   color: #22bcb8;
+  font-family: 'latoregular', sans-serif;
 }
 .popover .popover-navigation {
   padding: 15px;
