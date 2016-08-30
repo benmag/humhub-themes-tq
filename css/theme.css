@@ -1269,3 +1269,25 @@ img.bounceIn {
 .media > .pull-left {
   padding-right: 0 !important;
 }
+
+.comment_create .comment-buttons {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  width: 80px;
+}
+
+.comment_create .btn-comment-submit {
+  float:right !important;
+  background: purple;
+  color : #fff !important;
+}
+
+.comment_create .fileinput-button * {
+  color: #d8a7d8 !important;
+}
+
+.comment_create .fileinput-button {
+  position: relative !important;
+  top: -3px;
+}
