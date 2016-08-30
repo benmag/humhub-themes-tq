@@ -1291,3 +1291,7 @@ img.bounceIn {
   position: relative !important;
   top: -3px;
 }
+
+.tooltip * {
+  font-family: 'latoregular', sans-serif !important;
+}
