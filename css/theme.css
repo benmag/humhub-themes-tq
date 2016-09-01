@@ -1279,12 +1279,12 @@ img.bounceIn {
 
 .comment_create .btn-comment-submit {
   float:right !important;
-  background: purple;
+  background: #3d427f;
   color : #fff !important;
 }
 
 .comment_create .fileinput-button * {
-  color: #d8a7d8 !important;
+  color: #b9b5b5 !important;
 }
 
 .comment_create .fileinput-button {
