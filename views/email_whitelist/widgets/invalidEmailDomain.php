@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Html;
+?>
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -5,7 +8,7 @@
         </div>
         <div class="panel-body">
             
-            <strong><?php echo CHtml::encode($message); ?></strong>
+            <strong><?php echo Html::encode($message); ?></strong>
             
             <br />
             Have you tried joining TeachConnect using your institutional email address? This will typically be your email address that ends with ".edu.au". For example, if you're a pre-service teacher then this will be your university account.
