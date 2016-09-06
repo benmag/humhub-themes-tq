@@ -149,17 +149,20 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
             <?php endif; ?>
         </ul>
     </li>
-    <script type="text/javascript">
+     <script type="text/javascript">
+        $(document).ready(function() {
+            // set niceScroll to SpaceChooser menu
+            $("#space-menu-spaces").niceScroll({
+                cursorwidth: "7",
+                cursorborder: "",
+                cursorcolor: "#555",
+                cursoropacitymax: "0.2",
+                railpadding: {top: 0, right: 3, left: 0, bottom: 0}
+            });
 
-        // set niceScroll to SpaceChooser menu
-        $("#space-menu-spaces").niceScroll({
-            cursorwidth: "7",
-            cursorborder: "",
-            cursorcolor: "#555",
-            cursoropacitymax: "0.2",
-            railpadding: {top: 0, right: 3, left: 0, bottom: 0}
-        });
-        jQuery('.badge-space').fadeIn('slow');
+            $('.badge-space').fadeIn('slow');
+        })
+
     </script>
 
 <?php } else { ?>
