@@ -1263,4 +1263,9 @@ ul.yiiPager .selected a {
   }
 }
 
+.ttSpaceUser {
+  display: inline-block;
+  text-align:center;
+}
+
 /*# sourceMappingURL=theme-tc.css.map */
