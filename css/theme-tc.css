@@ -1268,5 +1268,8 @@ ul.yiiPager .selected a {
   text-align:center;
 }
 
+.spaces .tt {
+    display: inline-block;
+}
 
 /*# sourceMappingURL=theme-tc.css.map */
