@@ -5,6 +5,12 @@
  * @license https://www.humhub.org/licences GNU AGPL v3
  */
 ?>
+<!--
+ * @link https://www.humhub.org/
+ * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
+ * @license https://www.humhub.org/licences GNU AGPL v3
+ */
+ -->
 <?php $ver = 4 ?>
 
 <!-- start: CSS -->
