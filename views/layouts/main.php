@@ -111,32 +111,34 @@ TeachConnectAsset::register($this);
 </div>
 <!-- end: first top navigation bar -->
 
-<!-- start: second top navigation bar -->
-<div id="topbar-second" class="topbar">
-    <div class="container">
-        <ul class="nav ">
-            <!-- load space chooser widget -->
-<!--            --><?php //echo \humhub\modules\space\widgets\Chooser::widget(); ?>
+<?php if(!\Yii::$app->user->isGuest) { ?>
+    <!-- start: second top navigation bar -->
+    <div id="topbar-second" class="topbar">
+        <div class="container">
+            <ul class="nav ">
+                <!-- load space chooser widget -->
+    <!--            --><?php //echo \humhub\modules\space\widgets\Chooser::widget(); ?>
 
-            <!-- load navigation from widget -->
-            <?php echo \humhub\widgets\TopMenu::widget(); ?>
-        </ul>
+                <!-- load navigation from widget -->
+                <?php echo \humhub\widgets\TopMenu::widget(); ?>
+            </ul>
 
 
-        <ul class="nav pull-right" id="search-menu-nav" title="Search for posts and users in TeachConnect">
-            <li class="dropdown">
-                <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span>
-                </a>
-                <ul class="dropdown-menu pull-right" id="search-menu-dropdown">
-                    <?php echo \humhub\modules\extend_search\widgets\SearchMenuWidget::widget(); ?>
-                </ul>
-            </li>
-        </ul>
+            <ul class="nav pull-right" id="search-menu-nav" title="Search for posts and users in TeachConnect">
+                <li class="dropdown">
+                    <a href="#" id="search-menu" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-search pull-left"></i> <span class="search-button">Search</span>
+                    </a>
+                    <ul class="dropdown-menu pull-right" id="search-menu-dropdown">
+                        <?php echo \humhub\modules\extend_search\widgets\SearchMenuWidget::widget(); ?>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+    <!-- end: second top navigation bar -->
+<?php } ?>
 
-<!-- end: second top navigation bar -->
 <?//= \humhub\modules\tour\widgets\Tour::widget();  ?>
 <?= \humhub\modules\questionanswer\widgets\KnowledgeTourWidget::widget();  ?>
 
