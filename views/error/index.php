@@ -16,7 +16,7 @@ use yii\helpers\Html;
             </div>
 
             <hr>
-            <a href="<?php echo Yii::$app->urlManager->createUrl('/')?>" class="btn btn-primary"><?php echo Yii::t('base', 'Back to dashboard'); ?></a>
+            <a href="<?php echo Yii::$app->urlManager->createUrl('/')?>" class="btn btn-primary"><?php echo (!Yii::$app->user->isGuest)?Yii::t('base', 'Back to dashboard'):Yii::t('base', 'Back to home'); ?></a>
         </div>
     </div>
 </div>
