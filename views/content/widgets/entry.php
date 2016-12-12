@@ -48,16 +48,24 @@ $container = $object->content->container;
 
 
             <div class="media-body">
-
                 <!-- show username with link and creation time-->
                 <h4 class="media-heading"><a
                         href="<?php echo $user->getUrl(); ?>"><?php echo Html::encode($user->displayName); ?></a>
                     <small>
-                        <?php echo \humhub\widgets\TimeAgo::widget(['timestamp' => $object->content->created_at]); ?>
+                        <?php
 
-                        <?php if ($object->content->created_at !== $object->content->updated_at && $object->content->updated_at != ''): ?>
-                            (<?php echo Yii::t('ContentModule.views_wallLayout', 'Updated :timeago', array(':timeago' => \humhub\widgets\TimeAgo::widget(['timestamp' => $object->content->updated_at]))); ?>)
-                        <?php endif; ?>
+                        $timeZone = \Yii::$app->user->identity->time_zone;
+                        $date = new \DateTime($object->content->created_at, new \DateTimeZone('UTC'));
+                        $timestamp = $date->getTimestamp();
+                        $date->setTimezone(new \DateTimeZone($timeZone));
+                        $object->content->created_at = $date->format('F j, Y, g:i a');
+
+                        ?>
+                        <?php echo $object->content->created_at; ?>
+
+                        <!--                        --><?php //if ($object->content->created_at !== $object->content->updated_at && $object->content->updated_at != ''): ?>
+                        <!--                            (--><?php //echo Yii::t('ContentModule.views_wallLayout', 'Updated :timeago', array(':timeago' => \humhub\widgets\TimeAgo::widget(['timestamp' => $object->content->updated_at]))); ?><!--)-->
+                        <!--                        --><?php //endif; ?>
 
                         <!-- show space name -->
                         <?php if (!Yii::$app->controller instanceof ContentContainerController && $container instanceof Space): ?>
