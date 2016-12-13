@@ -13,13 +13,18 @@ $space = $this->context->contentContainer;
             <?php echo \humhub\modules\space\widgets\Menu::widget(['space' => $space]); ?>
             <br>
         </div>
-
         <?php if (isset($this->context->hideSidebar) && $this->context->hideSidebar) : ?>
             <div class="col-md-10 layout-content-container">
                 <?php echo $content; ?>
             </div>
         <?php else: ?>
             <div class="col-md-7 layout-content-container">
+                <div>
+                    <p style='font-size:16px'><b>Circle</b> description</p>
+                </div>
+
+                    <?php echo $space->description; ?>
+
                 <?php echo $content; ?>
             </div>
             <div class="col-md-3 layout-sidebar-container">
