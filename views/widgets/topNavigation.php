@@ -22,6 +22,9 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
  */
 
 ?>
+
+
+
 <?php foreach ($this->context->getItems() as $item) :
 
     $item['style'] = "";
@@ -222,3 +225,15 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
         <?php endforeach; ?>
     </ul>
 </li>
+<script>
+    $.fn.modal.Constructor.prototype.enforceFocus = function () {
+        modal_this = this
+        $(document).on('focusin.modal', function (e) {
+            if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
+                && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
+                && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+                modal_this.$element.focus()
+            }
+        })
+    };
+</script>
