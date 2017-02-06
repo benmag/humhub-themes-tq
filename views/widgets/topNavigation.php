@@ -1,6 +1,6 @@
 <?php
 
-use humhub\modules\spacemembership\models\SpaceMembership;
+use humhub\modules\contrib\spacemembership\models\SpaceMembership;
 use yii\helpers\Html;
 use humhub\modules\logicenter\models\LogicEntry;
 use yii\helpers\Url;
