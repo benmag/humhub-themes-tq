@@ -6,10 +6,10 @@ use humhub\modules\logicenter\models\LogicEntry;
 use yii\helpers\Url;
 use humhub\libs\Helpers;
 
-
 $this->registerJsFile("@web/resources/space/spacechooser.js");
 $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 ?>
+
 <?php
 /**
  * Overwrite the original TopNavigation by TopMenuWidget.
@@ -24,70 +24,48 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 ?>
 
 <?php foreach ($this->context->getItems() as $item) :
-
     $item['style'] = "";
-	$item['title'] = "";
+    $item['title'] = "";
     // Apply custom (hardcoded) overwrites to menu items
-    switch($item['label']) {
+    switch ($item['label']) {
         case "Dashboard":
             $item['label'] = "All circles";
-			$item['title'] = "title=\"Access your home dashboard news feed\"";
-//            $item['style'] = "style=\"display:none !important; width:0;\"";
-        break;
-
+            $item['title'] = "title=\"Access your home dashboard news feed\"";
+            break;
         case "Directory":
             $item['style'] = "style=\"display:none !important; width:0;\"";
-        break;
-
-		case "Messages":
+            break;
+        case "Messages":
             $item['title'] = "title=\"Access your message inbox\"";
-            //$item['style'] = "style=\"display:none !important; width:0;\"";
-        break;
-
-		case "About":
-			$item['title'] = "title=\"About the site and contact details\"";
-            //$item['style'] = "style=\"display:none !important; width:0;\"";
-        break;
-
-		case "Knowledge":
-            if((bool)\Yii::$app->user->identity->super_admin) {
+            break;
+        case "About":
+            $item['title'] = "title=\"About the site and contact details\"";
+            break;
+        case "Knowledge":
+            if ((bool)\Yii::$app->user->identity->super_admin) {
                 $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
                 $item['class_style'] = "visible-lg visible-md";
             } else {
                 $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
-//                $item['class_style'] = (!LogicEntry::getStatusHomeOfUser()) ? "visible-lg visible-md " : "visible-xs visible-sm ";
             }
-        break;
-
-		case "Privacy Policy":
+            break;
+        case "Privacy Policy":
             $item['title'] = "title=\"TeachConnect privacy policy\"";
-        break;
+            break;
     }
-
     ?>
 
-    <li class="visible-md visible-lg <?= isset($item['class_style'])?$item['class_style']:''?> <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
+    <li class="visible-md visible-lg <?= isset($item['class_style']) ? $item['class_style'] : '' ?> <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
     }
     ?>" <?php echo $item['style']; ?> <?php echo $item['title']; ?>>
-            <?php echo \yii\helpers\Html::a($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
+        <?php echo \yii\helpers\Html::a($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
     </li>
 <?php endforeach; ?>
 
 <li class="dropdown">
     <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
-        <!-- start: Show space image and name if chosen -->
-        <!--            --><?php //if (LogicEntry::getCurrentSpace()) { ?>
-        <!--                --><?php //echo \humhub\modules\space\widgets\Image::widget([
-        //                    'space' => LogicEntry::getCurrentSpace(),
-        //                    'width' => 32,
-        //                    'htmlOptions' => [
-        //                        'class' => 'current-space-image',
-        //                    ]
-        //                ]); ?>
-        <!--            --><?php //} ?>
-
         <?php
         echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Mentor circles');
         ?>
@@ -118,7 +96,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                     $source = SpaceMembership::GetUserSpacesForMember();
                 }
 
-                foreach ($source as $membership): ?>
+                foreach ($source as $membership) : ?>
                     <?php $newItems = $membership->countNewItems(); ?>
                     <li>
                         <a href="<?php echo $membership->space->getUrl(); ?>">
@@ -133,22 +111,21 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                                 ]); ?>
                                 <div class="media-body">
                                     <strong><?php echo Html::encode($membership->space->name); ?></strong>
-                                    <?php if ($newItems != 0): ?>
+                                    <?php if ($newItems != 0) : ?>
                                         <div class="badge badge-space pull-right"
                                              style="display:none"><?php echo $newItems; ?></div>
                                     <?php endif; ?>
                                     <br>
 
-                                    <p><?php echo Html::encode(Helpers::truncateText($membership->space->description, 60)); ?></p>
+                                    <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($membership->space->description)), 60)); ?></p>
                                 </div>
                             </div>
                         </a>
                     </li>
                 <?php endforeach; ?>
-
             </ul>
         </li>
-        <?php if (LogicEntry::canCreateSpace() && (bool)\Yii::$app->user->identity->super_admin): ?>
+        <?php if (LogicEntry::canCreateSpace() && (bool)\Yii::$app->user->identity->super_admin) : ?>
             <li>
                 <div class="dropdown-footer">
                     <?php
@@ -159,6 +136,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
         <?php endif; ?>
     </ul>
 </li>
+
 <script type="text/javascript">
     $(document).ready(function () {
         // set niceScroll to SpaceChooser menu
@@ -172,7 +150,6 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 
         $('.badge-space').fadeIn('slow');
     })
-
 </script>
 
 <li class="dropdown visible-xs visible-sm">
@@ -184,20 +161,20 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 
         <?php if (isset(Yii::$app->params['currentSpace']) && !Yii::$app->params['currentSpace'] && LogicEntry::getStatusHomeOfUser() && !(bool)\Yii::$app->user->identity->super_admin) { ?>
             <?php foreach (SpaceMembership::GetUserSpacesForMember(\Yii::$app->user->id) as $space) { ?>
-                <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
+                <li class="<?php if ($item['isActive']) : ?>active<?php endif; ?>">
                     <?php echo Html::link("Mentor circle", $space->url, ['class' => '']); ?>
                 </li>
             <?php } ?>
         <?php } ?>
-        <?php $remove = ["Dashboard", "Directory" , "Mentor circle", "Knowledge"]; ?>
+        <?php $remove = ["Dashboard", "Directory", "Mentor circle", "Knowledge"]; ?>
         <?php foreach ($this->context->getItems() as $item) :
             $item['style'] = "";
 
-            if(in_array($item['label'], $remove)) {
+            if (in_array($item['label'], $remove)) {
                 $item['style'] = "hidden";
             }
 
-            if((bool)\Yii::$app->user->identity->super_admin) {
+            if ((bool)\Yii::$app->user->identity->super_admin) {
                 $item['style'] = '';
             } else {
                 if (!LogicEntry::getStatusHomeOfUser()) {
@@ -205,7 +182,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                 }
             }
 
-            if((!LogicEntry::getStatusHomeOfUser())) {
+            if ((!LogicEntry::getStatusHomeOfUser())) {
                 if ($item['label'] == "Dashboard") {
                     $item['style'] = "";
                     $item['label'] = 'All Circles';
