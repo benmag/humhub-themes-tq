@@ -6,10 +6,10 @@ use humhub\modules\logicenter\models\LogicEntry;
 use yii\helpers\Url;
 use humhub\libs\Helpers;
 
-
 $this->registerJsFile("@web/resources/space/spacechooser.js");
 $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 ?>
+
 <?php
 /**
  * Overwrite the original TopNavigation by TopMenuWidget.
@@ -24,7 +24,6 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
 ?>
 
 <?php foreach ($this->context->getItems() as $item) :
-
     $item['style'] = "";
 	$item['title'] = "";
     // Apply custom (hardcoded) overwrites to menu items
@@ -139,7 +138,7 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
                                     <?php endif; ?>
                                     <br>
 
-                                    <p><?php echo Html::encode(Helpers::truncateText($membership->space->description, 60)); ?></p>
+                                    <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($membership->space->description)), 60)); ?></p>
                                 </div>
                             </div>
                         </a>
