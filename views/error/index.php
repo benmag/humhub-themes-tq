@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle = Yii::$app->name . ' - ' . Yii::t('base', 'Error');
-use Yii;
 use yii\helpers\Html;
+
+$this->pageTitle = Yii::$app->name . ' - ' . Yii::t('base', 'Error');
 ?>
 <div class="container container-error">
     <div class="panel panel-default">
