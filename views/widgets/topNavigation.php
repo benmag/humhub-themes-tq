@@ -1,6 +1,9 @@
 <?php
 
 use humhub\modules\contrib\spacemembership\models\SpaceMembership;
+use humhub\modules\content\models\WallEntry;
+use humhub\modules\activity\models\Activity;
+use humhub\modules\comment\models\Comment;
 use yii\helpers\Html;
 use humhub\modules\logicenter\models\LogicEntry;
 use yii\helpers\Url;
@@ -20,6 +23,24 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
  * @since 0.5
  * @var $this \humhub\widgets\TopMenu
  */
+
+if (!function_exists('countNewItems')) {
+    function countNewItems($space, $membership, $since = "")
+    {
+        if (!$membership) {
+            return 0;
+        }
+        $query = WallEntry::find()->joinWith('content');
+        $query->where(['!=', 'content.object_model', Activity::className()]);
+        $query->andWhere(['wall_entry.wall_id' => $space->wall_id]);
+        $query->andWhere(['>', 'wall_entry.created_at', $membership->last_visit || $since]);
+        $count = $query->count();
+
+        $count += Comment::find()->where(['space_id' => $space->id])
+            ->andWhere(['>', 'created_at', $membership->last_visit])->count();
+        return $count;
+    }
+}
 
 ?>
 
@@ -88,36 +109,34 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
             <ul class="media-list notLoaded" id="space-menu-spaces">
                 <?php
 
-                $source = SpaceMembership::GetUserSpacesForMember();
+                $source = SpaceMembership::GetUserSpacesForMember(Yii::$app->user->id, Yii::$app->user->identity->super_admin);
 
-                if (\Yii::$app->user->identity->super_admin) {
-                    $source = SpaceMembership::GetUserSpacesForMember('', 1);
-                } else {
-                    $source = SpaceMembership::GetUserSpacesForMember();
-                }
-
-                foreach ($source as $membership) : ?>
-                    <?php $newItems = $membership->countNewItems(); ?>
+                foreach ($source as $entry) : ?>
+                <?php
+                    $space = $entry[0];
+                    $membership = $entry[1];
+                    $newItems = countNewItems($space, $membership);
+                    ?>
                     <li>
-                        <a href="<?php echo $membership->space->getUrl(); ?>">
+                        <a href="<?php echo $space->getUrl(); ?>">
                             <div class="media">
                                 <!-- Show space image -->
                                 <?php echo \humhub\modules\space\widgets\Image::widget([
-                                    'space' => $membership->space,
+                                    'space' => $space,
                                     'width' => 24,
                                     'htmlOptions' => [
                                         'class' => 'pull-left',
                                     ]
                                 ]); ?>
                                 <div class="media-body">
-                                    <strong><?php echo Html::encode($membership->space->name); ?></strong>
+                                    <strong><?php echo Html::encode($space->name); ?></strong>
                                     <?php if ($newItems != 0) : ?>
                                         <div class="badge badge-space pull-right"
                                              style="display:none"><?php echo $newItems; ?></div>
                                     <?php endif; ?>
                                     <br>
 
-                                    <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($membership->space->description)), 60)); ?></p>
+                                    <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($space->description)), 60)); ?></p>
                                 </div>
                             </div>
                         </a>
@@ -136,6 +155,8 @@ $this->registerJsVar('scSpaceListUrl', Url::to(['/space/list', 'ajax' => 1]));
         <?php endif; ?>
     </ul>
 </li>
+
+
 
 <script type="text/javascript">
     $(document).ready(function () {
