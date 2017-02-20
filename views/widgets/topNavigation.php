@@ -75,7 +75,7 @@ if (!function_exists('countNewItems')) {
             break;
     }
     ?>
-
+<!---->
     <li class="visible-md visible-lg <?= isset($item['class_style']) ? $item['class_style'] : '' ?> <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
@@ -180,38 +180,27 @@ if (!function_exists('countNewItems')) {
         <b class="caret"></b></a>
     <ul class="dropdown-menu pull-right">
 
-        <?php if (isset(Yii::$app->params['currentSpace']) && !Yii::$app->params['currentSpace'] && LogicEntry::getStatusHomeOfUser() && !(bool)\Yii::$app->user->identity->super_admin) { ?>
+        <?php if (isset(Yii::$app->params['currentSpace']) && !Yii::$app->params['currentSpace'] && !(bool)\Yii::$app->user->identity->super_admin) { ?>
             <?php foreach (SpaceMembership::GetUserSpacesForMember(\Yii::$app->user->id) as $space) { ?>
                 <li class="<?php if ($item['isActive']) : ?>active<?php endif; ?>">
                     <?php echo Html::link("Mentor circle", $space->url, ['class' => '']); ?>
                 </li>
             <?php } ?>
         <?php } ?>
-        <?php $remove = ["Dashboard", "Directory", "Mentor circle", "Knowledge"]; ?>
+        <?php $remove = [
+                "Directory" => 1,
+                "Mentor circle" => 1,
+        ]; ?>
         <?php foreach ($this->context->getItems() as $item) :
-            $item['style'] = "";
-
-            if (in_array($item['label'], $remove)) {
-                $item['style'] = "hidden";
+            if (isset($remove[$item['label']])) {
+                continue;
             }
-
-            if ((bool)\Yii::$app->user->identity->super_admin) {
-                $item['style'] = '';
-            } else {
-                if (!LogicEntry::getStatusHomeOfUser()) {
-                    $item['style'] = '';
-                }
-            }
-
-            if ((!LogicEntry::getStatusHomeOfUser())) {
-                if ($item['label'] == "Dashboard") {
-                    $item['style'] = "";
+            if ($item['label'] == "Dashboard") {
                     $item['label'] = 'My Circles';
-                }
             }
             ?>
 
-            <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>" <?php echo $item['style']; ?>>
+            <li class="<?php if ($item['isActive']): ?>active<?php endif; ?>">
                 <?php echo Html::a($item['label'], $item['url'], $item['htmlOptions']); ?>
             </li>
         <?php endforeach; ?>
