@@ -88,7 +88,7 @@ if (!function_exists('countNewItems')) {
 <li class="dropdown">
     <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
         <?php
-        echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Mentor circles');
+        echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Circles');
         ?>
         <!-- end: Show space image and name if chosen -->
         <b class="caret"></b>
