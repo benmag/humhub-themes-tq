@@ -50,7 +50,7 @@ if (!function_exists('countNewItems')) {
     // Apply custom (hardcoded) overwrites to menu items
     switch ($item['label']) {
         case "Dashboard":
-            $item['label'] = "All circles";
+            $item['label'] = "My circles";
             $item['title'] = "title=\"Access your home dashboard news feed\"";
             break;
         case "Directory":
@@ -206,7 +206,7 @@ if (!function_exists('countNewItems')) {
             if ((!LogicEntry::getStatusHomeOfUser())) {
                 if ($item['label'] == "Dashboard") {
                     $item['style'] = "";
-                    $item['label'] = 'All Circles';
+                    $item['label'] = 'My Circles';
                 }
             }
             ?>
