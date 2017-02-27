@@ -44,38 +44,57 @@ if (!function_exists('countNewItems')) {
 
 ?>
 
-<?php foreach ($this->context->getItems() as $item) :
+<?php
+
+$this->context->addItem(['label' => 'Circles', 'sortOrder' => 200]);
+
+foreach ($this->context->items as &$item) {
     $item['style'] = "";
     $item['title'] = "";
+
     // Apply custom (hardcoded) overwrites to menu items
     switch ($item['label']) {
         case "Dashboard":
             $item['label'] = "My circles";
             $item['title'] = "title=\"Access your home dashboard news feed\"";
+            $item['sortOrder'] = 100;
             break;
         case "Directory":
             $item['style'] = "style=\"display:none !important; width:0;\"";
+            $item['sortOrder'] = 700;
             break;
         case "Messages":
             $item['title'] = "title=\"Access your message inbox\"";
+            $item['sortOrder'] = 500;
             break;
         case "About":
             $item['title'] = "title=\"About the site and contact details\"";
+            $item['sortOrder'] = 600;
+            break;
+        case "Live Chat":
+            $item['sortOrder'] = 400;
             break;
         case "Knowledge":
             if ((bool)\Yii::$app->user->identity->super_admin) {
                 $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
                 $item['class_style'] = "visible-lg visible-md";
+                $item['sortOrder'] = 300;
             } else {
                 $item['title'] = "title=\"Ask for, find and discuss valuable teaching information\"";
+                $item['sortOrder'] = 300;
             }
             break;
         case "Privacy Policy":
             $item['title'] = "title=\"TeachConnect privacy policy\"";
+            $item['sortOrder'] = 800;
             break;
     }
-    ?>
-<!---->
+}
+
+$menuItems = $this->context->getItems(); ?>
+
+<?php foreach ($menuItems as &$item):?>
+<?php if ($item['label'] != 'Circles'): ?>
     <li class="visible-md visible-lg <?= isset($item['class_style']) ? $item['class_style'] : '' ?> <?php if ($item['isActive']): ?>active<?php endif; ?> <?php
     if (isset($item['id'])) {
         echo $item['id'];
@@ -83,79 +102,79 @@ if (!function_exists('countNewItems')) {
     ?>" <?php echo $item['style']; ?> <?php echo $item['title']; ?>>
         <?php echo \yii\helpers\Html::a($item['icon'] . "<br />" . $item['label'], $item['url'], $item['htmlOptions']); ?>
     </li>
-<?php endforeach; ?>
-
-<li class="dropdown">
-    <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
-        <?php
-        echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Circles');
-        ?>
-        <!-- end: Show space image and name if chosen -->
-        <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu" id="space-menu-dropdown" style="padding-bottom: 10px; !important">
-        <li>
-            <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
-                                                             class="form-control"
-                                                             autocomplete="off"
-                                                             placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser', 'Search'); ?>">
-
-                <div class="search-reset" id="space-search-reset"><i
-                            class="fa fa-times-circle"></i></div>
-            </form>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <ul class="media-list notLoaded" id="space-menu-spaces">
-                <?php
-
-                $source = SpaceMembership::GetUserSpacesForMember(Yii::$app->user->id, Yii::$app->user->identity->super_admin);
-
-                foreach ($source as $entry) : ?>
-                <?php
-                    $space = $entry[0];
-                    $membership = $entry[1];
-                    $newItems = countNewItems($space, $membership);
-                    ?>
-                    <li>
-                        <a href="<?php echo $space->getUrl(); ?>">
-                            <div class="media">
-                                <!-- Show space image -->
-                                <?php echo \humhub\modules\space\widgets\Image::widget([
-                                    'space' => $space,
-                                    'width' => 24,
-                                    'htmlOptions' => [
-                                        'class' => 'pull-left',
-                                    ]
-                                ]); ?>
-                                <div class="media-body">
-                                    <strong><?php echo Html::encode($space->name); ?></strong>
-                                    <?php if ($newItems != 0) : ?>
-                                        <div class="badge badge-space pull-right"
-                                             style="display:none"><?php echo $newItems; ?></div>
-                                    <?php endif; ?>
-                                    <br>
-
-                                    <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($space->description)), 60)); ?></p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </li>
-        <?php if (LogicEntry::canCreateSpace() && (bool)\Yii::$app->user->identity->super_admin) : ?>
+<?php else: ?>
+    <li class="dropdown">
+        <a href="#" id="space-menu" class="dropdown-toggle" data-toggle="dropdown">
+            <?php
+            echo '<i class="fa fa-dot-circle-o"></i><br>' . Yii::t('SpaceModule.widgets_views_spaceChooser', 'Circles');
+            ?>
+            <!-- end: Show space image and name if chosen -->
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" id="space-menu-dropdown" style="padding-bottom: 10px; !important">
             <li>
-                <div class="dropdown-footer">
-                    <?php
-                    echo Html::a(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), Url::toRoute(['/space/create/create']), array('class' => 'btn btn-info col-md-12', 'data-target' => '#globalModal'));
-                    ?>
-                </div>
-            </li>
-        <?php endif; ?>
-    </ul>
-</li>
+                <form action="" class="dropdown-controls"><input type="text" id="space-menu-search"
+                                                                 class="form-control"
+                                                                 autocomplete="off"
+                                                                 placeholder="<?php echo Yii::t('SpaceModule.widgets_views_spaceChooser', 'Search'); ?>">
 
+                    <div class="search-reset" id="space-search-reset"><i
+                                class="fa fa-times-circle"></i></div>
+                </form>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <ul class="media-list notLoaded" id="space-menu-spaces">
+                    <?php
+
+                    $source = SpaceMembership::GetUserSpacesForMember(Yii::$app->user->id, Yii::$app->user->identity->super_admin);
+
+                    foreach ($source as $entry) : ?>
+                    <?php
+                        $space = $entry[0];
+                        $membership = $entry[1];
+                        $newItems = countNewItems($space, $membership);
+                        ?>
+                        <li>
+                            <a href="<?php echo $space->getUrl(); ?>">
+                                <div class="media">
+                                    <!-- Show space image -->
+                                    <?php echo \humhub\modules\space\widgets\Image::widget([
+                                        'space' => $space,
+                                        'width' => 24,
+                                        'htmlOptions' => [
+                                            'class' => 'pull-left',
+                                        ]
+                                    ]); ?>
+                                    <div class="media-body">
+                                        <strong><?php echo Html::encode($space->name); ?></strong>
+                                        <?php if ($newItems != 0) : ?>
+                                            <div class="badge badge-space pull-right"
+                                                 style="display:none"><?php echo $newItems; ?></div>
+                                        <?php endif; ?>
+                                        <br>
+
+                                        <p><?php echo Html::encode(Helpers::truncateText(html_entity_decode(strip_tags($space->description)), 60)); ?></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+            <?php if (LogicEntry::canCreateSpace() && (bool)\Yii::$app->user->identity->super_admin) : ?>
+                <li>
+                    <div class="dropdown-footer">
+                        <?php
+                        echo Html::a(Yii::t('SpaceModule.widgets_views_spaceChooser', 'Create new space'), Url::toRoute(['/space/create/create']), array('class' => 'btn btn-info col-md-12', 'data-target' => '#globalModal'));
+                        ?>
+                    </div>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </li>
+<?php endif; ?>
+<?php endforeach; ?>
 
 
 <script type="text/javascript">
@@ -191,7 +210,7 @@ if (!function_exists('countNewItems')) {
                 "Directory" => 1,
                 "Mentor circle" => 1,
         ]; ?>
-        <?php foreach ($this->context->getItems() as $item) :
+        <?php foreach ($menuItems as $item) :
             if (isset($remove[$item['label']])) {
                 continue;
             }
