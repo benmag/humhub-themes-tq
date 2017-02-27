@@ -136,7 +136,7 @@ input[type=select] {
 }
 #topbar-second .nav > li > a#space-menu {
   padding-right: 13px;
-  border-right: 1px solid #ededed;
+  /* border-right: 1px solid #ededed; */
 }
 #topbar-second .nav > li > a#search-menu {
   padding-top: 15px;
