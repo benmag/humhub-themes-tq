@@ -1,6 +1,20 @@
 <?php
 use yii\helpers\Url;
+
+// Get states of current guides (to mark them as done)
+$interface = Yii::$app->user->identity->getSetting("interface", "tour");
+$spaces = Yii::$app->user->identity->getSetting("spaces", "tour");
+$chat = Yii::$app->user->identity->getSetting("chat", "tour");
+$profile = Yii::$app->user->identity->getSetting("profile", "tour");
+$administration = Yii::$app->user->identity->getSetting("administration", "tour");
+
+$hidePanel = ($interface && $spaces && $chat && $profile);
+if (Yii::$app->user->isAdmin()) {
+$hidePanel = $hidePanel && $administration;
+}
 ?>
+<?php if(!$hidePanel): ?>
+
 <div class="panel panel-default panel-tour" id="getting-started-panel">
     <?php
     // Temporary workaround till panel widget rewrite in 0.10 verion
@@ -48,3 +62,4 @@ use yii\helpers\Url;
         </ul>
     </div>
 </div>
+<?php endif; /* $hidePanel */ ?>
