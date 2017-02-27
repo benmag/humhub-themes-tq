@@ -210,12 +210,13 @@ $menuItems = $this->context->getItems(); ?>
                 "Directory" => 1,
                 "Mentor circle" => 1,
         ]; ?>
-        <?php foreach ($menuItems as $item) :
+        <?php foreach ($this->context->items as &$item) :
             if (isset($remove[$item['label']])) {
                 continue;
             }
             if ($item['label'] == "Dashboard") {
                     $item['label'] = 'My Circles';
+
             }
             ?>
 
