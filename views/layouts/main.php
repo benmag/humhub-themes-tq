@@ -43,38 +43,13 @@ TeachConnectAsset::register($this);
     <?php echo $this->render('head'); ?>
     <!-- end: render additional head -->
     <!-- start: Favicon and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-precomposed"/>
-    <link rel="apple-touch-icon-precomposed" sizes="180x180"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-180x180.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-57x57.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-114x114.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-144x144.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="60x60"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-60x60.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-120x120.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="76x76"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-76x76.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/apple-touch-icon-152x152.png"/>
-    <link rel="icon" type="image/png" sizes="192x192"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/android-icon-192x192.png"/>
-    <link rel="icon" type="image/png" sizes="32x32"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="96x96"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/favicon-96x96.png"/>
-    <link rel="icon" type="image/png" sizes="16x16"
-          href="<?= $this->theme->getBaseUrl(); ?>/ico/favicon-16x16.png"/>
-    <link rel="manifest" href="<?= $this->theme->getBaseUrl(); ?>/ico/manifest.json"/>
-    <meta name="msapplication-config" content="/ico/browserconfig.xml">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?= $this->theme->getBaseUrl(); ?>/ico/ms-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Yii::getAlias("@web"); ?>/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="<?php echo Yii::getAlias("@web"); ?>/ico/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?php echo Yii::getAlias("@web"); ?>/ico/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="<?php echo Yii::getAlias("@web"); ?>/ico/manifest.json">
+    <link rel="mask-icon" href="<?php echo Yii::getAlias("@web"); ?>" color="#5bbad5">
+    <link rel="shortcut icon" href="<?php echo Yii::getAlias("@web"); ?>/ico/favicon.ico">
+    <meta name="msapplication-config" content="<?php echo Yii::getAlias("@web"); ?>/ico/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <meta charset="<?= Yii::$app->charset ?>">
     <!-- end: Favicon and Touch Icons -->
