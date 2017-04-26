@@ -20,7 +20,7 @@ $this->registerCssFile('@web/resources/space/colorpicker/css/bootstrap-colorpick
             <hr>
             <br>
             <div class="row">
-                <div class="col-md-8"> <?php echo $form->field($model, 'name')->textInput(['id' => 'space-name', 'placeholder' => Yii::t('SpaceModule.views_create_create', 'space name'), 'maxlength' => 45]); ?></div>
+                <div class="col-md-8"> <?php echo $form->field($model, 'name')->textInput(['id' => 'space-name', 'placeholder' => Yii::t('SpaceModule.views_create_create', 'space name'), 'maxlength' => 60]); ?></div>
                 <div class="col-md-4">            <strong><?php echo Yii::t('SpaceModule.views_create_create', 'Color'); ?></strong>
 
                     <div class="input-group space-color-chooser" style="margin-top: 5px;">
@@ -30,7 +30,7 @@ $this->registerCssFile('@web/resources/space/colorpicker/css/bootstrap-colorpick
                     </div>
                     <br></div>
             </div>
-            
+
 <!--            --><?php //echo $form->field($model, 'description')->textInput(['class' => 'form-control autosize','id' => 'create_space_rich' ,'placeholder' => Yii::t('SpaceModule.views_create_create', 'space description'), 'rows' => '3']); ?>
 
             <?= $form->field($model, 'description')->widget(CKEditor::className(), [
